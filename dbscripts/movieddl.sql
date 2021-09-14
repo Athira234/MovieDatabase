@@ -99,7 +99,7 @@ CREATE TABLE `dt_person` (
   `person_id` int NOT NULL AUTO_INCREMENT,
   `first_name` varchar(30) DEFAULT NULL,
   `last_name` varchar(30) DEFAULT NULL,
-  `gender` varchar(10) DEFAULT NULL,
+  `gender` enum('Male','Female') DEFAULT NULL,
   `role` varchar(30) DEFAULT NULL,
   `email_id` varchar(30) DEFAULT NULL,
   `date_of_birth` date DEFAULT NULL,

@@ -77,13 +77,13 @@ CREATE TABLE `dt_movie` (
   `country_of_origin` varchar(50) DEFAULT NULL,
   `movie_poster` blob,
   `release_date` date DEFAULT NULL,
-  `pg_rating` int DEFAULT NULL,
+  `pg_rating` VARCHAR(10) DEFAULT NULL,
   `runtime` int DEFAULT NULL,
   `budget_dollar` int DEFAULT NULL,
   `total_gross_income_dollar` int DEFAULT NULL,
   `overall_rating` int DEFAULT NULL,
   `no_of_recommendations` int DEFAULT NULL,
-  `overview` varchar(200) DEFAULT NULL,
+  `overview` varchar(500) DEFAULT NULL,
   PRIMARY KEY (`movie_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;

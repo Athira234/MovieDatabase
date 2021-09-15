@@ -26,7 +26,7 @@ CREATE TABLE `dt_company` (
   `company_id` int NOT NULL AUTO_INCREMENT,
   `company_name` varchar(30) DEFAULT NULL,
   `ceo` varchar(30) DEFAULT NULL,
-  `established_in` int DEFAULT NULL,
+  `established_in` Date DEFAULT NULL,
   `email_id` varchar(30) DEFAULT NULL,
   `headquarter` varchar(30) DEFAULT NULL,
   `country` varchar(30) DEFAULT NULL,

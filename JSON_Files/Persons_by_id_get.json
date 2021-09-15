@@ -1,0 +1,23 @@
+{
+  "person_id": 1,
+  "first_name": "Tom",
+  "last_name": "Tom",
+  "role": "Actor",
+  "gender": "Male",
+  "email_id": "tom101@gmail.com",
+  "date_of_birth": "1962-07-03",
+  "age": 59,
+  "is_alive": 1,
+  "nationality": "American",
+  "imdb_link": "https://www.imdb.com/name/nm0000129/?ref_=fn_al_nm_1",
+  "movies": [
+    {
+      "movie_id": 1,
+      "movie_name": "Mission Impossible"
+    },
+    {
+      "movie_id": 2,
+      "movie_name": "Top Gun"
+    }
+  ]
+}

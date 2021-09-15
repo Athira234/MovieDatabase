@@ -1,0 +1,25 @@
+
+{
+  "users":[
+  {
+    "user_id": 1,
+    "username": "John101",
+    "password": "mypasswd",
+    "first_name": "John",
+    "last_name" : "Doe",
+    "email": "john11@gmail.com",
+    "role": "user"
+  },
+  {
+    "user_id": 2,
+    "username": "Kunal102",
+    "password": "qwerty",
+    "first_name": "Kunal",
+    "last_name" : "Salunkhe",
+    "email": "salunkhekunal1999@gmail.com",
+    "role": "admin"
+  }
+  ]
+}
+
+

@@ -1,0 +1,18 @@
+{
+  "movie_id": 1,
+  "movie_title": "Dangal",
+  "user": [
+    {
+      "user_id": 1,
+      "rating_given": 8
+    },
+    {
+      "user_id": 2,
+      "rating_given": 9
+    },
+    {
+      "user_id": 3,
+      "rating_given": 10
+    }
+  ]
+}

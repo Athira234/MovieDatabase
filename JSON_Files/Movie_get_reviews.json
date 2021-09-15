@@ -1,0 +1,14 @@
+{
+  "movie_id": 1,
+  "movie_title": "Dangal",
+  "user": [
+    {
+      "user_id": 1,
+      "review": "Good Movie"
+    },
+    {
+      "user_id": 2,
+      "review": "well directed"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+
+{
+  "company":[
+    {
+    "company_id": 1,
+    "company_name": "Marvel studios",
+    "ceo": "Kevin Feige",
+    "established_in": 1993,
+    "email_id" : "marvelstudios@co.in",
+    "headquarter": "New York",
+    "country": "United States",
+    "website": "www.marvel.com",
+    "description": "Marvel Studios is known for the production of the Marvel Cinematic Universe films, based on characters that appear in Marvel Comics publications."
+    },
+    {
+     "company_id": 2,
+    "company_name": "Sony pictures",
+    "ceo": "Tony vinciquerra",
+    "established_in": 1987,
+    "email_id" : "sonypictures@co.in",
+    "headquarter": "California",
+    "country": "United States",
+    "website": "www.sonypictures.com",
+    "description": "Sony Pictures is an American diversified multinational mass media and entertainment conglomerate that produces, acquires, and distributes filmed entertainment through multiple platforms." 
+    }
+]
+}
+
+
+
+

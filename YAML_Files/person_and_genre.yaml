@@ -1,0 +1,320 @@
+openapi: 3.0.0
+servers:
+  # Added by API Auto Mocking Plugin
+  - description: SwaggerHub API Auto Mocking
+    url: https://virtserver.swaggerhub.com/EntLogics3/Movie_DB/1.0.0
+info:
+  description: This is a simple API
+  version: "1.0.0"
+  title: Movie API
+  contact:
+    email: athira@entlogics.com
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+
+paths:
+  /genres:
+    get:
+      tags:
+      - "Genres"
+      summary: "Get all Genres"
+      
+      responses:
+       "200":
+          description: "successful operation"
+        
+          content: 
+            application/json:
+             schema:
+              type : array
+              items :
+               properties:
+                  genre_id:
+                    type: integer
+                    example: 1
+                  description:
+                     type: string
+                     example: Action
+       "404":
+          description: "Page not found"
+        
+          
+    post: 
+      tags:
+      - "Genres"
+      summary: "Add new Genre"
+      requestBody:
+        content:
+          application/json :
+            schema :
+              type: object
+              properties:
+                  description :
+                    type : string
+                    example : Adventure
+                 
+              
+              
+      responses :
+          "200":
+             description: "successful operation"
+       
+          
+    
+
+                  
+    
+  /generes/{genre_id}:
+    put :
+      tags:
+       - "Genres"
+      summary: "update Genre"
+      
+    
+      parameters: 
+        - name :  genre_id
+          in: path
+          required : true
+          schema :
+            type : integer
+      requestBody:
+        content:
+          application/json :
+            schema :
+              type: object
+              properties :
+                 description :
+                    type : string
+                    example : Drama
+                  
+      responses:
+       "204":
+          description: "successfull request"
+          
+          
+    delete:
+      tags:
+      - "Genres"
+      summary: "Delete Genre"
+      parameters: 
+        - name : genre_id
+          in: path
+          required : true
+          schema : 
+            type : integer
+      responses:
+        '204':
+          description: Deleted
+        '404':
+          description: id not found
+        '401':
+          description: Unauthorized
+               
+ 
+  /persons:
+    get:
+      tags:
+      - "Persons"
+      summary: "Get all Persons"
+      
+      responses:
+       "200":
+          description: "successful operation"
+        
+          content: 
+            application/json:
+             schema:
+              type : array
+              items :
+               properties:
+                  person_id:
+                    type: integer
+                    example: 1
+                  first_name:
+                     type: string
+                     example: Tom
+                  last_name:
+                     type: string
+                     example: Cruise
+                  role:
+                     type: string
+                     example: Actor 
+               
+       "404":
+          description: "Page not found"
+        
+    
+    post: 
+      tags:
+      - "Persons"
+      summary: "Add new Person"
+      requestBody:
+        content:
+          application/json :
+            schema :
+              $ref: '#/components/schemas/Person'
+                  
+              
+      responses :
+          "200":
+             description: "successful operation"
+  /persons/{person_id}:
+    get:
+      tags:
+      - "Persons"
+      summary: "Get info of one Person"
+      
+    
+      parameters: 
+        - name : person_id
+          in: path
+          required : true
+          schema : 
+            type : integer
+          
+      responses:
+       "200":
+          description: "successfuly retrieved details of the class"
+          content: 
+            application/json:
+             schema:
+              type: object
+              properties :
+                first_name:
+                  type: string
+                  example: Tom
+                last_name:
+                  type: string
+                  example: Cruise  
+                      
+                role :
+                  type: string
+                  example: Actor 
+                gender :
+                  type: string
+                  example: Male
+                      
+                email_id:
+                  type: string
+                  example: tom109@gmail.com
+                date_of_birth:
+                  type: string
+                  example : 1962-07-03
+                is_alive :
+                  type : integer
+                  example : 1
+                        
+                nationality :
+                  type: string
+                  example : American
+                        
+                imdb_link :
+                  type: string
+                  example : https://www.imdb.com/name/nm0000129/?ref_=fn_al_nm_1
+                      
+                movies :
+                  type : array
+                  items:
+                    properties:
+                      movie_id: 
+                        type: integer
+                        example : 1
+                      movie_name:
+                        type: string
+                        example : Mission Impossible               
+                             
+    put :
+      tags:
+       - "Persons"
+      summary: "update info of a Person"
+      
+    
+      parameters: 
+        - name : person_id
+          in: path
+          required : true
+          schema :
+            type : integer
+      requestBody:
+        content:
+          application/json :
+            schema :
+              $ref: '#/components/schemas/Person'
+              
+                  
+      responses:
+       "204":
+          description: "successfull request"
+    delete:
+      tags:
+      - "Persons"
+      summary: "Delete Person"
+      parameters: 
+        - name : person_id
+          in: path
+          required : true
+          schema : 
+            type : integer
+      responses:
+        '204':
+          description: Deleted
+        '404':
+          description: id not found
+        '401':
+          description: Unauthorized
+                    
+          
+      
+  
+  
+components:
+            schemas:
+                
+                Person :
+                 type: object
+                 properties:
+                      
+                      first_name:
+                         type: string
+                         example: Tom
+                      last_name:
+                         type: string
+                         example: Cruise  
+                      
+                      role :
+                         type: string
+                         example: Actor 
+                      gender :
+                         type: string
+                         example: Male
+                      
+                      email_id:
+                         type: string
+                         example: tom109@gmail.com
+                      date_of_birth:
+                        type: string
+                        example : 1962-07-03
+                      is_alive :
+                        type : integer
+                        example : 1
+                        
+                      nationality :
+                        type: string
+                        example : American
+                        
+                      imdb_link :
+                        type: string
+                        example : https://www.imdb.com/name/nm0000129/?ref_=fn_al_nm_1
+                      
+                      movies :
+                        type : array
+                        items:
+                            properties:
+                              movie_id: 
+                                type: integer
+                                example : 1
+                              movie_name:
+                                type: string
+                                example : Mission Impossible
+                   

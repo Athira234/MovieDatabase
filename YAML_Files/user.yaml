@@ -1,0 +1,843 @@
+---
+openapi: 3.0.0
+info:
+  title: User API
+  description: This is a simple API
+  contact:
+    email: you@your-company.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.0
+servers:
+- url: https://virtserver.swaggerhub.com/entlogics1111/Movie_db/1.0.0
+  description: SwaggerHub API Auto Mocking
+tags:
+- name: admins
+  description: Secured Admin-only calls
+- name: developers
+  description: Operations available to regular developers
+paths:
+  /users:
+    get:
+      tags:
+      - users
+      summary: list of all users
+      operationId: list_all_users
+      responses:
+        "200":
+          description: successfully listed all the users
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/inline_response_200'
+        "404":
+          description: Page not found
+    post:
+      tags:
+      - users
+      summary: creating a user
+      operationId: create_user
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/users_body'
+        required: true
+      responses:
+        "201":
+          description: succesfully created a user
+  /login:
+    post:
+      tags:
+      - users
+      summary: user login
+      operationId: user_login
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/login_body'
+      responses:
+        "201":
+          description: user successfully logged in
+  /signup:
+    post:
+      tags:
+      - users
+      summary: User sign's ups
+      operationId: user_signup
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/signup_body'
+        required: true
+      responses:
+        "201":
+          description: User successfully signed in
+  /logout:
+    get:
+      tags:
+      - users
+      summary: signs out a user
+      operationId: user_logout
+      responses:
+        "200":
+          description: successfully logged out
+  /users/{user_id}/changepassword:
+    put:
+      tags:
+      - users
+      summary: change password for a user
+      operationId: change_user
+      parameters:
+      - name: user_id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/user_id_changepassword_body'
+      responses:
+        "204":
+          description: succesfully updated a user details
+  /users/{user_id}:
+    get:
+      tags:
+      - users
+      summary: getting details of a user
+      operationId: get_user
+      parameters:
+      - name: user_id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      responses:
+        "200":
+          description: succesfully retrieved details of a user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/users'
+    put:
+      tags:
+      - users
+      summary: updating an user
+      operationId: edit_user
+      parameters:
+      - name: user_id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/users_user_id_body'
+      responses:
+        "204":
+          description: succesfully updated a user details
+    delete:
+      tags:
+      - users
+      summary: deleting a user
+      operationId: delete_user
+      parameters:
+      - name: user_id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: User is deleted
+  /users/{user_id}/ratings:
+    get:
+      tags:
+      - users
+      summary: user views his/her ratings
+      operationId: get_ratings_user
+      parameters:
+      - name: user_id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      responses:
+        "200":
+          description: succesfully retrieved movie ratings of a user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/userview-ratings'
+    post:
+      tags:
+      - users
+      summary: user gives rating for a movie
+      operationId: user_movie_ratings
+      parameters:
+      - name: user_id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/user_id_ratings_body'
+      responses:
+        "201":
+          description: successful operation
+  /movies/{movie_id}/reviews:
+    post:
+      tags:
+      - users
+      summary: user gives rating for a movie
+      operationId: user_movie_review
+      parameters:
+      - name: movie_id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/movie_id_reviews_body'
+      responses:
+        "201":
+          description: successful operation
+  /users/{user_id}/review:
+    get:
+      tags:
+      - users
+      summary: user views his/her reviews
+      operationId: get_reviews_user
+      parameters:
+      - name: user_id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      responses:
+        "200":
+          description: succesfully retrieved movie ratings of a user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/userview-review'
+  /users/{user_id}/profile:
+    get:
+      tags:
+      - users
+      summary: user views his/her profile
+      operationId: get_profile_user
+      parameters:
+      - name: user_id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      responses:
+        "200":
+          description: succesfully retrieved profile of a user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/userview-profile'
+  /users/{user_id}/watchlist:
+    get:
+      tags:
+      - users
+      summary: getting watchlist items of a user
+      operationId: get_watchlist_user
+      parameters:
+      - name: user_id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      responses:
+        "200":
+          description: succesfully retrieved watchlist items of a user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/userview-watchlist_items'
+    post:
+      tags:
+      - users
+      summary: posting a movie to watchlist
+      operationId: post_movie_watchlist
+      parameters:
+      - name: user_id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/user_id_watchlist_body'
+      responses:
+        "201":
+          description: successful operation
+  /users/{user_id}/favourite:
+    get:
+      tags:
+      - users
+      summary: user views his/her favourites
+      operationId: get_favourite_user
+      parameters:
+      - name: user_id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      responses:
+        "200":
+          description: succesfully retrieved favourites of a user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/userview-favourite'
+    post:
+      tags:
+      - users
+      summary: user adds a movie to his favourites
+      operationId: user_movie_favourite
+      parameters:
+      - name: user_id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/user_id_favourite_body'
+      responses:
+        "201":
+          description: successful operation
+  /users/{user_id}/recommend:
+    post:
+      tags:
+      - users
+      summary: user recommends a movie to another user
+      operationId: user_recommends_movie_other_user
+      parameters:
+      - name: user_id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/user_id_recommend_body'
+      responses:
+        "201":
+          description: successful operation
+components:
+  schemas:
+    users:
+      type: object
+      properties:
+        user_id:
+          type: integer
+          example: 1
+        first_name:
+          type: string
+          example: John
+        last_name:
+          type: string
+          example: Doe
+        role:
+          type: string
+          example: user
+        username:
+          type: string
+          example: john101
+        password:
+          type: string
+          example: mypasswd
+    userview-profile:
+      type: object
+      properties:
+        user_id:
+          type: integer
+          example: 1
+        first_name:
+          type: string
+          example: John
+        last_name:
+          type: string
+          example: Doe
+        role:
+          type: string
+          example: user
+        username:
+          type: string
+          example: john101
+        password:
+          type: string
+          example: mypasswd
+        your_ratings:
+          type: array
+          example:
+          - movie_id: 1
+            movie_title: Dangal
+            rating_given: 7.5
+          - movie_id: 2
+            movie_title: Shutter Island
+            rating_given: 8.1
+          items:
+            $ref: '#/components/schemas/userviewprofile_your_ratings'
+        My_watchlist:
+          $ref: '#/components/schemas/userviewprofile_My_watchlist'
+        My_activity:
+          type: array
+          example:
+          - activity_id: 1
+            movie_id: 1
+            activity_type: USER ADDED MOVIE TO WATCHLIST
+            description: added movie at 8:32 pm
+          - activity_id: 2
+            movie_id: 1
+            activity_type: USER REMOVED MOVIE FROM WATCHLIST
+            description: added movie at 11:32 pm
+          items:
+            $ref: '#/components/schemas/userviewprofile_My_activity'
+        My_favourites:
+          $ref: '#/components/schemas/userviewprofile_My_favourites'
+        My_recommends:
+          $ref: '#/components/schemas/userviewprofile_My_recommends'
+    userview-review:
+      type: object
+      properties:
+        user_id:
+          type: integer
+          example: 1
+        movies:
+          type: array
+          items:
+            $ref: '#/components/schemas/userviewreview_movies'
+    userview-ratings:
+      type: object
+      properties:
+        user_id:
+          type: integer
+          example: 1
+        your_ratings:
+          type: array
+          items:
+            $ref: '#/components/schemas/userviewratings_your_ratings'
+    userview-watchlist_items:
+      type: object
+      properties:
+        user_id:
+          type: integer
+          example: 1
+        watchlist:
+          $ref: '#/components/schemas/userviewwatchlist_items_watchlist'
+    userview-favourite:
+      type: object
+      properties:
+        user_id:
+          type: integer
+          example: 1
+        movies:
+          type: array
+          items:
+            $ref: '#/components/schemas/userviewfavourite_movies'
+    inline_response_200:
+      properties:
+        user_id:
+          type: integer
+          example: 1
+        first_name:
+          type: string
+          example: John
+        last_name:
+          type: string
+          example: Doe
+        role:
+          type: string
+          example: user
+        username:
+          type: string
+          example: John101
+        password:
+          type: string
+          example: mypasswd
+        email:
+          type: string
+          format: email
+          example: john101@gmail.com
+    users_body:
+      type: object
+      properties:
+        first_name:
+          type: string
+          example: Catherine
+        last_name:
+          type: string
+          example: Stewart
+        role:
+          type: string
+          example: user
+        username:
+          type: string
+          example: cathy101
+        password:
+          type: string
+          example: mypasswd
+        email:
+          type: string
+          format: email
+          example: cathy101@gmail.com
+    login_body:
+      type: object
+      properties:
+        username:
+          type: string
+          example: john101
+        password:
+          type: string
+          example: Flyhigh@45
+    signup_body:
+      type: object
+      properties:
+        first_name:
+          type: string
+          example: John
+        last_name:
+          type: string
+          example: Doe
+        username:
+          type: string
+          example: john101
+        password:
+          type: string
+          example: mypasswd
+        email:
+          type: string
+          format: email
+          example: john101@gmail.com
+    user_id_changepassword_body:
+      type: object
+      properties:
+        user_name:
+          type: string
+          example: John101
+        password:
+          type: string
+          example: Flyhigh@45
+        re-enter_password:
+          type: string
+          example: Flyhigh@45
+    users_user_id_body:
+      type: object
+      properties:
+        first_name:
+          type: string
+          example: John
+        last_name:
+          type: string
+          example: Doe
+        role:
+          type: string
+          example: user
+        username:
+          type: string
+          example: john11
+        password:
+          type: string
+          format: password
+          example: mypasswd
+        email:
+          type: string
+          format: email
+          example: john101@gmail.com
+    usersuser_idratings_movies:
+      type: object
+      properties:
+        movie_id:
+          type: integer
+          example: 1
+        rating_given:
+          type: number
+          format: float
+          example: 4.8
+    user_id_ratings_body:
+      type: object
+      properties:
+        user_id:
+          type: integer
+          example: 1
+        movies:
+          $ref: '#/components/schemas/usersuser_idratings_movies'
+    moviesmovie_idreviews_movies:
+      type: object
+      properties:
+        movie_id:
+          type: integer
+          example: 1
+        review:
+          type: string
+          example: Nice movie with a good storyline
+    movie_id_reviews_body:
+      type: object
+      properties:
+        user_id:
+          type: integer
+          example: 1
+        movies:
+          $ref: '#/components/schemas/moviesmovie_idreviews_movies'
+    usersuser_idwatchlist_watchlist:
+      type: object
+      properties:
+        watchlist_id:
+          type: integer
+          example: 1
+        watchlist_name:
+          type: string
+          example: Friday night binge
+        movie_id:
+          type: integer
+          example: 1
+        movie_title:
+          type: string
+          example: Dangal
+    user_id_watchlist_body:
+      type: object
+      properties:
+        user_id:
+          type: integer
+          example: 1
+        watchlist:
+          $ref: '#/components/schemas/usersuser_idwatchlist_watchlist'
+    usersuser_idfavourite_movie:
+      type: object
+      properties:
+        movie_id:
+          type: integer
+          example: 1
+        movie_title:
+          type: string
+          example: Dangal
+        is_Favourite:
+          type: boolean
+          example: true
+    user_id_favourite_body:
+      type: object
+      properties:
+        user_id:
+          type: integer
+          example: 1
+        movie:
+          $ref: '#/components/schemas/usersuser_idfavourite_movie'
+    usersuser_idrecommend_recommended_to:
+      properties:
+        user_id:
+          type: integer
+          example: 2
+        username:
+          type: string
+          example: Catherina
+    user_id_recommend_body:
+      type: object
+      properties:
+        user_id:
+          type: integer
+          example: 1
+        movie_id:
+          type: integer
+          example: 1
+        is_recommended:
+          type: boolean
+          example: true
+        recommended_to:
+          type: array
+          items:
+            $ref: '#/components/schemas/usersuser_idrecommend_recommended_to'
+    userviewprofile_your_ratings:
+      properties:
+        movie_id:
+          type: integer
+          format: int64
+        movie_title:
+          type: string
+        rating_given:
+          type: number
+          format: float
+    userviewprofile_My_watchlist_movies:
+      properties:
+        movie_id:
+          type: integer
+        movie_title:
+          type: string
+    userviewprofile_My_watchlist:
+      type: object
+      properties:
+        watchlist_id:
+          type: integer
+          example: 1
+        watchlist_name:
+          type: string
+          example: Friday night Binge
+        movies:
+          type: array
+          example:
+          - movie_id: 1
+            movie_title: Dangal
+          - movie_id: 2
+            movie_title: Shutter Island
+          items:
+            $ref: '#/components/schemas/userviewprofile_My_watchlist_movies'
+    userviewprofile_My_activity:
+      properties:
+        activity_id:
+          type: integer
+        movie_id:
+          type: integer
+        activity_type:
+          type: string
+        description:
+          type: string
+    userviewprofile_My_favourites_movies:
+      properties:
+        movie_id:
+          type: integer
+        is_Favourite:
+          type: boolean
+    userviewprofile_My_favourites:
+      type: object
+      properties:
+        movies:
+          type: array
+          example:
+          - movie_id: 1
+            is_Favourite: true
+          - movie_id: 2
+            is_Favourite: true
+          items:
+            $ref: '#/components/schemas/userviewprofile_My_favourites_movies'
+    userviewprofile_My_recommends_recommended_to:
+      properties:
+        user_id:
+          type: integer
+        username:
+          type: string
+    userviewprofile_My_recommends:
+      type: object
+      properties:
+        movie_id:
+          type: integer
+          example: 1
+        is_recommended:
+          type: boolean
+          example: true
+        recommended_to:
+          type: array
+          example:
+          - user_id: 2
+            username: Catherina
+          - user_id: 3
+            username: Satoshi
+          items:
+            $ref: '#/components/schemas/userviewprofile_My_recommends_recommended_to'
+    userviewreview_movies:
+      properties:
+        movie_id:
+          type: integer
+          example: 2
+        movie_title:
+          type: string
+          example: Mission Impossible:Fallout
+        review:
+          type: string
+          example: Good storyline
+    userviewratings_your_ratings:
+      properties:
+        movie_id:
+          type: integer
+          example: 2
+        movie_title:
+          type: string
+          example: Mission Impossible:Fallout
+        rating_given:
+          type: number
+          format: float
+          example: 8.1
+    userviewwatchlist_items_watchlist_movies:
+      properties:
+        movie_id:
+          type: integer
+          example: 1
+        movie_title:
+          type: string
+          example: Dangal
+    userviewwatchlist_items_watchlist:
+      type: object
+      properties:
+        watchlist_id:
+          type: integer
+          example: 1
+        watchlist_name:
+          type: string
+          example: Friday night binge
+        movies:
+          type: array
+          items:
+            $ref: '#/components/schemas/userviewwatchlist_items_watchlist_movies'
+    userviewfavourite_movies:
+      properties:
+        movie_id:
+          type: integer
+          example: 1
+        is_Favourite:
+          type: boolean
+          example: true

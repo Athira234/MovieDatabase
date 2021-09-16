@@ -14,60 +14,61 @@ public class UserService implements IUserService {
 	// Method for giving feedback for a movie
 	@Override
 	public void giveMovieFeedback(UserMovie userMovie) {
-		// return null;
+		
 	}
 
 	// Method for adding a movie to watchlist
 	@Override
 	public void addMovieToWatchlist(UserWatchList watchList, Movie movie) {
-		// return null;
+		
 	}
 
 	// Method for adding movie to favourites
 	@Override
 	public void addMovieToFavourites(UserMovie userMovie) {
-		// return null;
+		
 	}
 
 	// Method for recommending a movie to another user
 	@Override
 	public void recommendMovie(UserMovie userMovie) {
-		// return null;
+	
 	}
 
 	// Method for viewing watchlist
 	@Override
 	public List<UserWatchListItems> getWatchList(int userId, int watchListId) {
+		
 		return null;
 	}
 
 	// Method for viewing favourites
 	@Override
-	public List<UserMovie> getFavourites(int userId) {
+	public List<Movie> getFavourites(int userId) {
 		return null;
 	}
 
 	// Method for viewing ratings
 	@Override
-	public List<UserMovie> viewRatings(int userId, int movieId) {
+	public List<Movie> viewRatings(int userId, int movieId) {
 		return null;
 	}
 
 	// Method for viewing feedback
 	@Override
-	public List<UserMovie> viewFeedbacks(int userId, int movieId) {
+	public List<Movie> viewFeedbacks(int userId, int movieId) {
 		return null;
 	}
 
 	// Method for viewing his/her profile
 	@Override
-	public List<User> viewProfile(int userId) {
+	public User viewProfile(int userId) {
 		return null;
 	}
 
 	// Method for editing his/her profile
 	@Override
-	public void editProfile(User user, int userId) {
+	public void editProfile(User user) {
 
 	}
 

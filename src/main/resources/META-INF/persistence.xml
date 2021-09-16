@@ -3,7 +3,7 @@
 	xmlns="http://xmlns.jcp.org/xml/ns/persistence"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
-	<persistence-unit name="JPADemo"
+	<persistence-unit name="MDB"
 		transaction-type="RESOURCE_LOCAL">
 	
 		<properties>
@@ -11,10 +11,17 @@
 			<property name="javax.persistence.jdbc.driver"
 				value="com.mysql.cj.jdbc.Driver" />
 			<property name="javax.persistence.jdbc.url"
+<<<<<<< HEAD
 				value="jdbc:mysql://localhost:3306/movie?useSSL=false&amp;allowPublicKeyRetrieval=true" />
 			<property name="javax.persistence.jdbc.user" value="movie" />
 			<property name="javax.persistence.jdbc.password"
 				value="Movie@1999" />
+=======
+				value="jdbc:mysql://localhost:3306/moviedb?useSSL=false&amp;allowPublicKeyRetrieval=true" />
+			<property name="javax.persistence.jdbc.user" value="moviedb" />
+			<property name="javax.persistence.jdbc.password"
+				value="moviedb" />
+>>>>>>> 006ce608c7e708106f31cfe6a91ef0f3a35622e1
 			<property name="javax.persistence.connections.max" value="100"/>	
 		</properties>
 	</persistence-unit>

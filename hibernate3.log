@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 2021-Sep-16 11:14:34 AM [http-nio-8081-exec-3] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: JPADemo]
 2021-Sep-16 11:14:34 AM [http-nio-8081-exec-3] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.5.6.Final
 2021-Sep-16 11:14:34 AM [http-nio-8081-exec-3] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
@@ -17,3 +18,465 @@
 2021-Sep-16 11:14:40 AM [http-nio-8081-exec-3] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
 2021-Sep-16 11:14:40 AM [http-nio-8081-exec-3] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
 2021-Sep-16 11:15:19 AM [http-nio-8081-exec-2] DEBUG org.hibernate.SQL - select language0_.language_id as language1_0_0_, language0_.language as language2_0_0_ from dt_language language0_ where language0_.language_id=?
+=======
+2021-Sep-16 11:27:40 am [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: MDB]
+2021-Sep-16 11:27:40 am [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.5.6.Final
+2021-Sep-16 11:27:40 am [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-Sep-16 11:27:40 am [main] WARN  org.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-Sep-16 11:27:40 am [main] INFO  org.hibernate.orm.connections.pooling - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/moviedb?useSSL=false&allowPublicKeyRetrieval=true]
+2021-Sep-16 11:27:40 am [main] INFO  org.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=****, user=moviedb}
+2021-Sep-16 11:27:40 am [main] INFO  org.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+2021-Sep-16 11:27:40 am [main] INFO  org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2021-Sep-16 11:27:41 am [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-Sep-16 11:27:41 am [main] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-Sep-16 11:27:41 am [main] DEBUG org.hibernate.SQL - select movie0_.movie_id as movie_id1_0_0_, movie0_.budget_dollar as budget_d2_0_0_, movie0_.country_of_origin as country_3_0_0_, movie0_.movie_poster as movie_po4_0_0_, movie0_.movie_title as movie_ti5_0_0_, movie0_.no_of_recommendations as no_of_re6_0_0_, movie0_.overall_rating as overall_7_0_0_, movie0_.overview as overview8_0_0_, movie0_.pg_rating as pg_ratin9_0_0_, movie0_.release_date as release10_0_0_, movie0_.runtime as runtime11_0_0_, movie0_.total_gross_income_dollar as total_g12_0_0_ from dt_movie movie0_ where movie0_.movie_id=?
+2021-Sep-16 11:27:41 am [main] WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper - SQL Error: 0, SQLState: 22018
+2021-Sep-16 11:27:41 am [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - Cannot determine value type from string 'G'
+2021-Sep-16 11:27:41 am [main] INFO  org.hibernate.event.internal.DefaultLoadEventListener - HHH000327: Error performing load command
+org.hibernate.exception.DataException: Could not read entity state from ResultSet : EntityKey[com.entlogics.moviedb.movie.Movie#1]
+	at org.hibernate.exception.internal.SQLExceptionTypeDelegate.convert(SQLExceptionTypeDelegate.java:52) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:37) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:113) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:99) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.loader.plan.exec.process.internal.EntityReferenceInitializerImpl.loadFromResultSet(EntityReferenceInitializerImpl.java:357) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.loader.plan.exec.process.internal.EntityReferenceInitializerImpl.hydrateEntityState(EntityReferenceInitializerImpl.java:269) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.loader.plan.exec.process.internal.AbstractRowReader.readRow(AbstractRowReader.java:80) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.loader.plan.exec.internal.EntityLoadQueryDetails$EntityLoaderRowReader.readRow(EntityLoadQueryDetails.java:288) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.loader.plan.exec.process.internal.ResultSetProcessorImpl.extractRows(ResultSetProcessorImpl.java:157) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.loader.plan.exec.process.internal.ResultSetProcessorImpl.extractResults(ResultSetProcessorImpl.java:94) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.loader.plan.exec.internal.AbstractLoadPlanBasedLoader.executeLoad(AbstractLoadPlanBasedLoader.java:105) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.loader.entity.plan.AbstractLoadPlanBasedEntityLoader.load(AbstractLoadPlanBasedEntityLoader.java:285) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.persister.entity.AbstractEntityPersister.doLoad(AbstractEntityPersister.java:4519) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.persister.entity.AbstractEntityPersister.load(AbstractEntityPersister.java:4509) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.event.internal.DefaultLoadEventListener.loadFromDatasource(DefaultLoadEventListener.java:571) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.event.internal.DefaultLoadEventListener.doLoad(DefaultLoadEventListener.java:539) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.event.internal.DefaultLoadEventListener.load(DefaultLoadEventListener.java:208) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.event.internal.DefaultLoadEventListener.proxyOrLoad(DefaultLoadEventListener.java:327) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.event.internal.DefaultLoadEventListener.doOnLoad(DefaultLoadEventListener.java:108) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.event.internal.DefaultLoadEventListener.onLoad(DefaultLoadEventListener.java:74) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:118) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.internal.SessionImpl.fireLoadNoChecks(SessionImpl.java:1215) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.internal.SessionImpl.fireLoad(SessionImpl.java:1204) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.internal.SessionImpl.access$2100(SessionImpl.java:203) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.internal.SessionImpl$IdentifierLoadAccessImpl.doLoad(SessionImpl.java:2819) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.internal.SessionImpl$IdentifierLoadAccessImpl.lambda$load$1(SessionImpl.java:2796) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.internal.SessionImpl$IdentifierLoadAccessImpl.perform(SessionImpl.java:2752) [hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.internal.SessionImpl$IdentifierLoadAccessImpl.load(SessionImpl.java:2796) [hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.internal.SessionImpl.find(SessionImpl.java:3384) [hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.internal.SessionImpl.find(SessionImpl.java:3346) [hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at com.entlogics.moviedb.movie.test.main(test.java:14) [classes/:?]
+Caused by: java.sql.SQLDataException: Cannot determine value type from string 'G'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:112) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:95) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:87) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:61) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:71) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:96) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.result.ResultSetImpl.getInt(ResultSetImpl.java:827) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.result.ResultSetImpl.getInt(ResultSetImpl.java:845) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at org.hibernate.type.descriptor.sql.IntegerTypeDescriptor$2.doExtract(IntegerTypeDescriptor.java:62) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.type.descriptor.sql.BasicExtractor.extract(BasicExtractor.java:47) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.metamodel.model.convert.internal.OrdinalEnumValueConverter.readValue(OrdinalEnumValueConverter.java:66) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.type.EnumType.nullSafeGet(EnumType.java:250) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.type.CustomType.nullSafeGet(CustomType.java:119) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.type.AbstractType.hydrate(AbstractType.java:91) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.persister.entity.AbstractEntityPersister.hydrate(AbstractEntityPersister.java:3212) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.persister.entity.Loadable.hydrate(Loadable.java:94) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.loader.plan.exec.process.internal.EntityReferenceInitializerImpl.loadFromResultSet(EntityReferenceInitializerImpl.java:342) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	... 26 more
+Caused by: com.mysql.cj.exceptions.DataConversionException: Cannot determine value type from string 'G'
+	at com.mysql.cj.result.StringConverter.createFromBytes(StringConverter.java:127) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.protocol.a.MysqlTextValueDecoder.decodeByteArray(MysqlTextValueDecoder.java:238) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.protocol.result.AbstractResultsetRow.decodeAndCreateReturnValue(AbstractResultsetRow.java:129) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.protocol.result.AbstractResultsetRow.getValueFromBytes(AbstractResultsetRow.java:233) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.protocol.a.result.TextBufferRow.getValue(TextBufferRow.java:128) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.result.ResultSetImpl.getNonStringValueFromRow(ResultSetImpl.java:628) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.result.ResultSetImpl.getInt(ResultSetImpl.java:827) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.result.ResultSetImpl.getInt(ResultSetImpl.java:845) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at org.hibernate.type.descriptor.sql.IntegerTypeDescriptor$2.doExtract(IntegerTypeDescriptor.java:62) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.type.descriptor.sql.BasicExtractor.extract(BasicExtractor.java:47) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.metamodel.model.convert.internal.OrdinalEnumValueConverter.readValue(OrdinalEnumValueConverter.java:66) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.type.EnumType.nullSafeGet(EnumType.java:250) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.type.CustomType.nullSafeGet(CustomType.java:119) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.type.AbstractType.hydrate(AbstractType.java:91) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.persister.entity.AbstractEntityPersister.hydrate(AbstractEntityPersister.java:3212) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.persister.entity.Loadable.hydrate(Loadable.java:94) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.loader.plan.exec.process.internal.EntityReferenceInitializerImpl.loadFromResultSet(EntityReferenceInitializerImpl.java:342) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	... 26 more
+2021-Sep-16 11:29:46 am [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: MDB]
+2021-Sep-16 11:29:46 am [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.5.6.Final
+2021-Sep-16 11:29:46 am [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-Sep-16 11:29:46 am [main] WARN  org.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-Sep-16 11:29:46 am [main] INFO  org.hibernate.orm.connections.pooling - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/moviedb?useSSL=false&allowPublicKeyRetrieval=true]
+2021-Sep-16 11:29:46 am [main] INFO  org.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=****, user=moviedb}
+2021-Sep-16 11:29:46 am [main] INFO  org.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+2021-Sep-16 11:29:46 am [main] INFO  org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2021-Sep-16 11:29:46 am [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-Sep-16 11:29:46 am [main] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-Sep-16 11:29:46 am [main] DEBUG org.hibernate.SQL - select movie0_.movie_id as movie_id1_0_0_, movie0_.budget_dollar as budget_d2_0_0_, movie0_.country_of_origin as country_3_0_0_, movie0_.movie_poster as movie_po4_0_0_, movie0_.movie_title as movie_ti5_0_0_, movie0_.no_of_recommendations as no_of_re6_0_0_, movie0_.overall_rating as overall_7_0_0_, movie0_.overview as overview8_0_0_, movie0_.release_date as release_9_0_0_, movie0_.runtime as runtime10_0_0_, movie0_.total_gross_income_dollar as total_g11_0_0_ from dt_movie movie0_ where movie0_.movie_id=?
+2021-Sep-16 11:29:46 am [main] INFO  org.hibernate.event.internal.DefaultLoadEventListener - HHH000327: Error performing load command
+org.hibernate.PropertyAccessException: Null value was assigned to a property [class com.entlogics.moviedb.movie.Movie.numberOfRecommendations] of primitive type setter of com.entlogics.moviedb.movie.Movie.numberOfRecommendations
+	at org.hibernate.property.access.spi.SetterFieldImpl.set(SetterFieldImpl.java:58) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.tuple.entity.AbstractEntityTuplizer.setPropertyValues(AbstractEntityTuplizer.java:681) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.tuple.entity.PojoEntityTuplizer.setPropertyValues(PojoEntityTuplizer.java:144) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.persister.entity.AbstractEntityPersister.setPropertyValues(AbstractEntityPersister.java:5242) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.engine.internal.TwoPhaseLoad.initializeEntityFromEntityEntryLoadedState(TwoPhaseLoad.java:253) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.engine.internal.TwoPhaseLoad.initializeEntity(TwoPhaseLoad.java:156) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.engine.internal.TwoPhaseLoad.initializeEntity(TwoPhaseLoad.java:126) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.loader.plan.exec.process.internal.AbstractRowReader.performTwoPhaseLoad(AbstractRowReader.java:221) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.loader.plan.exec.process.internal.AbstractRowReader.finishUp(AbstractRowReader.java:187) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.loader.plan.exec.process.internal.ResultSetProcessorImpl.extractResults(ResultSetProcessorImpl.java:96) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.loader.plan.exec.internal.AbstractLoadPlanBasedLoader.executeLoad(AbstractLoadPlanBasedLoader.java:105) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.loader.entity.plan.AbstractLoadPlanBasedEntityLoader.load(AbstractLoadPlanBasedEntityLoader.java:285) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.persister.entity.AbstractEntityPersister.doLoad(AbstractEntityPersister.java:4519) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.persister.entity.AbstractEntityPersister.load(AbstractEntityPersister.java:4509) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.event.internal.DefaultLoadEventListener.loadFromDatasource(DefaultLoadEventListener.java:571) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.event.internal.DefaultLoadEventListener.doLoad(DefaultLoadEventListener.java:539) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.event.internal.DefaultLoadEventListener.load(DefaultLoadEventListener.java:208) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.event.internal.DefaultLoadEventListener.proxyOrLoad(DefaultLoadEventListener.java:327) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.event.internal.DefaultLoadEventListener.doOnLoad(DefaultLoadEventListener.java:108) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.event.internal.DefaultLoadEventListener.onLoad(DefaultLoadEventListener.java:74) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:118) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.internal.SessionImpl.fireLoadNoChecks(SessionImpl.java:1215) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.internal.SessionImpl.fireLoad(SessionImpl.java:1204) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.internal.SessionImpl.access$2100(SessionImpl.java:203) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.internal.SessionImpl$IdentifierLoadAccessImpl.doLoad(SessionImpl.java:2819) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.internal.SessionImpl$IdentifierLoadAccessImpl.lambda$load$1(SessionImpl.java:2796) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.internal.SessionImpl$IdentifierLoadAccessImpl.perform(SessionImpl.java:2752) [hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.internal.SessionImpl$IdentifierLoadAccessImpl.load(SessionImpl.java:2796) [hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.internal.SessionImpl.find(SessionImpl.java:3384) [hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.internal.SessionImpl.find(SessionImpl.java:3346) [hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at com.entlogics.moviedb.movie.test.main(test.java:14) [classes/:?]
+Caused by: java.lang.IllegalArgumentException: Can not set int field com.entlogics.moviedb.movie.Movie.numberOfRecommendations to null value
+	at jdk.internal.reflect.UnsafeFieldAccessorImpl.throwSetIllegalArgumentException(UnsafeFieldAccessorImpl.java:167) ~[?:?]
+	at jdk.internal.reflect.UnsafeFieldAccessorImpl.throwSetIllegalArgumentException(UnsafeFieldAccessorImpl.java:171) ~[?:?]
+	at jdk.internal.reflect.UnsafeIntegerFieldAccessorImpl.set(UnsafeIntegerFieldAccessorImpl.java:80) ~[?:?]
+	at java.lang.reflect.Field.set(Field.java:793) ~[?:?]
+	at org.hibernate.property.access.spi.SetterFieldImpl.set(SetterFieldImpl.java:52) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	... 30 more
+2021-Sep-16 11:30:48 am [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: MDB]
+2021-Sep-16 11:30:48 am [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.5.6.Final
+2021-Sep-16 11:30:48 am [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-Sep-16 11:30:48 am [main] WARN  org.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-Sep-16 11:30:48 am [main] INFO  org.hibernate.orm.connections.pooling - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/moviedb?useSSL=false&allowPublicKeyRetrieval=true]
+2021-Sep-16 11:30:48 am [main] INFO  org.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=****, user=moviedb}
+2021-Sep-16 11:30:48 am [main] INFO  org.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+2021-Sep-16 11:30:48 am [main] INFO  org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2021-Sep-16 11:30:48 am [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-Sep-16 11:30:49 am [main] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-Sep-16 11:30:49 am [main] DEBUG org.hibernate.SQL - select movie0_.movie_id as movie_id1_0_0_, movie0_.budget_dollar as budget_d2_0_0_, movie0_.country_of_origin as country_3_0_0_, movie0_.movie_poster as movie_po4_0_0_, movie0_.movie_title as movie_ti5_0_0_, movie0_.no_of_recommendations as no_of_re6_0_0_, movie0_.overall_rating as overall_7_0_0_, movie0_.overview as overview8_0_0_, movie0_.release_date as release_9_0_0_, movie0_.runtime as runtime10_0_0_, movie0_.total_gross_income_dollar as total_g11_0_0_ from dt_movie movie0_ where movie0_.movie_id=?
+2021-Sep-16 11:30:49 am [main] INFO  org.hibernate.event.internal.DefaultLoadEventListener - HHH000327: Error performing load command
+org.hibernate.PropertyAccessException: Null value was assigned to a property [class com.entlogics.moviedb.movie.Movie.numberOfRecommendations] of primitive type setter of com.entlogics.moviedb.movie.Movie.numberOfRecommendations
+	at org.hibernate.property.access.spi.SetterFieldImpl.set(SetterFieldImpl.java:58) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.tuple.entity.AbstractEntityTuplizer.setPropertyValues(AbstractEntityTuplizer.java:681) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.tuple.entity.PojoEntityTuplizer.setPropertyValues(PojoEntityTuplizer.java:144) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.persister.entity.AbstractEntityPersister.setPropertyValues(AbstractEntityPersister.java:5242) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.engine.internal.TwoPhaseLoad.initializeEntityFromEntityEntryLoadedState(TwoPhaseLoad.java:253) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.engine.internal.TwoPhaseLoad.initializeEntity(TwoPhaseLoad.java:156) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.engine.internal.TwoPhaseLoad.initializeEntity(TwoPhaseLoad.java:126) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.loader.plan.exec.process.internal.AbstractRowReader.performTwoPhaseLoad(AbstractRowReader.java:221) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.loader.plan.exec.process.internal.AbstractRowReader.finishUp(AbstractRowReader.java:187) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.loader.plan.exec.process.internal.ResultSetProcessorImpl.extractResults(ResultSetProcessorImpl.java:96) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.loader.plan.exec.internal.AbstractLoadPlanBasedLoader.executeLoad(AbstractLoadPlanBasedLoader.java:105) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.loader.entity.plan.AbstractLoadPlanBasedEntityLoader.load(AbstractLoadPlanBasedEntityLoader.java:285) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.persister.entity.AbstractEntityPersister.doLoad(AbstractEntityPersister.java:4519) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.persister.entity.AbstractEntityPersister.load(AbstractEntityPersister.java:4509) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.event.internal.DefaultLoadEventListener.loadFromDatasource(DefaultLoadEventListener.java:571) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.event.internal.DefaultLoadEventListener.doLoad(DefaultLoadEventListener.java:539) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.event.internal.DefaultLoadEventListener.load(DefaultLoadEventListener.java:208) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.event.internal.DefaultLoadEventListener.proxyOrLoad(DefaultLoadEventListener.java:327) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.event.internal.DefaultLoadEventListener.doOnLoad(DefaultLoadEventListener.java:108) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.event.internal.DefaultLoadEventListener.onLoad(DefaultLoadEventListener.java:74) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:118) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.internal.SessionImpl.fireLoadNoChecks(SessionImpl.java:1215) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.internal.SessionImpl.fireLoad(SessionImpl.java:1204) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.internal.SessionImpl.access$2100(SessionImpl.java:203) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.internal.SessionImpl$IdentifierLoadAccessImpl.doLoad(SessionImpl.java:2819) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.internal.SessionImpl$IdentifierLoadAccessImpl.lambda$load$1(SessionImpl.java:2796) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.internal.SessionImpl$IdentifierLoadAccessImpl.perform(SessionImpl.java:2752) [hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.internal.SessionImpl$IdentifierLoadAccessImpl.load(SessionImpl.java:2796) [hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.internal.SessionImpl.find(SessionImpl.java:3384) [hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.internal.SessionImpl.find(SessionImpl.java:3346) [hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at com.entlogics.moviedb.movie.test.main(test.java:14) [classes/:?]
+Caused by: java.lang.IllegalArgumentException: Can not set int field com.entlogics.moviedb.movie.Movie.numberOfRecommendations to null value
+	at jdk.internal.reflect.UnsafeFieldAccessorImpl.throwSetIllegalArgumentException(UnsafeFieldAccessorImpl.java:167) ~[?:?]
+	at jdk.internal.reflect.UnsafeFieldAccessorImpl.throwSetIllegalArgumentException(UnsafeFieldAccessorImpl.java:171) ~[?:?]
+	at jdk.internal.reflect.UnsafeIntegerFieldAccessorImpl.set(UnsafeIntegerFieldAccessorImpl.java:80) ~[?:?]
+	at java.lang.reflect.Field.set(Field.java:793) ~[?:?]
+	at org.hibernate.property.access.spi.SetterFieldImpl.set(SetterFieldImpl.java:52) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	... 30 more
+2021-Sep-16 11:36:37 am [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: MDB]
+2021-Sep-16 11:36:37 am [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.5.6.Final
+2021-Sep-16 11:36:37 am [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-Sep-16 11:36:38 am [main] WARN  org.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-Sep-16 11:36:38 am [main] INFO  org.hibernate.orm.connections.pooling - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/moviedb?useSSL=false&allowPublicKeyRetrieval=true]
+2021-Sep-16 11:36:38 am [main] INFO  org.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=****, user=moviedb}
+2021-Sep-16 11:36:38 am [main] INFO  org.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+2021-Sep-16 11:36:38 am [main] INFO  org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2021-Sep-16 11:36:38 am [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-Sep-16 11:36:38 am [main] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-Sep-16 11:36:38 am [main] DEBUG org.hibernate.SQL - select movie0_.movie_id as movie_id1_0_0_, movie0_.budget_dollar as budget_d2_0_0_, movie0_.country_of_origin as country_3_0_0_, movie0_.movie_poster as movie_po4_0_0_, movie0_.movie_title as movie_ti5_0_0_, movie0_.no_of_recommendations as no_of_re6_0_0_, movie0_.overall_rating as overall_7_0_0_, movie0_.overview as overview8_0_0_, movie0_.release_date as release_9_0_0_, movie0_.runtime as runtime10_0_0_, movie0_.total_gross_income_dollar as total_g11_0_0_ from dt_movie movie0_ where movie0_.movie_id=?
+2021-Sep-16 11:38:02 am [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: MDB]
+2021-Sep-16 11:38:02 am [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.5.6.Final
+2021-Sep-16 11:38:02 am [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-Sep-16 11:38:03 am [main] WARN  org.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-Sep-16 11:38:03 am [main] INFO  org.hibernate.orm.connections.pooling - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/moviedb?useSSL=false&allowPublicKeyRetrieval=true]
+2021-Sep-16 11:38:03 am [main] INFO  org.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=****, user=moviedb}
+2021-Sep-16 11:38:03 am [main] INFO  org.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+2021-Sep-16 11:38:03 am [main] INFO  org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2021-Sep-16 11:38:03 am [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-Sep-16 11:38:03 am [main] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-Sep-16 11:38:03 am [main] DEBUG org.hibernate.SQL - select movie0_.movie_id as movie_id1_0_0_, movie0_.budget_dollar as budget_d2_0_0_, movie0_.country_of_origin as country_3_0_0_, movie0_.movie_poster as movie_po4_0_0_, movie0_.movie_title as movie_ti5_0_0_, movie0_.no_of_recommendations as no_of_re6_0_0_, movie0_.overall_rating as overall_7_0_0_, movie0_.overview as overview8_0_0_, movie0_.pg_rating as pg_ratin9_0_0_, movie0_.release_date as release10_0_0_, movie0_.runtime as runtime11_0_0_, movie0_.total_gross_income_dollar as total_g12_0_0_ from dt_movie movie0_ where movie0_.movie_id=?
+2021-Sep-16 11:38:03 am [main] WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper - SQL Error: 0, SQLState: 22018
+2021-Sep-16 11:38:03 am [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - Cannot determine value type from string 'G'
+2021-Sep-16 11:38:03 am [main] INFO  org.hibernate.event.internal.DefaultLoadEventListener - HHH000327: Error performing load command
+org.hibernate.exception.DataException: Could not read entity state from ResultSet : EntityKey[com.entlogics.moviedb.movie.Movie#1]
+	at org.hibernate.exception.internal.SQLExceptionTypeDelegate.convert(SQLExceptionTypeDelegate.java:52) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:37) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:113) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:99) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.loader.plan.exec.process.internal.EntityReferenceInitializerImpl.loadFromResultSet(EntityReferenceInitializerImpl.java:357) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.loader.plan.exec.process.internal.EntityReferenceInitializerImpl.hydrateEntityState(EntityReferenceInitializerImpl.java:269) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.loader.plan.exec.process.internal.AbstractRowReader.readRow(AbstractRowReader.java:80) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.loader.plan.exec.internal.EntityLoadQueryDetails$EntityLoaderRowReader.readRow(EntityLoadQueryDetails.java:288) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.loader.plan.exec.process.internal.ResultSetProcessorImpl.extractRows(ResultSetProcessorImpl.java:157) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.loader.plan.exec.process.internal.ResultSetProcessorImpl.extractResults(ResultSetProcessorImpl.java:94) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.loader.plan.exec.internal.AbstractLoadPlanBasedLoader.executeLoad(AbstractLoadPlanBasedLoader.java:105) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.loader.entity.plan.AbstractLoadPlanBasedEntityLoader.load(AbstractLoadPlanBasedEntityLoader.java:285) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.persister.entity.AbstractEntityPersister.doLoad(AbstractEntityPersister.java:4519) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.persister.entity.AbstractEntityPersister.load(AbstractEntityPersister.java:4509) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.event.internal.DefaultLoadEventListener.loadFromDatasource(DefaultLoadEventListener.java:571) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.event.internal.DefaultLoadEventListener.doLoad(DefaultLoadEventListener.java:539) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.event.internal.DefaultLoadEventListener.load(DefaultLoadEventListener.java:208) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.event.internal.DefaultLoadEventListener.proxyOrLoad(DefaultLoadEventListener.java:327) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.event.internal.DefaultLoadEventListener.doOnLoad(DefaultLoadEventListener.java:108) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.event.internal.DefaultLoadEventListener.onLoad(DefaultLoadEventListener.java:74) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:118) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.internal.SessionImpl.fireLoadNoChecks(SessionImpl.java:1215) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.internal.SessionImpl.fireLoad(SessionImpl.java:1204) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.internal.SessionImpl.access$2100(SessionImpl.java:203) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.internal.SessionImpl$IdentifierLoadAccessImpl.doLoad(SessionImpl.java:2819) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.internal.SessionImpl$IdentifierLoadAccessImpl.lambda$load$1(SessionImpl.java:2796) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.internal.SessionImpl$IdentifierLoadAccessImpl.perform(SessionImpl.java:2752) [hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.internal.SessionImpl$IdentifierLoadAccessImpl.load(SessionImpl.java:2796) [hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.internal.SessionImpl.find(SessionImpl.java:3384) [hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.internal.SessionImpl.find(SessionImpl.java:3346) [hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at com.entlogics.moviedb.movie.test.main(test.java:14) [classes/:?]
+Caused by: java.sql.SQLDataException: Cannot determine value type from string 'G'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:112) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:95) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:87) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:61) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:71) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:96) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.result.ResultSetImpl.getInt(ResultSetImpl.java:827) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.result.ResultSetImpl.getInt(ResultSetImpl.java:845) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at org.hibernate.type.descriptor.sql.IntegerTypeDescriptor$2.doExtract(IntegerTypeDescriptor.java:62) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.type.descriptor.sql.BasicExtractor.extract(BasicExtractor.java:47) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.metamodel.model.convert.internal.OrdinalEnumValueConverter.readValue(OrdinalEnumValueConverter.java:66) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.type.EnumType.nullSafeGet(EnumType.java:250) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.type.CustomType.nullSafeGet(CustomType.java:119) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.type.AbstractType.hydrate(AbstractType.java:91) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.persister.entity.AbstractEntityPersister.hydrate(AbstractEntityPersister.java:3212) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.persister.entity.Loadable.hydrate(Loadable.java:94) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.loader.plan.exec.process.internal.EntityReferenceInitializerImpl.loadFromResultSet(EntityReferenceInitializerImpl.java:342) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	... 26 more
+Caused by: com.mysql.cj.exceptions.DataConversionException: Cannot determine value type from string 'G'
+	at com.mysql.cj.result.StringConverter.createFromBytes(StringConverter.java:127) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.protocol.a.MysqlTextValueDecoder.decodeByteArray(MysqlTextValueDecoder.java:238) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.protocol.result.AbstractResultsetRow.decodeAndCreateReturnValue(AbstractResultsetRow.java:129) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.protocol.result.AbstractResultsetRow.getValueFromBytes(AbstractResultsetRow.java:233) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.protocol.a.result.TextBufferRow.getValue(TextBufferRow.java:128) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.result.ResultSetImpl.getNonStringValueFromRow(ResultSetImpl.java:628) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.result.ResultSetImpl.getInt(ResultSetImpl.java:827) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.result.ResultSetImpl.getInt(ResultSetImpl.java:845) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at org.hibernate.type.descriptor.sql.IntegerTypeDescriptor$2.doExtract(IntegerTypeDescriptor.java:62) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.type.descriptor.sql.BasicExtractor.extract(BasicExtractor.java:47) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.metamodel.model.convert.internal.OrdinalEnumValueConverter.readValue(OrdinalEnumValueConverter.java:66) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.type.EnumType.nullSafeGet(EnumType.java:250) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.type.CustomType.nullSafeGet(CustomType.java:119) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.type.AbstractType.hydrate(AbstractType.java:91) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.persister.entity.AbstractEntityPersister.hydrate(AbstractEntityPersister.java:3212) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.persister.entity.Loadable.hydrate(Loadable.java:94) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.loader.plan.exec.process.internal.EntityReferenceInitializerImpl.loadFromResultSet(EntityReferenceInitializerImpl.java:342) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	... 26 more
+2021-Sep-16 11:47:10 am [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: MDB]
+2021-Sep-16 11:47:11 am [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.5.6.Final
+2021-Sep-16 11:47:11 am [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-Sep-16 11:47:11 am [main] WARN  org.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-Sep-16 11:47:11 am [main] INFO  org.hibernate.orm.connections.pooling - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/moviedb?useSSL=false&allowPublicKeyRetrieval=true]
+2021-Sep-16 11:47:11 am [main] INFO  org.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=****, user=moviedb}
+2021-Sep-16 11:47:11 am [main] INFO  org.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+2021-Sep-16 11:47:11 am [main] INFO  org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2021-Sep-16 11:47:11 am [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-Sep-16 11:47:11 am [main] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-Sep-16 11:47:11 am [main] DEBUG org.hibernate.SQL - select movie0_.movie_id as movie_id1_0_0_, movie0_.budget_dollar as budget_d2_0_0_, movie0_.country_of_origin as country_3_0_0_, movie0_.movie_poster as movie_po4_0_0_, movie0_.movie_title as movie_ti5_0_0_, movie0_.no_of_recommendations as no_of_re6_0_0_, movie0_.overall_rating as overall_7_0_0_, movie0_.overview as overview8_0_0_, movie0_.pg_rating as pg_ratin9_0_0_, movie0_.release_date as release10_0_0_, movie0_.runtime as runtime11_0_0_, movie0_.total_gross_income_dollar as total_g12_0_0_ from dt_movie movie0_ where movie0_.movie_id=?
+2021-Sep-16 11:47:12 am [main] WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper - SQL Error: 0, SQLState: 22018
+2021-Sep-16 11:47:12 am [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - Cannot determine value type from string 'G'
+2021-Sep-16 11:47:12 am [main] INFO  org.hibernate.event.internal.DefaultLoadEventListener - HHH000327: Error performing load command
+org.hibernate.exception.DataException: Could not read entity state from ResultSet : EntityKey[com.entlogics.moviedb.movie.Movie#1]
+	at org.hibernate.exception.internal.SQLExceptionTypeDelegate.convert(SQLExceptionTypeDelegate.java:52) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:37) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:113) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:99) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.loader.plan.exec.process.internal.EntityReferenceInitializerImpl.loadFromResultSet(EntityReferenceInitializerImpl.java:357) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.loader.plan.exec.process.internal.EntityReferenceInitializerImpl.hydrateEntityState(EntityReferenceInitializerImpl.java:269) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.loader.plan.exec.process.internal.AbstractRowReader.readRow(AbstractRowReader.java:80) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.loader.plan.exec.internal.EntityLoadQueryDetails$EntityLoaderRowReader.readRow(EntityLoadQueryDetails.java:288) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.loader.plan.exec.process.internal.ResultSetProcessorImpl.extractRows(ResultSetProcessorImpl.java:157) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.loader.plan.exec.process.internal.ResultSetProcessorImpl.extractResults(ResultSetProcessorImpl.java:94) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.loader.plan.exec.internal.AbstractLoadPlanBasedLoader.executeLoad(AbstractLoadPlanBasedLoader.java:105) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.loader.entity.plan.AbstractLoadPlanBasedEntityLoader.load(AbstractLoadPlanBasedEntityLoader.java:285) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.persister.entity.AbstractEntityPersister.doLoad(AbstractEntityPersister.java:4519) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.persister.entity.AbstractEntityPersister.load(AbstractEntityPersister.java:4509) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.event.internal.DefaultLoadEventListener.loadFromDatasource(DefaultLoadEventListener.java:571) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.event.internal.DefaultLoadEventListener.doLoad(DefaultLoadEventListener.java:539) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.event.internal.DefaultLoadEventListener.load(DefaultLoadEventListener.java:208) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.event.internal.DefaultLoadEventListener.proxyOrLoad(DefaultLoadEventListener.java:327) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.event.internal.DefaultLoadEventListener.doOnLoad(DefaultLoadEventListener.java:108) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.event.internal.DefaultLoadEventListener.onLoad(DefaultLoadEventListener.java:74) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:118) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.internal.SessionImpl.fireLoadNoChecks(SessionImpl.java:1215) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.internal.SessionImpl.fireLoad(SessionImpl.java:1204) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.internal.SessionImpl.access$2100(SessionImpl.java:203) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.internal.SessionImpl$IdentifierLoadAccessImpl.doLoad(SessionImpl.java:2819) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.internal.SessionImpl$IdentifierLoadAccessImpl.lambda$load$1(SessionImpl.java:2796) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.internal.SessionImpl$IdentifierLoadAccessImpl.perform(SessionImpl.java:2752) [hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.internal.SessionImpl$IdentifierLoadAccessImpl.load(SessionImpl.java:2796) [hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.internal.SessionImpl.find(SessionImpl.java:3384) [hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.internal.SessionImpl.find(SessionImpl.java:3346) [hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at com.entlogics.moviedb.movie.test.main(test.java:14) [classes/:?]
+Caused by: java.sql.SQLDataException: Cannot determine value type from string 'G'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:112) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:95) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:87) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:61) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:71) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:96) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.result.ResultSetImpl.getInt(ResultSetImpl.java:827) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.result.ResultSetImpl.getInt(ResultSetImpl.java:845) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at org.hibernate.type.descriptor.sql.IntegerTypeDescriptor$2.doExtract(IntegerTypeDescriptor.java:62) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.type.descriptor.sql.BasicExtractor.extract(BasicExtractor.java:47) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.metamodel.model.convert.internal.OrdinalEnumValueConverter.readValue(OrdinalEnumValueConverter.java:66) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.type.EnumType.nullSafeGet(EnumType.java:250) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.type.CustomType.nullSafeGet(CustomType.java:119) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.type.AbstractType.hydrate(AbstractType.java:91) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.persister.entity.AbstractEntityPersister.hydrate(AbstractEntityPersister.java:3212) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.persister.entity.Loadable.hydrate(Loadable.java:94) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.loader.plan.exec.process.internal.EntityReferenceInitializerImpl.loadFromResultSet(EntityReferenceInitializerImpl.java:342) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	... 26 more
+Caused by: com.mysql.cj.exceptions.DataConversionException: Cannot determine value type from string 'G'
+	at com.mysql.cj.result.StringConverter.createFromBytes(StringConverter.java:127) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.protocol.a.MysqlTextValueDecoder.decodeByteArray(MysqlTextValueDecoder.java:238) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.protocol.result.AbstractResultsetRow.decodeAndCreateReturnValue(AbstractResultsetRow.java:129) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.protocol.result.AbstractResultsetRow.getValueFromBytes(AbstractResultsetRow.java:233) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.protocol.a.result.TextBufferRow.getValue(TextBufferRow.java:128) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.result.ResultSetImpl.getNonStringValueFromRow(ResultSetImpl.java:628) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.result.ResultSetImpl.getInt(ResultSetImpl.java:827) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.result.ResultSetImpl.getInt(ResultSetImpl.java:845) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at org.hibernate.type.descriptor.sql.IntegerTypeDescriptor$2.doExtract(IntegerTypeDescriptor.java:62) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.type.descriptor.sql.BasicExtractor.extract(BasicExtractor.java:47) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.metamodel.model.convert.internal.OrdinalEnumValueConverter.readValue(OrdinalEnumValueConverter.java:66) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.type.EnumType.nullSafeGet(EnumType.java:250) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.type.CustomType.nullSafeGet(CustomType.java:119) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.type.AbstractType.hydrate(AbstractType.java:91) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.persister.entity.AbstractEntityPersister.hydrate(AbstractEntityPersister.java:3212) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.persister.entity.Loadable.hydrate(Loadable.java:94) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.loader.plan.exec.process.internal.EntityReferenceInitializerImpl.loadFromResultSet(EntityReferenceInitializerImpl.java:342) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	... 26 more
+2021-Sep-16 11:49:19 am [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: MDB]
+2021-Sep-16 11:49:20 am [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.5.6.Final
+2021-Sep-16 11:49:20 am [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-Sep-16 11:49:20 am [main] WARN  org.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-Sep-16 11:49:20 am [main] INFO  org.hibernate.orm.connections.pooling - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/moviedb?useSSL=false&allowPublicKeyRetrieval=true]
+2021-Sep-16 11:49:20 am [main] INFO  org.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=****, user=moviedb}
+2021-Sep-16 11:49:20 am [main] INFO  org.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+2021-Sep-16 11:49:20 am [main] INFO  org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2021-Sep-16 11:49:20 am [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-Sep-16 11:49:21 am [main] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-Sep-16 11:49:21 am [main] DEBUG org.hibernate.SQL - select movie0_.movie_id as movie_id1_0_0_, movie0_.budget_dollar as budget_d2_0_0_, movie0_.country_of_origin as country_3_0_0_, movie0_.movie_poster as movie_po4_0_0_, movie0_.movie_title as movie_ti5_0_0_, movie0_.no_of_recommendations as no_of_re6_0_0_, movie0_.overall_rating as overall_7_0_0_, movie0_.overview as overview8_0_0_, movie0_.pg_rating as pg_ratin9_0_0_, movie0_.release_date as release10_0_0_, movie0_.runtime as runtime11_0_0_, movie0_.total_gross_income_dollar as total_g12_0_0_ from dt_movie movie0_ where movie0_.movie_id=?
+2021-Sep-16 11:49:21 am [main] WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper - SQL Error: 0, SQLState: 22018
+2021-Sep-16 11:49:21 am [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - Cannot determine value type from string 'G'
+2021-Sep-16 11:49:21 am [main] INFO  org.hibernate.event.internal.DefaultLoadEventListener - HHH000327: Error performing load command
+org.hibernate.exception.DataException: Could not read entity state from ResultSet : EntityKey[com.entlogics.moviedb.movie.Movie#1]
+	at org.hibernate.exception.internal.SQLExceptionTypeDelegate.convert(SQLExceptionTypeDelegate.java:52) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:37) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:113) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:99) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.loader.plan.exec.process.internal.EntityReferenceInitializerImpl.loadFromResultSet(EntityReferenceInitializerImpl.java:357) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.loader.plan.exec.process.internal.EntityReferenceInitializerImpl.hydrateEntityState(EntityReferenceInitializerImpl.java:269) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.loader.plan.exec.process.internal.AbstractRowReader.readRow(AbstractRowReader.java:80) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.loader.plan.exec.internal.EntityLoadQueryDetails$EntityLoaderRowReader.readRow(EntityLoadQueryDetails.java:288) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.loader.plan.exec.process.internal.ResultSetProcessorImpl.extractRows(ResultSetProcessorImpl.java:157) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.loader.plan.exec.process.internal.ResultSetProcessorImpl.extractResults(ResultSetProcessorImpl.java:94) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.loader.plan.exec.internal.AbstractLoadPlanBasedLoader.executeLoad(AbstractLoadPlanBasedLoader.java:105) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.loader.entity.plan.AbstractLoadPlanBasedEntityLoader.load(AbstractLoadPlanBasedEntityLoader.java:285) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.persister.entity.AbstractEntityPersister.doLoad(AbstractEntityPersister.java:4519) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.persister.entity.AbstractEntityPersister.load(AbstractEntityPersister.java:4509) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.event.internal.DefaultLoadEventListener.loadFromDatasource(DefaultLoadEventListener.java:571) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.event.internal.DefaultLoadEventListener.doLoad(DefaultLoadEventListener.java:539) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.event.internal.DefaultLoadEventListener.load(DefaultLoadEventListener.java:208) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.event.internal.DefaultLoadEventListener.proxyOrLoad(DefaultLoadEventListener.java:327) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.event.internal.DefaultLoadEventListener.doOnLoad(DefaultLoadEventListener.java:108) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.event.internal.DefaultLoadEventListener.onLoad(DefaultLoadEventListener.java:74) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:118) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.internal.SessionImpl.fireLoadNoChecks(SessionImpl.java:1215) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.internal.SessionImpl.fireLoad(SessionImpl.java:1204) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.internal.SessionImpl.access$2100(SessionImpl.java:203) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.internal.SessionImpl$IdentifierLoadAccessImpl.doLoad(SessionImpl.java:2819) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.internal.SessionImpl$IdentifierLoadAccessImpl.lambda$load$1(SessionImpl.java:2796) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.internal.SessionImpl$IdentifierLoadAccessImpl.perform(SessionImpl.java:2752) [hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.internal.SessionImpl$IdentifierLoadAccessImpl.load(SessionImpl.java:2796) [hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.internal.SessionImpl.find(SessionImpl.java:3384) [hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.internal.SessionImpl.find(SessionImpl.java:3346) [hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at com.entlogics.moviedb.movie.test.main(test.java:14) [classes/:?]
+Caused by: java.sql.SQLDataException: Cannot determine value type from string 'G'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:112) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:95) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:87) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:61) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:71) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:96) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.result.ResultSetImpl.getInt(ResultSetImpl.java:827) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.result.ResultSetImpl.getInt(ResultSetImpl.java:845) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at org.hibernate.type.descriptor.sql.IntegerTypeDescriptor$2.doExtract(IntegerTypeDescriptor.java:62) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.type.descriptor.sql.BasicExtractor.extract(BasicExtractor.java:47) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.metamodel.model.convert.internal.OrdinalEnumValueConverter.readValue(OrdinalEnumValueConverter.java:66) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.type.EnumType.nullSafeGet(EnumType.java:250) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.type.CustomType.nullSafeGet(CustomType.java:119) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.type.AbstractType.hydrate(AbstractType.java:91) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.persister.entity.AbstractEntityPersister.hydrate(AbstractEntityPersister.java:3212) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.persister.entity.Loadable.hydrate(Loadable.java:94) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.loader.plan.exec.process.internal.EntityReferenceInitializerImpl.loadFromResultSet(EntityReferenceInitializerImpl.java:342) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	... 26 more
+Caused by: com.mysql.cj.exceptions.DataConversionException: Cannot determine value type from string 'G'
+	at com.mysql.cj.result.StringConverter.createFromBytes(StringConverter.java:127) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.protocol.a.MysqlTextValueDecoder.decodeByteArray(MysqlTextValueDecoder.java:238) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.protocol.result.AbstractResultsetRow.decodeAndCreateReturnValue(AbstractResultsetRow.java:129) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.protocol.result.AbstractResultsetRow.getValueFromBytes(AbstractResultsetRow.java:233) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.protocol.a.result.TextBufferRow.getValue(TextBufferRow.java:128) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.result.ResultSetImpl.getNonStringValueFromRow(ResultSetImpl.java:628) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.result.ResultSetImpl.getInt(ResultSetImpl.java:827) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at com.mysql.cj.jdbc.result.ResultSetImpl.getInt(ResultSetImpl.java:845) ~[mysql-connector-java-8.0.11.jar:8.0.11]
+	at org.hibernate.type.descriptor.sql.IntegerTypeDescriptor$2.doExtract(IntegerTypeDescriptor.java:62) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.type.descriptor.sql.BasicExtractor.extract(BasicExtractor.java:47) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.metamodel.model.convert.internal.OrdinalEnumValueConverter.readValue(OrdinalEnumValueConverter.java:66) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.type.EnumType.nullSafeGet(EnumType.java:250) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.type.CustomType.nullSafeGet(CustomType.java:119) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.type.AbstractType.hydrate(AbstractType.java:91) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.persister.entity.AbstractEntityPersister.hydrate(AbstractEntityPersister.java:3212) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.persister.entity.Loadable.hydrate(Loadable.java:94) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	at org.hibernate.loader.plan.exec.process.internal.EntityReferenceInitializerImpl.loadFromResultSet(EntityReferenceInitializerImpl.java:342) ~[hibernate-core-5.5.6.Final.jar:5.5.6.Final]
+	... 26 more
+2021-Sep-16 11:55:42 am [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: MDB]
+2021-Sep-16 11:55:42 am [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.5.6.Final
+2021-Sep-16 11:55:42 am [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-Sep-16 11:55:42 am [main] WARN  org.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-Sep-16 11:55:42 am [main] INFO  org.hibernate.orm.connections.pooling - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/moviedb?useSSL=false&allowPublicKeyRetrieval=true]
+2021-Sep-16 11:55:42 am [main] INFO  org.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=****, user=moviedb}
+2021-Sep-16 11:55:42 am [main] INFO  org.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+2021-Sep-16 11:55:42 am [main] INFO  org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2021-Sep-16 11:55:42 am [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-Sep-16 11:55:43 am [main] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-Sep-16 11:55:43 am [main] DEBUG org.hibernate.SQL - select movie0_.movie_id as movie_id1_0_0_, movie0_.budget_dollar as budget_d2_0_0_, movie0_.country_of_origin as country_3_0_0_, movie0_.movie_poster as movie_po4_0_0_, movie0_.movie_title as movie_ti5_0_0_, movie0_.no_of_recommendations as no_of_re6_0_0_, movie0_.overall_rating as overall_7_0_0_, movie0_.overview as overview8_0_0_, movie0_.pg_rating as pg_ratin9_0_0_, movie0_.release_date as release10_0_0_, movie0_.runtime as runtime11_0_0_, movie0_.total_gross_income_dollar as total_g12_0_0_ from dt_movie movie0_ where movie0_.movie_id=?
+>>>>>>> 006ce608c7e708106f31cfe6a91ef0f3a35622e1

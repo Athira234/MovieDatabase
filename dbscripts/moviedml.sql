@@ -21,7 +21,7 @@
 
 LOCK TABLES `dt_company` WRITE;
 /*!40000 ALTER TABLE `dt_company` DISABLE KEYS */;
-INSERT INTO `dt_company` VALUES (1,'Universal studios','Thomas Williams',1912,'universalpictures1@co.in','California','United States','www.universalpictures.com','Universal Pictures is an American film production and distribution company owned by Comcast through the NBCUniversal Film and Entertainment division of NBCUniversal'),(2,'Sony pictures','Tony vinciquerra',1987,'sonypictures@co.in','California','United States','www.sonypictures.com','Sony Pictures is an American diversified multinational mass media and entertainment conglomerate that produces, acquires, and distributes filmed entertainment through multiple platforms.'),(3,'Marvel studios','Kevin feige',1993,'marvelstudios@co.in','NewYork','United States','www.marvel.com','Marvel Studios, LLC is an American film and television studio that is a subsidiary of Walt Disney Studios, a division of The Walt Disney Company. Marvel Studios is known for the production of the Marv'),(4,'Walt disney studios','Bob chapek',1923,'thewaltdisney@co.in','California','United States','www.waltdisneystudios.com','The Walt Disney Studios is an American film and entertainment studio, and is the Studios Content segment of The Walt Disney Company ,the studio is best known for its multi-faceted film divisions. Foun');
+INSERT INTO `dt_company` VALUES (1,'Universal studios','Thomas Williams','0000-00-00','universalpictures1@co.in','California','United States','www.universalpictures.com','Universal Pictures is an American film production and distribution company owned by Comcast through the NBCUniversal Film and Entertainment division of NBCUniversal'),(2,'Sony pictures','Tony vinciquerra','0000-00-00','sonypictures@co.in','California','United States','www.sonypictures.com','Sony Pictures is an American diversified multinational mass media and entertainment conglomerate that produces, acquires, and distributes filmed entertainment through multiple platforms.'),(3,'Marvel studios','Kevin feige','0000-00-00','marvelstudios@co.in','NewYork','United States','www.marvel.com','Marvel Studios, LLC is an American film and television studio that is a subsidiary of Walt Disney Studios, a division of The Walt Disney Company. Marvel Studios is known for the production of the Marv'),(4,'Walt disney studios','Bob chapek','0000-00-00','thewaltdisney@co.in','California','United States','www.waltdisneystudios.com','The Walt Disney Studios is an American film and entertainment studio, and is the Studios Content segment of The Walt Disney Company ,the studio is best known for its multi-faceted film divisions. Foun');
 /*!40000 ALTER TABLE `dt_company` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -81,6 +81,7 @@ UNLOCK TABLES;
 
 LOCK TABLES `dt_user_activity` WRITE;
 /*!40000 ALTER TABLE `dt_user_activity` DISABLE KEYS */;
+INSERT INTO `dt_user_activity` VALUES (1,'USER_ADD_MOVIE_TO_WATCHLIST','',1,1),(2,'USER_ADD_MOVIE_TO_WATCHLIST','',1,2);
 /*!40000 ALTER TABLE `dt_user_activity` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -100,6 +101,7 @@ UNLOCK TABLES;
 
 LOCK TABLES `lt_movie_cast` WRITE;
 /*!40000 ALTER TABLE `lt_movie_cast` DISABLE KEYS */;
+INSERT INTO `lt_movie_cast` VALUES (2,1,500000,'HERO'),(2,2,400000,'VILLIAN');
 /*!40000 ALTER TABLE `lt_movie_cast` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -109,6 +111,7 @@ UNLOCK TABLES;
 
 LOCK TABLES `lt_movie_company` WRITE;
 /*!40000 ALTER TABLE `lt_movie_company` DISABLE KEYS */;
+INSERT INTO `lt_movie_company` VALUES (1,4);
 /*!40000 ALTER TABLE `lt_movie_company` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -118,6 +121,7 @@ UNLOCK TABLES;
 
 LOCK TABLES `lt_movie_crew` WRITE;
 /*!40000 ALTER TABLE `lt_movie_crew` DISABLE KEYS */;
+INSERT INTO `lt_movie_crew` VALUES (2,1,1800000,'PRODUCER'),(2,4,800000,'DIRECTOR'),(2,7,300000,'CINEMATOGRAPHER');
 /*!40000 ALTER TABLE `lt_movie_crew` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -127,6 +131,7 @@ UNLOCK TABLES;
 
 LOCK TABLES `lt_movie_genre` WRITE;
 /*!40000 ALTER TABLE `lt_movie_genre` DISABLE KEYS */;
+INSERT INTO `lt_movie_genre` VALUES (1,1),(2,1),(2,2),(1,5),(3,5),(2,8),(3,8);
 /*!40000 ALTER TABLE `lt_movie_genre` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -136,6 +141,7 @@ UNLOCK TABLES;
 
 LOCK TABLES `lt_movie_language` WRITE;
 /*!40000 ALTER TABLE `lt_movie_language` DISABLE KEYS */;
+INSERT INTO `lt_movie_language` VALUES (1,1),(4,1),(2,2),(3,4),(4,4),(3,5);
 /*!40000 ALTER TABLE `lt_movie_language` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -145,6 +151,7 @@ UNLOCK TABLES;
 
 LOCK TABLES `lt_user_movie` WRITE;
 /*!40000 ALTER TABLE `lt_user_movie` DISABLE KEYS */;
+INSERT INTO `lt_user_movie` VALUES (1,1,1,1,0,8,'Good Movie'),(1,2,1,0,0,8,'Good Movie'),(2,1,1,1,0,8,'Good Movie'),(2,2,1,0,0,8,'Nice Movie');
 /*!40000 ALTER TABLE `lt_user_movie` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -154,6 +161,7 @@ UNLOCK TABLES;
 
 LOCK TABLES `lt_user_watchlist_items` WRITE;
 /*!40000 ALTER TABLE `lt_user_watchlist_items` DISABLE KEYS */;
+INSERT INTO `lt_user_watchlist_items` VALUES (1,1,''),(2,2,''),(3,1,'');
 /*!40000 ALTER TABLE `lt_user_watchlist_items` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -166,4 +174,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-09-16 11:59:27
+-- Dump completed on 2021-09-16 12:40:57

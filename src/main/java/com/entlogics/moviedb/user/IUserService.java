@@ -5,6 +5,7 @@ import java.util.List;
 import com.entlogics.moviedb.movie.Movie;
 
 public interface IUserService {
+	
 	public void rateMovie(UserMovie userMovie);
 
 	public void giveMovieFeedback(UserMovie userMovie);
@@ -19,11 +20,11 @@ public interface IUserService {
 
 	public List<Movie> getFavourites(int userId);
 
-	public List<Movie> viewRatings(int userId, int movieId);
+	public List<Movie> getRatings(int userId, int movieId);
 
-	public List<Movie> viewFeedbacks(int userId, int movieId);
+	public List<Movie> getFeedbacks(int userId, int movieId);
 
-	public User viewProfile(int userId);
+	public User getProfile(int userId);
 
 	public void editProfile(User user);
 

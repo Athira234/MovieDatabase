@@ -17,15 +17,15 @@ public interface IUserService {
 
 	public List<UserWatchListItems> getWatchList(int userId, int watchListId);
 
-	public List<UserMovie> getFavourites(int userId);
+	public List<Movie> getFavourites(int userId);
 
-	public List<UserMovie> viewRatings(int userId, int movieId);
+	public List<Movie> viewRatings(int userId, int movieId);
 
-	public List<UserMovie> viewFeedbacks(int userId, int movieId);
+	public List<Movie> viewFeedbacks(int userId, int movieId);
 
-	public List<User> viewProfile(int userId);
+	public User viewProfile(int userId);
 
-	public void editProfile(User user, int userId);
+	public void editProfile(User user);
 
 	public void updatePassword(User user);
 

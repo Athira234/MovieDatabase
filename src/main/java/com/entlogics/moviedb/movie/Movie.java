@@ -15,6 +15,13 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+<<<<<<< HEAD
+=======
+import com.entlogics.moviedb.user.UserActivity;
+import com.entlogics.moviedb.user.UserMovie;
+import com.entlogics.moviedb.user.UserWatchListItems;
+
+>>>>>>> 46899c63b7d45cb29d3f982966bb33b33a9322cf
 @Entity
 @Table(name = "dt_movie")
 public class Movie {
@@ -57,6 +64,7 @@ public class Movie {
 	@Column(name = "no_of_recommendations")
 	private int numberOfRecommendations;
 
+<<<<<<< HEAD
 	@OneToMany(mappedBy = "movie", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<MovieCast> movieCast;
 
@@ -71,6 +79,16 @@ public class Movie {
 
 	@OneToMany(mappedBy = "movie", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<MovieLanguage> movieLanguages;
+=======
+	@OneToMany(mappedBy = "userActivityOnmovie", cascade = CascadeType.ALL)
+	private List<UserActivity> userActivityOnmovie;
+
+	@OneToMany(mappedBy = "movie", cascade = CascadeType.ALL)
+	List<UserMovie> usersOfMovie;
+
+	@OneToMany(mappedBy = "moviesOfWatchlist", cascade = CascadeType.ALL)
+	private List<UserWatchListItems> watchlistOfMovie;
+>>>>>>> 46899c63b7d45cb29d3f982966bb33b33a9322cf
 
 	public int getMovieId() {
 		return movieId;
@@ -168,6 +186,7 @@ public class Movie {
 		this.pgRating = pgRating;
 	}
 
+<<<<<<< HEAD
 	public List<MovieLanguage> getMovieLanguages() {
 		return movieLanguages;
 	}
@@ -208,6 +227,8 @@ public class Movie {
 		this.movieCompanies = movieCompanies;
 	}
 
+=======
+>>>>>>> 46899c63b7d45cb29d3f982966bb33b33a9322cf
 	@Override
 	public String toString() {
 		return "Movie [movieId=" + movieId + ", movieTitle=" + movieTitle + ", releaseDate=" + releaseDate

@@ -20,9 +20,9 @@ public interface IUserService {
 
 	public List<Movie> getFavourites(int userId);
 
-	public List<Movie> getRatings(int userId, int movieId);
+	public List<UserMovie> getRatings(int userId, int movieId);
 
-	public List<Movie> getFeedbacks(int userId, int movieId);
+	public List<UserMovie> getFeedbacks(int userId, int movieId);
 
 	public User getProfile(int userId);
 

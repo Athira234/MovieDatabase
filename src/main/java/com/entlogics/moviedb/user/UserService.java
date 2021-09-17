@@ -51,14 +51,14 @@ public class UserService implements IUserService {
 
 	// Method for viewing ratings
 	@Override
-	public List<Movie> getRatings(int userId, int movieId) {
+	public List<UserMovie> getRatings(int userId, int movieId) {
 		System.out.println("Inside getRatings() method in UserService");
 		return null;
 	}
 
 	// Method for viewing feedback
 	@Override
-	public List<Movie> getFeedbacks(int userId, int movieId) {
+	public List<UserMovie> getFeedbacks(int userId, int movieId) {
 		System.out.println("Inside  getFeedbacks() method in UserService");
 		return null;
 	}

@@ -4,16 +4,16 @@
   "cast": [
     {
       "person_id": 1,
-      "first_name": "Amir",
+      "first_name": "Aamir",
       "last_name": "Khan",
-      "renumeration": 300000,
+      "remuneration": 300000,
       "actor_role": "HERO"
     },
     {
       "person_id": 2,
       "first_name": "Girish",
       "last_name": "Kulkarni",
-      "renumeration": 100000,
+      "remuneration": 100000,
       "actor_role": "SUPPORTING"
     }
   ]

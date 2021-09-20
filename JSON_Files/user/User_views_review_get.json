@@ -1,7 +1,7 @@
 
   {
   "user_id":1,
-  "movies":[
+  "reviews":[
     {
     "movie_id":1,
     "movie_title":"Dangal",

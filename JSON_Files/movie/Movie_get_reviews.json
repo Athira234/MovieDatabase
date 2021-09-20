@@ -1,13 +1,15 @@
 {
   "movie_id": 1,
   "movie_title": "Dangal",
-  "user": [
+  "Reviews": [
     {
       "user_id": 1,
+	"username": "john101",
       "review": "Good Movie"
     },
     {
       "user_id": 2,
+	"username": "carl201",
       "review": "well directed"
     }
   ]

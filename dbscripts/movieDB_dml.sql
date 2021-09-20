@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.26, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.26, for Win64 (x86_64)
 --
--- Host: 127.0.0.1    Database: movie
+-- Host: 127.0.0.1    Database: moviedb
 -- ------------------------------------------------------
--- Server version	8.0.26-0ubuntu0.20.04.2
+-- Server version	8.0.26
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -21,7 +21,7 @@
 
 LOCK TABLES `dt_company` WRITE;
 /*!40000 ALTER TABLE `dt_company` DISABLE KEYS */;
-INSERT INTO `dt_company` VALUES (1,'Universal studios','Thomas Williams','0000-00-00','universalpictures1@co.in','California','United States','www.universalpictures.com','Universal Pictures is an American film production and distribution company owned by Comcast through the NBCUniversal Film and Entertainment division of NBCUniversal'),(2,'Sony pictures','Tony vinciquerra','0000-00-00','sonypictures@co.in','California','United States','www.sonypictures.com','Sony Pictures is an American diversified multinational mass media and entertainment conglomerate that produces, acquires, and distributes filmed entertainment through multiple platforms.'),(3,'Marvel studios','Kevin feige','0000-00-00','marvelstudios@co.in','NewYork','United States','www.marvel.com','Marvel Studios, LLC is an American film and television studio that is a subsidiary of Walt Disney Studios, a division of The Walt Disney Company. Marvel Studios is known for the production of the Marv'),(4,'Walt disney studios','Bob chapek','0000-00-00','thewaltdisney@co.in','California','United States','www.waltdisneystudios.com','The Walt Disney Studios is an American film and entertainment studio, and is the Studios Content segment of The Walt Disney Company ,the studio is best known for its multi-faceted film divisions. Foun');
+INSERT INTO `dt_company` VALUES (1,'Universal studios','Thomas Williams','1988-07-01','universalpictures1@co.in','California','United States','www.universalpictures.com','Universal Pictures is an American film production and distribution company owned by Comcast through the NBCUniversal Film and Entertainment division of NBCUniversal'),(2,'Sony pictures','Tony vinciquerra','1975-05-08','sonypictures@co.in','California','United States','www.sonypictures.com','Sony Pictures is an American diversified multinational mass media and entertainment conglomerate that produces, acquires, and distributes filmed entertainment through multiple platforms.'),(3,'Marvel studios','Kevin feige','2008-08-20','marvelstudios@co.in','NewYork','United States','www.marvel.com','Marvel Studios, LLC is an American film and television studio that is a subsidiary of Walt Disney Studios, a division of The Walt Disney Company. Marvel Studios is known for the production of the Marv'),(4,'Walt disney studios','Bob chapek','1934-10-19','thewaltdisney@co.in','California','United States','www.waltdisneystudios.com','The Walt Disney Studios is an American film and entertainment studio, and is the Studios Content segment of The Walt Disney Company ,the studio is best known for its multi-faceted film divisions. Foun');
 /*!40000 ALTER TABLE `dt_company` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -51,7 +51,7 @@ UNLOCK TABLES;
 
 LOCK TABLES `dt_movie` WRITE;
 /*!40000 ALTER TABLE `dt_movie` DISABLE KEYS */;
-INSERT INTO `dt_movie` VALUES (1,'Dangal','India','','2016-12-23','G',124,9497698,271329,8,NULL,'Former wrestler Mahavir Singh Phogat and his two wrestler daughters struggle towards glory at the Commonwealth Games in the face of societal oppression.'),(2,'Mission:Impossible Fallout','US','','2018-07-27','PG-13',199,150000000,271329,8,NULL,'Ethan Hunt and his IMF team, along with some familiar allies, race against time after a mission gone wrong.'),(3,'Drishyam','India','','2013-12-19','G',199,5156873,12739931,8,NULL,'A man goes to extreme lengths to save his family from punishment after the family commits an accidental crime.'),(4,'PK','India','','2014-12-19','G',199,5186873,2739931,8,NULL,'An alien on Earth loses the only device he can use to communicate with his spaceship. His innocent nature and child-like questions force the country to evaluate the impact of religion on its people.'),(5,'The Matrix Revolutions','US','','2003-12-19','G',129,5186873,2739931,6,NULL,'The human city of Zion defends itself against the massive invasion of the machines as Neo fights to end the war at another front while also opposing the rogue Agent Smith.'),(6,'Anabelle','US','','2019-06-26','PG-13',106,30000000,741525915,5,NULL,'While babysitting the daughter of Ed and Lorraine Warren, a teenager and her friend unknowingly awaken an evil spirit trapped in a doll.'),(7,'Bahubali','INDIA','','2015-07-12','G',139,18026148,741525915,8,NULL,'In ancient India, an adventurous and daring man becomes involved in a decades-old feud between two warring peoples.'),(8,'MIRZAPUR','INDIA','','2018-06-15','G',139,18026148,741525915,8,NULL,'A shocking incident at a wedding procession ignites a series of events entangling the lives of two families in the lawless city of Mirzapur.');
+INSERT INTO `dt_movie` VALUES (1,'Dangal','India','','2016-12-23','G',124,9497698,271329,8,15800123,'Former wrestler Mahavir Singh Phogat and his two wrestler daughters struggle towards glory at the Commonwealth Games in the face of societal oppression.'),(2,'Mission:Impossible Fallout','US','','2018-07-27','PG-13',199,150000000,271329,8,24800012,'Ethan Hunt and his IMF team, along with some familiar allies, race against time after a mission gone wrong.'),(3,'Drishyam','India','','2013-12-19','G',199,5156873,12739931,8,127890,'A man goes to extreme lengths to save his family from punishment after the family commits an accidental crime.'),(4,'PK','India','','2014-12-19','G',199,5186873,2739931,8,8976563,'An alien on Earth loses the only device he can use to communicate with his spaceship. His innocent nature and child-like questions force the country to evaluate the impact of religion on its people.'),(5,'The Matrix Revolutions','US','','2003-12-19','G',129,5186873,2739931,6,94567891,'The human city of Zion defends itself against the massive invasion of the machines as Neo fights to end the war at another front while also opposing the rogue Agent Smith.'),(6,'Anabelle','US','','2019-06-26','PG-13',106,30000000,741525915,5,1223524,'While babysitting the daughter of Ed and Lorraine Warren, a teenager and her friend unknowingly awaken an evil spirit trapped in a doll.'),(7,'Bahubali','India','','2015-07-12','G',139,18026148,741525915,8,14567061,'In ancient India, an adventurous and daring man becomes involved in a decades-old feud between two warring peoples.'),(8,'MIRZAPUR','India','','2018-06-15','G',139,18026148,741525915,8,54895707,'A shocking incident at a wedding procession ignites a series of events entangling the lives of two families in the lawless city of Mirzapur.');
 /*!40000 ALTER TABLE `dt_movie` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -71,7 +71,7 @@ UNLOCK TABLES;
 
 LOCK TABLES `dt_user` WRITE;
 /*!40000 ALTER TABLE `dt_user` DISABLE KEYS */;
-INSERT INTO `dt_user` VALUES (1,'ATHIRA','K','USER','athira234','athira@1996','athira@gmail.com'),(2,'KUNAL','SALUNKHE','USER','kunal@05','kunal123','kunal@gmail.com'),(3,'SHIVAM','DHOUNDIYAL','ADMIN','shivam_doundiyal','shivam@06','shivam@gmail.com');
+INSERT INTO `dt_user` VALUES (1,'ATHIRA','K','USER','athira234','athira@1996','athira@gmail.com','ADMIN','2021-09-08','2021-09-10'),(2,'KUNAL','SALUNKHE','USER','kunal@05','kunal123','kunal@gmail.com','USER','2021-09-10','2021-09-12'),(3,'SHIVAM','DHOUNDIYAL','ADMIN','shivam_dhoundiyal','shivam@06','shivam@gmail.com','ADMIN','2021-09-05','2021-09-16');
 /*!40000 ALTER TABLE `dt_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -161,7 +161,7 @@ UNLOCK TABLES;
 
 LOCK TABLES `lt_user_watchlist_items` WRITE;
 /*!40000 ALTER TABLE `lt_user_watchlist_items` DISABLE KEYS */;
-INSERT INTO `lt_user_watchlist_items` VALUES (1,1,''),(2,2,''),(3,1,'');
+INSERT INTO `lt_user_watchlist_items` VALUES (1,1,'Write a blog abou leonardo cast','2021-09-01'),(2,2,'recommend to friends','2021-09-02'),(3,1,'resume from 1h 30m','2021-09-03');
 /*!40000 ALTER TABLE `lt_user_watchlist_items` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -174,8 +174,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
-<<<<<<< HEAD
--- Dump completed on 2021-09-16 12:33:49
-=======
--- Dump completed on 2021-09-16 12:40:57
->>>>>>> 006ce608c7e708106f31cfe6a91ef0f3a35622e1
+-- Dump completed on 2021-09-20 13:45:37

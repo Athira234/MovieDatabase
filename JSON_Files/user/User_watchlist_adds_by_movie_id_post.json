@@ -1,10 +1,10 @@
 {
-    "user_id": 1,
-    "watchlist":
+    "watchlist_items":[
       {
-      "watchlist_id":1,
-      "watchlist_name":"Friday night binge",
-      "movie_id":1,
-      "movie_title":"Dangal"
+      "movie_id":1
+      },
+	{
+	"movie_id": 2
       }
+]
 }

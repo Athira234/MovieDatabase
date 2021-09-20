@@ -1,7 +1,7 @@
 {
   "movie_id": 1,
   "movie_title": "Dangal",
-  "cast": [
+  "crew": [
     {
       "person_id": 1,
       "first_name": "Amir",

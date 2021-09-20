@@ -1,6 +1,6 @@
 {
     "user_id": 1,
-    "movie":
+    "review":
       {
       "movie_id":1,
       "review":"Nice movie with a good storyline"

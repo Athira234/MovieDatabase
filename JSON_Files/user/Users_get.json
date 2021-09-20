@@ -4,22 +4,25 @@
   {
     "user_id": 1,
     "username": "John101",
-    "password": "mypasswd",
     "first_name": "John",
     "last_name" : "Doe",
     "email": "john11@gmail.com",
-    "role": "user"
+    "role": "user",
+    "created_by": "admin",
+    "created_date":"2021-08-01",
+    "last_password_change": "2021-09-15" 
   },
   {
     "user_id": 2,
     "username": "Kunal102",
-    "password": "qwerty",
     "first_name": "Kunal",
     "last_name" : "Salunkhe",
     "email": "salunkhekunal1999@gmail.com",
-    "role": "admin"
+    "role": "admin",
+    "created_date": "2021-08-02",
+    "created_by": "user",
+    "last_password_change": "2021-09-15" 
   }
   ]
 }
-
 

@@ -12,7 +12,31 @@
       "total_income_dollar": 9497698,
       "overall_rating": 8,
       "no_of_recommendation": 0,
-      "overview": "Former wrestler Mahavir Singh Phogat and his two wrestler daughters struggle towards glory at the Commonwealth Games in the face of societal oppression"
+      "overview": "Former wrestler Mahavir Singh Phogat and his two wrestler daughters struggle towards glory at the Commonwealth Games in the face of societal oppression",
+	   "genre":[
+	       {
+	        "description": "Action"
+	       },
+	       {
+	        "description": "Drama"
+	       }
+	       ],
+	   "language":[
+	       {
+	        "language": "Hindi"
+	       },
+	       {
+	        "language": "English"
+	       }
+	       ],
+	   "company":[
+	       {
+	        "company_name": "Walt Disney pictures"
+	       },
+	       {
+	        "company_name": "Aamir khan productions"
+	       }
+	       ]
     },
     {
       "movie_id": 3,
@@ -26,7 +50,31 @@
       "total_income_dollar": 497698,
       "overall_rating": 9,
       "no_of_recommendation": 20,
-      "overview": "A man goes to extreme lengths to save his family from punishment after the family commits an accidental crime"
+      "overview": "A man goes to extreme lengths to save his family from punishment after the family commits an accidental crime",
+      "genre":[
+	       {
+	        "description": "Action"
+	       },
+	       {
+	        "description": "Drama"
+	       }
+	       ],
+	   "language":[
+	       {
+	        "language": "Hindi"
+	       },
+	       {
+	        "language": "English"
+	       }
+	       ],
+	   "company":[
+	       {
+	        "company_name": "Aashirvad cinemas"
+	       },
+	       {
+	        "company_name": "Eros pictures"
+	       }
+	       ]
     }
   ]
 }

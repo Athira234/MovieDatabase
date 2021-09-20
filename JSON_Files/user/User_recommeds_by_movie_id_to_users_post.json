@@ -1,15 +1,4 @@
 {
-      "user_id":1,
       "movie_id":1,
-      "is_recommended":"TRUE",
-      "recommended_to":[
-        {
-          "user_id":2,
-          "username":"Catherina"
-        },
-        {
-          "user_id":3,
-          "username":"Satoshi"
-        }
-        ]
-      }
+      "is_recommended":"TRUE"
+}      }

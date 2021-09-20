@@ -1,5 +1,6 @@
 package com.entlogics.moviedb.user;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -37,6 +38,15 @@ public class User {
 	@Column(name = "role")
 	private String role;
 
+	@Column(name = "created_by")
+	private String createdBy;
+	
+	@Column(name = "created_date")
+	private LocalDate createdDate;
+	
+	@Column(name = "last_password_change")
+	private LocalDate lastPasswordChange;
+	
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
 	List<UserMovie> moviesOfUser;
 
@@ -97,6 +107,46 @@ public class User {
 
 	public void setRole(String role) {
 		this.role = role;
+	}
+
+	public String getCreatedBy() {
+		return createdBy;
+	}
+
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
+	}
+
+	public LocalDate getCreatedDate() {
+		return createdDate;
+	}
+
+	public void setCreatedDate(LocalDate createdDate) {
+		this.createdDate = createdDate;
+	}
+
+	public LocalDate getLastPasswordChange() {
+		return lastPasswordChange;
+	}
+
+	public void setLastPasswordChange(LocalDate lastPasswordChange) {
+		this.lastPasswordChange = lastPasswordChange;
+	}
+
+	public List<UserMovie> getMoviesOfUser() {
+		return moviesOfUser;
+	}
+
+	public void setMoviesOfUser(List<UserMovie> moviesOfUser) {
+		this.moviesOfUser = moviesOfUser;
+	}
+
+	public List<UserActivity> getUserActivities() {
+		return userActivities;
+	}
+
+	public void setUserActivities(List<UserActivity> userActivities) {
+		this.userActivities = userActivities;
 	}
 
 	@Override

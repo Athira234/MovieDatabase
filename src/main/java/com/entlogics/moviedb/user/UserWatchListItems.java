@@ -1,6 +1,7 @@
 package com.entlogics.moviedb.user;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -35,6 +36,9 @@ public class UserWatchListItems implements Serializable {
 
 	@Column(name = "notes")
 	private String notes;
+	
+	@Column(name = "date_added")
+	private LocalDate dateAdded;
 
 	public UserWatchList getWatchlistOfMovie() {
 		return watchlistOfMovie;
@@ -58,6 +62,15 @@ public class UserWatchListItems implements Serializable {
 
 	public void setNotes(String notes) {
 		this.notes = notes;
+	}
+	
+
+	public LocalDate getDateAdded() {
+		return dateAdded;
+	}
+
+	public void setDateAdded(LocalDate dateAdded) {
+		this.dateAdded = dateAdded;
 	}
 
 	@Override

@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.26, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.26, for Win64 (x86_64)
 --
--- Host: 127.0.0.1    Database: movie
+-- Host: 127.0.0.1    Database: moviedb
 -- ------------------------------------------------------
--- Server version	8.0.26-0ubuntu0.20.04.2
+-- Server version	8.0.26
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -26,14 +26,14 @@ CREATE TABLE `dt_company` (
   `company_id` int NOT NULL AUTO_INCREMENT,
   `company_name` varchar(30) DEFAULT NULL,
   `ceo` varchar(30) DEFAULT NULL,
-  `established_in` Date DEFAULT NULL,
+  `established_in` date DEFAULT NULL,
   `email_id` varchar(30) DEFAULT NULL,
   `headquarter` varchar(30) DEFAULT NULL,
   `country` varchar(30) DEFAULT NULL,
   `website` varchar(40) DEFAULT NULL,
   `description` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`company_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -47,7 +47,7 @@ CREATE TABLE `dt_genre` (
   `genre_id` int NOT NULL AUTO_INCREMENT,
   `description` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`genre_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -61,7 +61,7 @@ CREATE TABLE `dt_language` (
   `language_id` int NOT NULL AUTO_INCREMENT,
   `language` varchar(30) DEFAULT NULL,
   PRIMARY KEY (`language_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -85,7 +85,7 @@ CREATE TABLE `dt_movie` (
   `no_of_recommendations` int DEFAULT NULL,
   `overview` varchar(500) DEFAULT NULL,
   PRIMARY KEY (`movie_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -108,7 +108,7 @@ CREATE TABLE `dt_person` (
   `nationality` varchar(20) DEFAULT NULL,
   `imdb_link` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`person_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -126,9 +126,12 @@ CREATE TABLE `dt_user` (
   `username` varchar(50) DEFAULT NULL,
   `password` varchar(50) DEFAULT NULL,
   `email` varchar(30) DEFAULT NULL,
+  `created_by` varchar(20) DEFAULT NULL,
+  `created_date` date DEFAULT NULL,
+  `last_password_change` date DEFAULT NULL,
   PRIMARY KEY (`user_id`),
   UNIQUE KEY `password` (`password`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -149,7 +152,7 @@ CREATE TABLE `dt_user_activity` (
   KEY `movie_id` (`movie_id`),
   CONSTRAINT `dt_user_activity_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `dt_user` (`user_id`) ON DELETE CASCADE,
   CONSTRAINT `dt_user_activity_ibfk_2` FOREIGN KEY (`movie_id`) REFERENCES `dt_movie` (`movie_id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -166,7 +169,7 @@ CREATE TABLE `dt_user_watchlist` (
   PRIMARY KEY (`watchlist_id`),
   KEY `user_id` (`user_id`),
   CONSTRAINT `dt_user_watchlist_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `dt_user` (`user_id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -179,7 +182,7 @@ DROP TABLE IF EXISTS `lt_movie_cast`;
 CREATE TABLE `lt_movie_cast` (
   `movie_id` int NOT NULL,
   `person_id` int NOT NULL,
-  `renumeration` int DEFAULT NULL,
+  `remuneration` int DEFAULT NULL,
   `actor_role` enum('HERO','HEROINE','VILLIAN','SUPPORTING') DEFAULT NULL,
   PRIMARY KEY (`movie_id`,`person_id`),
   KEY `person_id` (`person_id`),
@@ -215,7 +218,7 @@ DROP TABLE IF EXISTS `lt_movie_crew`;
 CREATE TABLE `lt_movie_crew` (
   `movie_id` int NOT NULL,
   `person_id` int NOT NULL,
-  `renumeration` int DEFAULT NULL,
+  `remuneration` int DEFAULT NULL,
   `crew_role` enum('DIRECTOR','PRODUCER','WRITER','CINEMATOGRAPHER','COSTUME DESIGNER','CAMERAMAN') DEFAULT NULL,
   PRIMARY KEY (`movie_id`,`person_id`),
   KEY `person_id` (`person_id`),
@@ -288,9 +291,11 @@ DROP TABLE IF EXISTS `lt_user_watchlist_items`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `lt_user_watchlist_items` (
-  `watchlist_id` int DEFAULT NULL,
-  `movie_id` int DEFAULT NULL,
+  `watchlist_id` int NOT NULL,
+  `movie_id` int NOT NULL,
   `notes` varchar(200) DEFAULT NULL,
+  `date_added` date NOT NULL,
+  PRIMARY KEY (`watchlist_id`,`movie_id`),
   KEY `watchlist_id` (`watchlist_id`),
   KEY `movie_id` (`movie_id`),
   CONSTRAINT `lt_user_watchlist_items_ibfk_1` FOREIGN KEY (`watchlist_id`) REFERENCES `dt_user_watchlist` (`watchlist_id`) ON DELETE CASCADE,
@@ -307,4 +312,4 @@ CREATE TABLE `lt_user_watchlist_items` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-09-14 15:27:24
+-- Dump completed on 2021-09-20 13:44:55

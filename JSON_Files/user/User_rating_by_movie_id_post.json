@@ -1,7 +1,7 @@
 
 {
     "user_id": 1,
-    "movie":
+    "rating":
       {
       "movie_id":1,
       "rating_given":4.5

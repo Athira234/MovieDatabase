@@ -4,30 +4,45 @@
   {
   "watchlist_id":1,
   "watchlist_name":"Friday night chill",
-  "movies":[
+  "items":[
     {
     "movie_id":1,
-    "movie_title":"Dangal"
+    "movie_title":"Dangal",
+    "notes": "watch on friday around 3pm",
+    "date_added": "2021-09-14"
     },
     {
     "movie_id":2,
     "movie_title":"Mission Impossible"
+    "notes": "Recommend to family",
+    "date_added": "2021-09-14"
+
     },
     {
     "movie_id":3,
-    "movie_title":"Shutter Island"
+    "movie_title":"Shutter Island
+    "notes": "Worthy of a blog",
+    "date_added": "2021-09-14"
+
     },
     {
     "movie_id":4,
-    "movie_title":"Top Gun"
+    "movie_title":"Top Gun",
+    "notes": "Recommend to kunal",
+    "date_added": "2021-09-14"
+
     },
     {
     "movie_id":5,
-    "movie_title":"Drishyam"
+    "movie_title":"Drishyam",
+    "notes": "watch this weekend",
+    "date_added": "2021-09-14"
+
     }
     ]
   }
 }
+
 
 
 

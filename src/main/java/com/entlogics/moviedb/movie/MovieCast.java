@@ -26,8 +26,8 @@ public class MovieCast implements Serializable {
 	@JoinColumn(name = "person_id")
 	private Person person;
 
-	@Column(name = "renumeration")
-	private int renumeration;
+	@Column(name = "remuneration")
+	private int remuneration;
 
 	@Column(name = "actor_role")
 	private String actorRole;
@@ -53,13 +53,6 @@ public class MovieCast implements Serializable {
 		this.person = person;
 	}
 
-	public int getRenumeration() {
-		return renumeration;
-	}
-
-	public void setRenumeration(int renumeration) {
-		this.renumeration = renumeration;
-	}
 
 	public String getActorRole() {
 		return actorRole;
@@ -69,10 +62,20 @@ public class MovieCast implements Serializable {
 		this.actorRole = actorRole;
 	}
 
+	public int getRemuneration() {
+		return remuneration;
+	}
+
+	public void setRemuneration(int remuneration) {
+		this.remuneration = remuneration;
+	}
+
 	@Override
 	public String toString() {
-		return "MovieCast [movie=" + movie + ", person=" + person + ", renumeration=" + renumeration + ", actorRole="
+		return "MovieCast [movie=" + movie + ", person=" + person + ", remuneration=" + remuneration + ", actorRole="
 				+ actorRole + "]";
 	}
+
+	
 
 }

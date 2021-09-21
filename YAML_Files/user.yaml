@@ -58,14 +58,14 @@ paths:
                     created_date:
                       type: string
                       format: date
-                      example: 2021-08-12
+                      example: '2021-08-12'
                     created_by:
                       type: string
                       example: admin
                     last_password_change:
                       type: string
                       format: date
-                      example: 2021-09-15
+                      example: '2021-09-15'
                       
                     
         '404':
@@ -627,6 +627,17 @@ components:
                       password :
                         type: string
                         example : mypasswd
+                      created_by:
+                        type: string
+                        example: Admin
+                      created_date:
+                        type: string
+                        format: date
+                        example: '2021-08-14'
+                      last_password_changed:
+                        type: string
+                        format: date
+                        example: '2021-08-19'
                     
                 userview-profile:
                   type: object

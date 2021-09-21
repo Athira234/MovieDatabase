@@ -1,6 +1,9 @@
 openapi: 3.0.0
 servers:
   # Added by API Auto Mocking Plugin
+  # Added by API Auto Mocking Plugin
+  - description: SwaggerHub API Auto Mocking
+    url: https://virtserver.swaggerhub.com/entlogics1111/Movie_db/1.0.0
   - description: SwaggerHub API Auto Mocking
     url: https://virtserver.swaggerhub.com/EntLogics3/Movie_DB/1.0.0
 info:
@@ -14,7 +17,7 @@ info:
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
 
 paths:
-  /genres:
+  /genre:
     get:
       tags:
       - "Genres"
@@ -65,7 +68,7 @@ paths:
 
                   
     
-  /generes/{genre_id}:
+  /genre/{genre_id}:
     put :
       tags:
        - "Genres"
@@ -140,6 +143,36 @@ paths:
                   role:
                      type: string
                      example: Actor 
+                  gender:
+                    type: string
+                    example: Male
+                  email_id:
+                    type: string
+                    format: email
+                    example: tom109@gmail.com
+                  date_of_birth:
+                    type: string
+                    format: date
+                    example: '1980-08-23'
+                  is_alive:
+                    type: boolean
+                    example: true
+                  nationality: 
+                    type: string
+                    example: American
+                  imdb_link:
+                    type: string
+                    example: "https://www.imdb.com/name/nm0000129/?ref_=fn_al_nm_1"
+                  movies:
+                    type: array
+                    items:
+                      properties:
+                        movie_id:
+                          type: integer
+                          example: 1
+                        movie_title:
+                          type: string
+                          example: Mission Impossible
                
        "404":
           description: "Page not found"
@@ -200,10 +233,11 @@ paths:
                   example: tom109@gmail.com
                 date_of_birth:
                   type: string
-                  example : 1962-07-03
+                  format: date
+                  example : '1962-07-03'
                 is_alive :
-                  type : integer
-                  example : 1
+                  type : boolean
+                  example : true
                         
                 nationality :
                   type: string
@@ -240,7 +274,7 @@ paths:
         content:
           application/json :
             schema :
-              $ref: '#/components/schemas/Person'
+              $ref: '#/components/schemas/Person-update'
               
                   
       responses:
@@ -294,11 +328,11 @@ components:
                          example: tom109@gmail.com
                       date_of_birth:
                         type: string
-                        example : 1962-07-03
+                        format: date
+                        example : '1962-07-03'
                       is_alive :
-                        type : integer
-                        example : 1
-                        
+                        type : boolean
+                        example : true
                       nationality :
                         type: string
                         example : American
@@ -307,14 +341,38 @@ components:
                         type: string
                         example : https://www.imdb.com/name/nm0000129/?ref_=fn_al_nm_1
                       
-                      movies :
-                        type : array
-                        items:
-                            properties:
-                              movie_id: 
-                                type: integer
-                                example : 1
-                              movie_name:
-                                type: string
-                                example : Mission Impossible
-                   
+                Person-update:
+                  type: object
+                  properties:
+                      
+                      first_name:
+                         type: string
+                         example: Tom
+                      last_name:
+                         type: string
+                         example: Cruise  
+                      
+                      role :
+                         type: string
+                         example: Actor 
+                      gender :
+                         type: string
+                         example: Male
+                      
+                      email_id:
+                         type: string
+                         example: tom109@gmail.com
+                      date_of_birth:
+                        type: string
+                        format: date
+                        example : '1962-07-03'
+                      is_alive :
+                        type : boolean
+                        example : true
+                      nationality :
+                        type: string
+                        example : American
+                        
+                      imdb_link :
+                        type: string
+                        example : https://www.imdb.com/name/nm0000129/?ref_=fn_al_nm_1  

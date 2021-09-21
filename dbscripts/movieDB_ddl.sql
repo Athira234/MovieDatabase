@@ -104,7 +104,7 @@ CREATE TABLE `dt_person` (
   `email_id` varchar(30) DEFAULT NULL,
   `date_of_birth` date DEFAULT NULL,
   `age` int DEFAULT NULL,
-  `is_alive` tinyint(1) DEFAULT NULL,
+  `date_of_death` date DEFAULT NULL,
   `nationality` varchar(20) DEFAULT NULL,
   `imdb_link` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`person_id`)
@@ -312,4 +312,4 @@ CREATE TABLE `lt_user_watchlist_items` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-09-20 13:44:55
+-- Dump completed on 2021-09-21 13:56:59

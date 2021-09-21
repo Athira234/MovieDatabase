@@ -1,15 +1,28 @@
 [
   {
-    "person_id": 1,
-    "first_name": "Tom",
-    "last_name": "Tom",
-    "role": "Actor"
+  "first_name": "Tom",
+  "last_name": "Tom",
+  "role": "Actor",
+  "gender": "Male",
+  "email_id": "tom101@gmail.com",
+  "date_of_birth": "1962-07-03",
+  "age": 59,
+  "date_of_death": "",
+  "nationality": "American",
+  "imdb_link": "https://www.imdb.com/name/nm0000129/?ref_=fn_al_nm_1"
   },
   {
     "person_id": 2,
     "first_name": "Henry",
     "last_name": "Cavil",
-    "role": "Actor"
+    "role": "Actor",
+    "gender": "Male",
+    "email_id": "tom101@gmail.com",
+    "date_of_birth": "1962-07-03",
+    "age": 59,
+    "date_of_death": "",
+    "nationality": "American",
+    "imdb_link": "https://www.imdb.com/name/nm0000129/?ref_=fn_al_nm_1" 
+
   }
 ]
-// add all person fields

@@ -21,7 +21,7 @@ paths:
     get:
       tags:
       - "Genres"
-      summary: "Get all Genres"
+      summary: "Get all Genre's"
       
       responses:
        "200":
@@ -154,9 +154,10 @@ paths:
                     type: string
                     format: date
                     example: '1980-08-23'
-                  is_alive:
-                    type: boolean
-                    example: true
+                  date_of_death:
+                    type: string
+                    format: date
+                    example: ''
                   nationality: 
                     type: string
                     example: American
@@ -235,9 +236,10 @@ paths:
                   type: string
                   format: date
                   example : '1962-07-03'
-                is_alive :
-                  type : boolean
-                  example : true
+                date_of_death :
+                  type : string
+                  format: date
+                  example : ''
                         
                 nationality :
                   type: string
@@ -330,9 +332,10 @@ components:
                         type: string
                         format: date
                         example : '1962-07-03'
-                      is_alive :
-                        type : boolean
-                        example : true
+                      date_of_death :
+                        type : string
+                        format: date
+                        example : '2021-07-12'
                       nationality :
                         type: string
                         example : American
@@ -366,9 +369,10 @@ components:
                         type: string
                         format: date
                         example : '1962-07-03'
-                      is_alive :
-                        type : boolean
-                        example : true
+                      date_of_death :
+                        type : string
+                        format: date
+                        example : ''
                       nationality :
                         type: string
                         example : American

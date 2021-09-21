@@ -2,13 +2,29 @@ package com.entlogics.moviedb.user;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.entlogics.moviedb.movie.Movie;
 
+@Service
 public class UserService implements IUserService {
+	
+	IUserRepository userRepo;
+	
+	@Autowired
+    public void setUserRepo(IUserRepository userRepo) {
+		this.userRepo = userRepo;
+	}
+
+
+
+	
 	// Method for rating a movie
 	@Override
-	public void rateMovie(UserMovie userMovie) {
+	public void rateMovie(int userId, int movieId) {
 		System.out.println("Inside rateMovie() method in UserService");
+		//userRepo.rateMovie(userId,movieId);
 	}
 
 	// Method for giving feedback for a movie
@@ -19,7 +35,7 @@ public class UserService implements IUserService {
 
 	// Method for adding a movie to watchlist
 	@Override
-	public void addMovieToWatchlist(UserWatchList watchList, Movie movie) {
+	public void addMovieToWatchlist(UserWatchListItems movie) {
 		System.out.println("Inside addMovieToWatchlist() method in UserService");
 	}
 
@@ -67,7 +83,8 @@ public class UserService implements IUserService {
 	@Override
 	public User getProfile(int userId) {
 		System.out.println("Inside  getProfile() method in UserService");
-		return null;
+		User user=userRepo.findProfile(userId);
+		return user;
 	}
 
 	// Method for editing his/her profile

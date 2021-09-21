@@ -6,7 +6,7 @@ import com.entlogics.moviedb.movie.Movie;
 
 public interface IUserRepository {
 	
-	public void rateMovie(int userId,int movieId);
+	public void rateMovie(UserMovie usermovie);
 
 	public void giveMovieFeedback(UserMovie userMovie);
 

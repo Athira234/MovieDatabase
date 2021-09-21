@@ -1,6 +1,7 @@
 package com.entlogics.moviedb.user;
 
 import java.util.ArrayList;
+
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -16,13 +17,31 @@ public class UserRepository implements IUserRepository {
 	EntityManagerFactory factory = Persistence.createEntityManagerFactory("MDB");
 
 	@Override
-	public void rateMovie(int userId, int movieId) {
+	public void rateMovie(UserMovie usermovie) {
 		System.out.println("Inside rateMovie() method in UserRepository");
-
+		int flag = 0;
 		EntityManager entityManager = factory.createEntityManager();
 		entityManager.getTransaction().begin();
-		entityManager.createNativeQuery("INSERT INTO  lt_user_movie(user_id,movie_id,rating_given) VALUES (?,?,?)")
-				.setParameter(1, 3).setParameter(2, 1).setParameter(3, 10).executeUpdate();
+		List<UserMovie> userMovie = entityManager.createNativeQuery("select * from lt_user_movie", UserMovie.class)
+				.getResultList();
+
+		for (UserMovie um : userMovie) {
+			System.out.println(um);
+			if (um != null) {
+				if (um.getUser_id() == 1 && um.getMovie_id() == 6) {
+					flag = 1;
+					break;
+				}
+			}
+		}
+		System.out.println("flag=" + flag);
+		if (flag == 1) {
+			entityManager.createNativeQuery("update lt_user_movie set rating_given= ? where user_id= ? and movie_id= ?",
+					UserMovie.class).setParameter(1, 9).setParameter(2, 1).setParameter(3, 1).executeUpdate();
+		} else {
+			entityManager.createNativeQuery("INSERT INTO  lt_user_movie(user_id,movie_id,rating_given) VALUES (?,?,?)")
+					.setParameter(1, 1).setParameter(2, 6).setParameter(3, 9).executeUpdate();
+		}
 
 		entityManager.getTransaction().commit();
 		entityManager.close();
@@ -31,11 +50,34 @@ public class UserRepository implements IUserRepository {
 	@Override
 	public void giveMovieFeedback(UserMovie userMovie) {
 		System.out.println("Inside giveMovieFeedback() method in UserRepository");
+		int flag = 0;
 		EntityManager entityManager = factory.createEntityManager();
 		entityManager.getTransaction().begin();
-		entityManager.createNativeQuery("INSERT INTO  lt_user_movie(user_id,movie_id,review) VALUES (?,?,?)")
-				.setParameter(1, 4).setParameter(2, 1).setParameter(3, "It is a Horror movie,Nice scripted")
-				.executeUpdate();
+		List<UserMovie> userMovies = entityManager.createNativeQuery("select * from lt_user_movie", UserMovie.class)
+				.getResultList();
+		for (UserMovie um : userMovies) {
+
+			System.out.println(um);
+			if (um != null) {
+				if (um.getUser_id() == 1 && um.getMovie_id() == 4) {
+					flag = 1;
+					break;
+				}
+
+			}
+		}
+		if (flag == 1) {
+			entityManager
+					.createNativeQuery("update lt_user_movie feedback_given= ? where user_id= ? and movie_id= ?",
+							UserMovie.class)
+					.setParameter(1, "It is a Horror movie,Nice scripted").setParameter(2, 1).setParameter(3, 4)
+					.executeUpdate();
+		} else {
+
+			entityManager.createNativeQuery("INSERT INTO  lt_user_movie(user_id,movie_id,review) VALUES (?,?,?)")
+					.setParameter(1, 1).setParameter(2, 4).setParameter(3, "It is a Horror movie,Nice scripted")
+					.executeUpdate();
+		}
 
 		entityManager.getTransaction().commit();
 		entityManager.close();
@@ -49,8 +91,10 @@ public class UserRepository implements IUserRepository {
 		EntityManager entityManager = factory.createEntityManager();
 		entityManager.getTransaction().begin();
 		entityManager
-				.createNativeQuery("INSERT INTO  lt_user_watchlist_items(watchlist_id,movie_id,notes) VALUES (?,?,?)")
-				.setParameter(1, 1).setParameter(2, 1).setParameter(3, "No.1 Watchlist").executeUpdate();
+				.createNativeQuery(
+						"INSERT INTO  lt_user_watchlist_items(watchlist_id,movie_id,notes,date_added) VALUES (?,?,?,?)")
+				.setParameter(1, 1).setParameter(2, 1).setParameter(3, "No.1 Watchlist").setParameter(4, "2021-10-20")
+				.executeUpdate();
 
 		entityManager.getTransaction().commit();
 		entityManager.close();
@@ -176,14 +220,14 @@ public class UserRepository implements IUserRepository {
 		UserRepository repo = new UserRepository();
 		UserMovie us = new UserMovie();
 
-		// repo.rateMovie(1, 1);
+		repo.rateMovie(us);
 		// repo.findProfile(1);
 		// repo.giveMovieFeedback(us);
 		// repo.addMovieToWatchlist(null);
 
 		// repo.addMovieToFavourites(us);
 		// repo.recommendMovie(us);
-		//repo.findWatchList(1);
-		repo.findFavourites(2);
+		// repo.findWatchList(1);
+		// repo.findFavourites(2);
 	}
 }

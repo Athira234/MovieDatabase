@@ -1,11 +1,29 @@
 package com.entlogics.moviedb.user;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+
+@Controller
 public class UserController {
+	
+	IUserService iUserService;
+	
+    @Autowired
+	public void setiUserService(IUserService iUserService) {
+		this.iUserService = iUserService;
+	}
 
 	//Method for rating a movie
-	public String rateMovie()
+    @RequestMapping("/users/{userId}/movies/{movieId}/ratings")
+	public String rateMovieForm(@PathVariable int userId)
 	{
 		System.out.println("Inside rateMovie() method in UserController");
+		//User user=iUserService.getUser();
+		iUserService.rateMovie(1,1);
 		return null;
 	}
 	
@@ -67,11 +85,14 @@ public class UserController {
 	}
 	
 	//Method for viewing his/her profile
-	public String viewProfile()
+	@RequestMapping("/users/{userId}/profile")
+	public String viewProfile(@PathVariable int userId, Model model)
 	{
 		System.out.println("Inside viewProfile method in UserController");
-		return null;
-	}
+		User user = iUserService.getProfile(userId);
+		model.addAttribute("user", user);
+		return "user-profile";
+ 	}
 	
 	
 	//Method for  editing his/her profile

@@ -11,10 +11,10 @@
 			<property name="javax.persistence.jdbc.driver"
 				value="com.mysql.cj.jdbc.Driver" />
 			<property name="javax.persistence.jdbc.url"
-				value="jdbc:mysql://localhost:3306/movie?useSSL=false&amp;allowPublicKeyRetrieval=true" />
-			<property name="javax.persistence.jdbc.user" value="movie" />
+				value="jdbc:mysql://localhost:3306/moviedb?useSSL=false&amp;allowPublicKeyRetrieval=true" />
+			<property name="javax.persistence.jdbc.user" value="moviedb" />
 			<property name="javax.persistence.jdbc.password"
-				value="Movie@1999" />
+				value="moviedb" />
 
 		</properties>
 	</persistence-unit>

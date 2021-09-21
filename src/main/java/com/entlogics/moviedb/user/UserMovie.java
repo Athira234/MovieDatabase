@@ -22,17 +22,12 @@ public class UserMovie implements Serializable {
 		super();
 
 	}
-
-	@Id
-	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH })
-	@JoinColumn(name = "user_id")
-	private User user;
-
-	@Id
-	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH })
-	@JoinColumn(name = "movie_id")
-	private Movie movie;
-
+	@Column(name = "user_id")
+    private int user_id;
+	
+	@Column(name = "movie_id")
+    private int movie_id;
+	
 	@Column(name = "is_watched")
 	private boolean isWatched;
 
@@ -48,6 +43,21 @@ public class UserMovie implements Serializable {
 	@Column(name = "review")
 	private String review;
 
+    
+	
+	@Id
+	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH })
+	@JoinColumn(name = "user_id",referencedColumnName = "user_id", insertable = false, updatable = false)
+	private User user;
+
+	@Id
+	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH })
+	@JoinColumn(name = "movie_id",referencedColumnName = "movie_id", insertable = false, updatable = false)
+	private Movie movie;
+	
+	
+
+	
 	public User getUser() {
 		return user;
 	}
@@ -104,6 +114,23 @@ public class UserMovie implements Serializable {
 		this.review = review;
 	}
 
+	
+	public int getUser_id() {
+		return user_id;
+	}
+
+	public void setUser_id(int user_id) {
+		this.user_id = user_id;
+	}
+
+	public int getMovie_id() {
+		return movie_id;
+	}
+
+	public void setMovie_id(int movie_id) {
+		this.movie_id = movie_id;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -134,6 +161,11 @@ public class UserMovie implements Serializable {
 			return false;
 		return true;
 	}
+	
+
+	
+
+	
 
 	@Override
 	public String toString() {

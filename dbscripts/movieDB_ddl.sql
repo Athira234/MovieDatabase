@@ -276,7 +276,7 @@ CREATE TABLE `lt_user_movie` (
   `is_recommended` tinyint(1) DEFAULT NULL,
   `rating_given` float DEFAULT NULL,
   `review` varchar(200) DEFAULT NULL,
-  PRIMARY KEY (`user_id`,`movie_id`),
+  KEY `user_id` (`user_id`),
   KEY `movie_id` (`movie_id`),
   CONSTRAINT `lt_user_movie_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `dt_user` (`user_id`) ON DELETE CASCADE,
   CONSTRAINT `lt_user_movie_ibfk_2` FOREIGN KEY (`movie_id`) REFERENCES `dt_movie` (`movie_id`) ON DELETE CASCADE
@@ -295,7 +295,6 @@ CREATE TABLE `lt_user_watchlist_items` (
   `movie_id` int NOT NULL,
   `notes` varchar(200) DEFAULT NULL,
   `date_added` date NOT NULL,
-  PRIMARY KEY (`watchlist_id`,`movie_id`),
   KEY `watchlist_id` (`watchlist_id`),
   KEY `movie_id` (`movie_id`),
   CONSTRAINT `lt_user_watchlist_items_ibfk_1` FOREIGN KEY (`watchlist_id`) REFERENCES `dt_user_watchlist` (`watchlist_id`) ON DELETE CASCADE,
@@ -312,4 +311,4 @@ CREATE TABLE `lt_user_watchlist_items` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-09-20 13:44:55
+-- Dump completed on 2021-09-21  9:17:34

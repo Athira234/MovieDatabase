@@ -151,7 +151,7 @@ UNLOCK TABLES;
 
 LOCK TABLES `lt_user_movie` WRITE;
 /*!40000 ALTER TABLE `lt_user_movie` DISABLE KEYS */;
-INSERT INTO `lt_user_movie` VALUES (1,1,1,1,0,8,'Good Movie'),(1,2,1,0,0,8,'Good Movie'),(2,1,1,1,0,8,'Good Movie'),(2,2,1,0,0,8,'Nice Movie');
+INSERT INTO `lt_user_movie` VALUES (1,1,1,1,0,9,'Good Movie'),(1,2,1,0,0,8,'Good Movie'),(1,4,NULL,NULL,NULL,10,NULL),(2,1,1,1,0,8,'Good Movie'),(2,2,1,0,0,8,'Nice Movie'),(1,4,NULL,NULL,NULL,9,NULL),(1,4,NULL,NULL,NULL,9,NULL),(1,6,NULL,NULL,NULL,9,NULL);
 /*!40000 ALTER TABLE `lt_user_movie` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -161,7 +161,7 @@ UNLOCK TABLES;
 
 LOCK TABLES `lt_user_watchlist_items` WRITE;
 /*!40000 ALTER TABLE `lt_user_watchlist_items` DISABLE KEYS */;
-INSERT INTO `lt_user_watchlist_items` VALUES (1,1,'Write a blog abou leonardo cast','2021-09-01'),(2,2,'recommend to friends','2021-09-02'),(3,1,'resume from 1h 30m','2021-09-03');
+INSERT INTO `lt_user_watchlist_items` VALUES (1,1,'Write a blog abou leonardo cast','2021-09-01'),(2,2,'recommend to friends','2021-09-02'),(3,1,'resume from 1h 30m','2021-09-03'),(1,1,'No.1 Watchlist','2021-10-20'),(1,1,'No.1 Watchlist','2021-10-20');
 /*!40000 ALTER TABLE `lt_user_watchlist_items` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -174,4 +174,8 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
+<<<<<<< HEAD:dbscripts/movieDB_dml.sql
 -- Dump completed on 2021-09-21 13:56:32
+=======
+-- Dump completed on 2021-09-21  9:16:22
+>>>>>>> afcb663b50c51e75806a56d65596eed3029a5341:dbscripts/movieDBdml.sql

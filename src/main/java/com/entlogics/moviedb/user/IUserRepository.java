@@ -20,9 +20,9 @@ public interface IUserRepository {
 
 	public List<Movie> findFavourites(int userId);
 
-	public List<UserMovie> findRatings(int userId, int movieId);
+	public List<UserMovie> findRatings(int userId);
 
-	public List<UserMovie> findFeedbacks(int userId, int movieId);
+	public List<UserMovie> findFeedbacks(int userId);
 
 	public User findProfile(int userId);
 

@@ -8,6 +8,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+import org.hibernate.internal.build.AllowSysOut;
 import org.springframework.stereotype.Repository;
 
 import com.entlogics.moviedb.movie.Movie;
@@ -24,23 +25,29 @@ public class UserRepository implements IUserRepository {
 		entityManager.getTransaction().begin();
 		List<UserMovie> userMovie = entityManager.createNativeQuery("select * from lt_user_movie", UserMovie.class)
 				.getResultList();
-
-		for (UserMovie um : userMovie) {
-			System.out.println(um);
-			if (um != null) {
-				if (um.getUser_id() == 1 && um.getMovie_id() == 6) {
+		// iterate each UserMovie object
+		// if the row with particular user_id and movie_id exists ,update the
+		// rating_given else add new row
+		for (UserMovie usermovie1 : userMovie) {
+			System.out.println(usermovie1);
+			if (usermovie != null) {
+				// hard coded values will update when implementing user controller
+				if (usermovie1.getUserId() == 1 && usermovie1.getMovieId() == 1) {
+					usermovie1.setRatingGiven(5);
+					entityManager.merge(usermovie1);
 					flag = 1;
 					break;
 				}
 			}
 		}
+
 		System.out.println("flag=" + flag);
-		if (flag == 1) {
-			entityManager.createNativeQuery("update lt_user_movie set rating_given= ? where user_id= ? and movie_id= ?",
-					UserMovie.class).setParameter(1, 9).setParameter(2, 1).setParameter(3, 1).executeUpdate();
-		} else {
-			entityManager.createNativeQuery("INSERT INTO  lt_user_movie(user_id,movie_id,rating_given) VALUES (?,?,?)")
-					.setParameter(1, 1).setParameter(2, 6).setParameter(3, 9).executeUpdate();
+		if (flag == 0) {
+			usermovie.setMovieId(2);
+			usermovie.setUserId(6);
+			usermovie.setRatingGiven(5);
+			entityManager.persist(usermovie);
+
 		}
 
 		entityManager.getTransaction().commit();
@@ -55,11 +62,11 @@ public class UserRepository implements IUserRepository {
 		entityManager.getTransaction().begin();
 		List<UserMovie> userMovies = entityManager.createNativeQuery("select * from lt_user_movie", UserMovie.class)
 				.getResultList();
-		for (UserMovie um : userMovies) {
+		for(UserMovie um : userMovies) {
 
-			System.out.println(um);
+			System.out.println("UserMovie Details" + um);
 			if (um != null) {
-				if (um.getUser_id() == 1 && um.getMovie_id() == 4) {
+				if (um.getUserId() == 1 && um.getMovieId() == 4) {
 					flag = 1;
 					break;
 				}
@@ -149,26 +156,45 @@ public class UserRepository implements IUserRepository {
 				.createNativeQuery("select * from lt_user_movie where user_id=" + userId, UserMovie.class)
 				.getResultList();
 		List<Movie> movies = new ArrayList<Movie>();
-		for (UserMovie um : userMovie) {
-			if (um.isFavourite() == true) {
-				Movie movie = um.getMovie();
+		for (UserMovie usermovie : userMovie) {
+			if (usermovie.isFavourite() == true) {
+				Movie movie = usermovie.getMovie();
 				movies.add(movie);
 			}
 		}
-		System.out.println(movies);
-
+		System.out.println("favourite movies" + movies);
+		entityManager.close();
 		return movies;
 	}
 
 	@Override
-	public List<UserMovie> findRatings(int userId, int movieId) {
+	public List<UserMovie> findRatings(int userId) {
 		System.out.println("Inside findRatings() method in UserRepository");
-		return null;
+		EntityManager entityManager = factory.createEntityManager();
+		entityManager.getTransaction().begin();
+		// find list of movies rated by the user
+		List<UserMovie> userMovies = entityManager.createNativeQuery(
+				"select * from lt_user_movie where user_id=" + userId + " and rating_given IS NOT NULL",
+				UserMovie.class).getResultList();
+		// print usermovie list
+		System.out.println("usermovies :" + userMovies);
+		entityManager.close();
+		return userMovies;
 	}
 
 	@Override
-	public List<UserMovie> findFeedbacks(int userId, int movieId) {
+	public List<UserMovie> findFeedbacks(int userId) {
 		System.out.println("Inside findFeedbacks() method in UserRepository");
+		EntityManager entityManager = factory.createEntityManager();
+		entityManager.getTransaction().begin();
+		// find list of usermovies
+		List<UserMovie> userMovies = entityManager
+				.createNativeQuery("select * from lt_user_movie where user_id=" + userId + " and review IS NOT NULL",
+						UserMovie.class)
+				.getResultList();
+		// print usermovie list
+		System.out.println("usermovies :" + userMovies);
+		entityManager.close();
 		return null;
 	}
 
@@ -189,6 +215,11 @@ public class UserRepository implements IUserRepository {
 	@Override
 	public void updateProfile(User user) {
 		System.out.println("Inside updateProfile() method in UserRepository");
+		EntityManager entityManager = factory.createEntityManager();
+		entityManager.getTransaction().begin();
+		entityManager.clear();
+		entityManager.merge(user);
+		entityManager.getTransaction().commit();
 
 	}
 
@@ -229,5 +260,6 @@ public class UserRepository implements IUserRepository {
 		// repo.recommendMovie(us);
 		// repo.findWatchList(1);
 		// repo.findFavourites(2);
+		// repo.findRatings(1);
 	}
 }

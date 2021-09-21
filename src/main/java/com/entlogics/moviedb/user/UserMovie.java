@@ -23,10 +23,10 @@ public class UserMovie implements Serializable {
 
 	}
 	@Column(name = "user_id")
-    private int user_id;
+    private int userId;
 	
 	@Column(name = "movie_id")
-    private int movie_id;
+    private int movieId;
 	
 	@Column(name = "is_watched")
 	private boolean isWatched;
@@ -115,57 +115,23 @@ public class UserMovie implements Serializable {
 	}
 
 	
-	public int getUser_id() {
-		return user_id;
-	}
-
-	public void setUser_id(int user_id) {
-		this.user_id = user_id;
-	}
-
-	public int getMovie_id() {
-		return movie_id;
-	}
-
-	public void setMovie_id(int movie_id) {
-		this.movie_id = movie_id;
-	}
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((movie == null) ? 0 : movie.hashCode());
-		result = prime * result + ((user == null) ? 0 : user.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		UserMovie other = (UserMovie) obj;
-		if (movie == null) {
-			if (other.movie != null)
-				return false;
-		} else if (!movie.equals(other.movie))
-			return false;
-		if (user == null) {
-			if (other.user != null)
-				return false;
-		} else if (!user.equals(other.user))
-			return false;
-		return true;
-	}
 	
 
-	
+	public int getUserId() {
+		return userId;
+	}
 
-	
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+
+	public int getMovieId() {
+		return movieId;
+	}
+
+	public void setMovieId(int movieId) {
+		this.movieId = movieId;
+	}
 
 	@Override
 	public String toString() {

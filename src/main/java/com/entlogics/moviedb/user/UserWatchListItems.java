@@ -79,35 +79,6 @@ public class UserWatchListItems implements Serializable {
 				+ ", notes=" + notes + "]";
 	}
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((moviesOfWatchlist == null) ? 0 : moviesOfWatchlist.hashCode());
-		result = prime * result + ((watchlistOfMovie == null) ? 0 : watchlistOfMovie.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		UserWatchListItems other = (UserWatchListItems) obj;
-		if (moviesOfWatchlist == null) {
-			if (other.moviesOfWatchlist != null)
-				return false;
-		} else if (!moviesOfWatchlist.equals(other.moviesOfWatchlist))
-			return false;
-		if (watchlistOfMovie == null) {
-			if (other.watchlistOfMovie != null)
-				return false;
-		} else if (!watchlistOfMovie.equals(other.watchlistOfMovie))
-			return false;
-		return true;
-	}
+	
 
 }

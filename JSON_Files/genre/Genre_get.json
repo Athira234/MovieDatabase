@@ -1,14 +1,17 @@
 [
   {
     "genre_id": 1,
-    "description": "Action"
+    "name": "Fantasy",
+    "description": "something that is produced by the imagination: an idea about doing something that is far removed from normal reality."
   },
   {
     "genre_id": 2,
-    "description": "Adventure"
+    "name": "Adventure",
+    "description": "an undertaking usually involving danger and unknown risks” that is “an exciting or remarkable experience."
   },
   {
     "genre_id": 3,
-    "description": "Fantasy"
+    "name": "Sci-fi",
+    "description": "fiction dealing principally with the impact of actual or imagined science on society or individuals or having a scientific factor as an essential orienting component."
   }
 ]

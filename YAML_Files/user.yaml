@@ -66,6 +66,12 @@ paths:
                       type: string
                       format: date
                       example: '2021-09-15'
+                    gender:
+                      type: string
+                      example: "Male"
+                    profile_image:
+                      type: string
+                      example: " "
                       
                     
         '404':
@@ -103,6 +109,12 @@ paths:
                   type: string
                   format: email
                   example: cathy101@gmail.com
+                gender:
+                  type: string
+                  example: Male
+                profile_image:
+                  type: string
+                  example: " "
                 
                     
       responses:
@@ -166,6 +178,12 @@ paths:
                   type: string
                   format: email
                   example: john101@gmail.com
+                gender:
+                  type: string
+                  example: Male
+                profile_image:
+                  type: string
+                  example: " "
                   
       responses:
         '201':
@@ -273,6 +291,12 @@ paths:
                       type: string
                       format: email
                       example: john101@gmail.com
+                    gender:
+                      type: string
+                      example: Male
+                    profile_image:
+                      type: string
+                      example: " "
                     
       responses:
         '204':
@@ -317,13 +341,13 @@ paths:
                 user_id:
                   type: integer
                   example: 1
-                ratings:
+                rating_given:
                   type: object
                   properties:
                       movie_id: 
                         type: integer
                         example : 1
-                      rating_given:
+                      rating:
                         type: number
                         format: float
                         example : 4.8 
@@ -459,9 +483,13 @@ paths:
                     properties:
                       movie_id: 
                         type: integer
+                      notes:
+                        type: string
                   example:
                     - movie_id: 1
+                      notes: "Watch this friday"
                     - movie_id: 2
+                      notes: "Suggested by athira234"
                        
       responses :
           "201":
@@ -657,6 +685,12 @@ components:
                       email:
                         type: string
                         example: john101@gmail.com
+                      gender:
+                        type: string
+                        example: Male
+                      profile_image:
+                        type: string
+                        example: " "
                       
                                   
                             
@@ -683,6 +717,10 @@ components:
                               review:
                                 type: string
                                 example: "Good storyline"
+                              review_added_date:
+                                type: string
+                                format: date
+                                example: "2021-07-24"
                 
                 
                 
@@ -704,7 +742,7 @@ components:
                               movie_title:
                                 type: string
                                 example: "Mission Impossible:Fallout"
-                              rating_given:
+                              rating:
                                 type: number
                                 format: float 
                                 example: 8.1
@@ -766,12 +804,17 @@ components:
                                 type: integer
                               is_Favourite:
                                 type: boolean
+                              count:
+                                type: integer
                           example:
                             - movie_id: 1
                               is_Favourite: TRUE
+                              count: 3
                             - movie_id: 4
                               is_Favourite: TRUE
+                              count: 2
                             - movie_id: 5
                               is_Favourite: TRUE
                             - movie_id: 3
                               is_Favourite: TRUE
+                              count: 4

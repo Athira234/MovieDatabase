@@ -12,16 +12,15 @@
     "date_added": "2021-09-14"
     },
     {
-    "movie_id":2,
-    "movie_title":"Mission Impossible"
+    "movie_id": 2,
+    "movie_title":"Mission Impossible",
     "notes": "Recommend to family",
     "date_added": "2021-09-14"
-
     },
     {
     "movie_id":3,
-    "movie_title":"Shutter Island
-    "notes": "Worthy of a blog",
+    "movie_title":"Shutter Island",
+    "notes": "Write a blog",
     "date_added": "2021-09-14"
 
     },
@@ -30,14 +29,12 @@
     "movie_title":"Top Gun",
     "notes": "Recommend to kunal",
     "date_added": "2021-09-14"
-
     },
     {
     "movie_id":5,
     "movie_title":"Drishyam",
-    "notes": "watch this weekend",
+    "notes": "Study the setting of suspense",
     "date_added": "2021-09-14"
-
     }
     ]
   }

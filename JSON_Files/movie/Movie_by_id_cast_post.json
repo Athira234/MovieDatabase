@@ -5,7 +5,8 @@
       "person_id": 1,
       "first_name": "Aamir",
       "last_name": "Khan",
-      "renumeration": 300000,
-      "actor_role": "HERO"
+      "remuneration": 300000,
+      "actor_role": "HERO",
+      "character_name": "Mahavir singh phogat"
 }
 }

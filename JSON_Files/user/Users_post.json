@@ -4,5 +4,7 @@
     "first_name": "John",
     "last_name" : "Doe",
     "email": "john11@gmail.com",
+    "gender": "Male",
+    "profile_image": " ",
     "role": "user"
 }

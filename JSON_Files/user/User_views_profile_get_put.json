@@ -5,6 +5,8 @@
     "first_name": "John",
     "last_name" : "Doe",
     "email": "john11@gmail.com",
+    "profile_image": " ",
+    "gender": "Male"
     }
 
 

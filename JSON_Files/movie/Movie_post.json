@@ -3,6 +3,7 @@
   "country_of_origin": "India",
   "movie_poster": "",
   "release_date": "2016-12-23",
+  "release_type": "Simultaneous release",
   "pg_rating": "G",
   "runtime": 124,
   "budget_dollar": 271329,
@@ -19,7 +20,7 @@
 	"genre_id": 3
  }
  ],
-      "language":[
+ "language":[
  {
       "language_id": 1
  },

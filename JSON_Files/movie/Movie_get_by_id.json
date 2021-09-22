@@ -4,6 +4,7 @@
   "country_of_origin": "India",
   "movie_poster": "",
   "release_date": "2016-12-23",
+  "release_type": "Simultaneous release",
   "pg_rating": "G",
   "runtime": 124,
   "budget_dollar": 271329,
@@ -14,11 +15,11 @@
   "genre": [
     {
       "genre_id": 1,
-      "description": "Action"
+      "name": "Action"
     },
     {
       "genre_id": 2,
-      "description": "Sports"
+      "name": "Drama"
     }
   ],
   "language": [

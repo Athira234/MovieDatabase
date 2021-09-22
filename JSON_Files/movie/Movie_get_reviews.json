@@ -5,12 +5,14 @@
     {
       "user_id": 1,
 	"username": "john101",
-      "review": "Good Movie"
+      "review": "Good Movie",
+      "review_added_date": "2021-08-12"
     },
     {
       "user_id": 2,
 	"username": "carl201",
-      "review": "well directed"
+      "review": "well directed",
+      "review_added_date": "2021-08-16"
     }
   ]
 }

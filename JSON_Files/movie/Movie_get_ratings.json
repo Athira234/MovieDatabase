@@ -4,17 +4,17 @@
   "Ratings": [
     {
       "user_id": 1,
-      "rating_given": 8,
+      "rating": 8.0,
 	 "rating_given_date": "2021-07-12"
     },
     {
       "user_id": 2,
-      "rating_given": 9,
+      "rating": 8.5,
       "rating_given_date": "2021-07-08"
     },
     {
       "user_id": 3,
-      "rating_given": 10,
+      "rating": 7.3,
 	 "rating_given_date": "2021-07-08"
 
     }

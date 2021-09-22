@@ -5,6 +5,7 @@
   "last_name":"Doe",
   "email_id":"john101@gmail.com",
   "password":"Flyhigh@45",
-  "created_by": "user"
+  "gender": "Male",
+  "profile_image": " "
   }
   

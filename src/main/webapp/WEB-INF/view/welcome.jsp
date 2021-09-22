@@ -9,6 +9,7 @@
 <body>
 
 Welcome
+<a href="users/1/profile">User Profile</a><br>
 
 </body>
 </html>

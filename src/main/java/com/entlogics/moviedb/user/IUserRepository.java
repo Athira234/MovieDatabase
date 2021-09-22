@@ -6,23 +6,23 @@ import com.entlogics.moviedb.movie.Movie;
 
 public interface IUserRepository {
 	
-	public void rateMovie(int userId,int movieId);
+	public void rateMovie(UserMovie usermovie);
 
 	public void giveMovieFeedback(UserMovie userMovie);
 
-	public void addMovieToWatchlist(UserWatchListItems movie);
+	public void addMovieToWatchlist(int watchlistId,int movieId );
 
 	public void addMovieToFavourites(UserMovie userMovie);
 
 	public void recommendMovie(UserMovie userMovie);
 
-	public List<UserWatchList> findWatchList(int userId);
+	public List<UserWatchListItems> findWatchList(int userId);
 
 	public List<Movie> findFavourites(int userId);
 
-	public List<UserMovie> findRatings(int userId, int movieId);
+	public List<UserMovie> findRatings(int userId);
 
-	public List<UserMovie> findFeedbacks(int userId, int movieId);
+	public List<UserMovie> findFeedbacks(int userId);
 
 	public User findProfile(int userId);
 

@@ -7,7 +7,11 @@
   "email_id": "tom101@gmail.com",
   "date_of_birth": "1962-07-03",
   "age": 59,
+<<<<<<< HEAD
+  "is_alive": 1,                 
+=======
   "date_of_death": "",                 
+>>>>>>> ffd7103506ac3d6459f19584fa740564772c484b
   "nationality": "American",
   "imdb_profile_url": "https://www.imdb.com/name/nm0000129/?ref_=fn_al_nm_1",
   "movies": [

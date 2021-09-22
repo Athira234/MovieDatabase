@@ -1,9 +1,9 @@
 package com.entlogics.moviedb.user;
 
 import java.io.Serializable;
+
 import java.time.LocalDate;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -19,24 +19,26 @@ import com.entlogics.moviedb.movie.Movie;
 @IdClass(UserWatchListItems.class)
 public class UserWatchListItems implements Serializable {
 
-	public UserWatchListItems() {
-		super();
-
-	}
-
+		
 	@Id
-	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH })
-	@JoinColumn(name = "watchlist_id")
+	@Column(name = "watchlist_id")
+	private int watchlistId;
+	@Id
+    @ManyToOne
+	@JoinColumn(name = "watchlist_id",referencedColumnName = "watchlist_id",insertable = false, updatable = false)
 	private UserWatchList watchlistOfMovie;
 
 	@Id
-	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH })
-	@JoinColumn(name = "movie_id")
+	@Column(name = "movie_id")
+	private int movieId;
+	
+	@ManyToOne
+	@JoinColumn(name = "movie_id",referencedColumnName = "movie_id", insertable = false, updatable = false)
 	private Movie moviesOfWatchlist;
 
 	@Column(name = "notes")
 	private String notes;
-	
+
 	@Column(name = "date_added")
 	private LocalDate dateAdded;
 
@@ -63,7 +65,6 @@ public class UserWatchListItems implements Serializable {
 	public void setNotes(String notes) {
 		this.notes = notes;
 	}
-	
 
 	public LocalDate getDateAdded() {
 		return dateAdded;
@@ -72,42 +73,33 @@ public class UserWatchListItems implements Serializable {
 	public void setDateAdded(LocalDate dateAdded) {
 		this.dateAdded = dateAdded;
 	}
+	
+
+	
+
+	public int getWatchlistId() {
+		return watchlistId;
+	}
+
+	public void setWatchlistId(int watchlist_Id) {
+		this.watchlistId = watchlist_Id;
+	}
+
+	public int getMovieId() {
+		return movieId;
+	}
+
+	public void setMovieId(int movieId) {
+		this.movieId = movieId;
+	}
+	
 
 	@Override
 	public String toString() {
-		return "UserWatchListItems [watchlistOfMovie=" + watchlistOfMovie + ", moviesOfWatchlist=" + moviesOfWatchlist
-				+ ", notes=" + notes + "]";
+		return "UserWatchListItems [watchlist_Id=" + watchlistId + ", movieId=" + movieId + ", notes=" + notes
+				+ ", dateAdded=" + dateAdded + "]";
 	}
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((moviesOfWatchlist == null) ? 0 : moviesOfWatchlist.hashCode());
-		result = prime * result + ((watchlistOfMovie == null) ? 0 : watchlistOfMovie.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		UserWatchListItems other = (UserWatchListItems) obj;
-		if (moviesOfWatchlist == null) {
-			if (other.moviesOfWatchlist != null)
-				return false;
-		} else if (!moviesOfWatchlist.equals(other.moviesOfWatchlist))
-			return false;
-		if (watchlistOfMovie == null) {
-			if (other.watchlistOfMovie != null)
-				return false;
-		} else if (!watchlistOfMovie.equals(other.watchlistOfMovie))
-			return false;
-		return true;
-	}
+	
 
 }

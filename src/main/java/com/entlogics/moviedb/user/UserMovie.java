@@ -5,6 +5,9 @@ import java.io.Serializable;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
@@ -15,24 +18,13 @@ import com.entlogics.moviedb.movie.Movie;
 
 @Entity
 @Table(name = "lt_user_movie")
-@IdClass(UserMovie.class)
+//@IdClass(UserMovie.class)
 public class UserMovie implements Serializable {
-
-	public UserMovie() {
-		super();
-
-	}
-
 	@Id
-	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH })
-	@JoinColumn(name = "user_id")
-	private User user;
-
-	@Id
-	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH })
-	@JoinColumn(name = "movie_id")
-	private Movie movie;
-
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id",nullable=false)
+	private Integer id;
+	
 	@Column(name = "is_watched")
 	private boolean isWatched;
 
@@ -47,6 +39,31 @@ public class UserMovie implements Serializable {
 
 	@Column(name = "review")
 	private String review;
+
+	/*
+	 * @Column(name = "user_id") private int userId;
+	 */
+	
+	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH,
+			CascadeType.REFRESH }, fetch = FetchType.LAZY)
+	@JoinColumn(name = "user_id")
+	private User user;
+
+	/*
+	 * @Id
+	 * 
+	 * @Column(name = "movie_id") private int movieId;
+	 */
+	
+	public UserMovie() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH,
+			CascadeType.REFRESH }, fetch = FetchType.LAZY)
+	@JoinColumn(name = "movie_id")
+	private Movie movie;
 
 	public User getUser() {
 		return user;
@@ -104,40 +121,23 @@ public class UserMovie implements Serializable {
 		this.review = review;
 	}
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((movie == null) ? 0 : movie.hashCode());
-		result = prime * result + ((user == null) ? 0 : user.hashCode());
-		return result;
+	public int getId() {
+		return id;
 	}
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		UserMovie other = (UserMovie) obj;
-		if (movie == null) {
-			if (other.movie != null)
-				return false;
-		} else if (!movie.equals(other.movie))
-			return false;
-		if (user == null) {
-			if (other.user != null)
-				return false;
-		} else if (!user.equals(other.user))
-			return false;
-		return true;
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	@Override
 	public String toString() {
-		return "UserMovie [isWatched=" + isWatched + ", isFavourite=" + isFavourite + ", isRecommeded=" + isRecommeded
-				+ ", ratingGiven=" + ratingGiven + ", review=" + review + "]";
+		return "UserMovie [id=" + id + ", isWatched=" + isWatched + ", isFavourite=" + isFavourite + ", isRecommeded="
+				+ isRecommeded + ", ratingGiven=" + ratingGiven + ", review=" + review + "]";
 	}
-}
+
+	
+	}
+
+	
+
+

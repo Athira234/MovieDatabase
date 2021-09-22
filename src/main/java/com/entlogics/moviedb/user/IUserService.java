@@ -6,11 +6,11 @@ import com.entlogics.moviedb.movie.Movie;
 
 public interface IUserService {
 	
-	public void rateMovie(UserMovie userMovie);
+	public void rateMovie(int userId, int movieId);
 
 	public void giveMovieFeedback(UserMovie userMovie);
 
-	public void addMovieToWatchlist(UserWatchList watchList, Movie movie);
+	public void addMovieToWatchlist(UserWatchListItems movie);
 
 	public void addMovieToFavourites(UserMovie userMovie);
 

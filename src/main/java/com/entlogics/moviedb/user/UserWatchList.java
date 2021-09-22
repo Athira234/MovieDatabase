@@ -71,8 +71,9 @@ public class UserWatchList {
 
 	@Override
 	public String toString() {
-		return "UserWatchlist [watchlistId=" + watchlistId + ", watchlistName=" + watchlistName + ", moviesOfWatchlist="
-				+ moviesOfWatchlist + "]";
+		return "UserWatchList [watchlistId=" + watchlistId + ", watchlistName=" + watchlistName + "]";
 	}
+
+
 
 }

@@ -4,9 +4,13 @@
     "username": "John101",
     "first_name": "John",
     "last_name" : "Doe",
+<<<<<<< HEAD
     "email": "john11@gmail.com",
     "profile_image": " ",
     "gender": "Male"
+=======
+    "email": "john11@gmail.com"
+>>>>>>> ee67d429f18847258c898bd1ce76804fe163cca5
     }
 
 

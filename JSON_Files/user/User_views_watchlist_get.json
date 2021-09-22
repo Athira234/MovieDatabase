@@ -12,7 +12,11 @@
     "date_added": "2021-09-14"
     },
     {
+<<<<<<< HEAD
     "movie_id": 2,
+=======
+    "movie_id":2,
+>>>>>>> ee67d429f18847258c898bd1ce76804fe163cca5
     "movie_title":"Mission Impossible",
     "notes": "Recommend to family",
     "date_added": "2021-09-14"
@@ -20,7 +24,11 @@
     {
     "movie_id":3,
     "movie_title":"Shutter Island",
+<<<<<<< HEAD
     "notes": "Write a blog",
+=======
+    "notes": "Worthy of a blog",
+>>>>>>> ee67d429f18847258c898bd1ce76804fe163cca5
     "date_added": "2021-09-14"
 
     },

@@ -5,6 +5,9 @@ import java.io.Serializable;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
@@ -15,10 +18,13 @@ import com.entlogics.moviedb.movie.Movie;
 
 @Entity
 @Table(name = "lt_user_movie")
-@IdClass(UserMovie.class)
+//@IdClass(UserMovie.class)
 public class UserMovie implements Serializable {
-
-				
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id",nullable=false)
+	private Integer id;
+	
 	@Column(name = "is_watched")
 	private boolean isWatched;
 
@@ -34,23 +40,31 @@ public class UserMovie implements Serializable {
 	@Column(name = "review")
 	private String review;
 
-	@Id
-	@Column(name = "user_id")
-    private int userId;	
-	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH })
-	@JoinColumn(name = "user_id",referencedColumnName = "user_id", insertable = false, updatable = false)
+	/*
+	 * @Column(name = "user_id") private int userId;
+	 */
+	
+	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH,
+			CascadeType.REFRESH }, fetch = FetchType.LAZY)
+	@JoinColumn(name = "user_id")
 	private User user;
 
-	@Id
-	@Column(name = "movie_id")
-    private int movieId;
-	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH })
-	@JoinColumn(name = "movie_id",referencedColumnName = "movie_id", insertable = false, updatable = false)
-	private Movie movie;
+	/*
+	 * @Id
+	 * 
+	 * @Column(name = "movie_id") private int movieId;
+	 */
 	
-	
+	public UserMovie() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
-	
+	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH,
+			CascadeType.REFRESH }, fetch = FetchType.LAZY)
+	@JoinColumn(name = "movie_id")
+	private Movie movie;
+
 	public User getUser() {
 		return user;
 	}
@@ -107,28 +121,23 @@ public class UserMovie implements Serializable {
 		this.review = review;
 	}
 
-	
-	
-
-	public int getUserId() {
-		return userId;
+	public int getId() {
+		return id;
 	}
 
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
-
-	public int getMovieId() {
-		return movieId;
-	}
-
-	public void setMovieId(int movieId) {
-		this.movieId = movieId;
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	@Override
 	public String toString() {
-		return "UserMovie [isWatched=" + isWatched + ", isFavourite=" + isFavourite + ", isRecommeded=" + isRecommeded
-				+ ", ratingGiven=" + ratingGiven + ", review=" + review + "]";
+		return "UserMovie [id=" + id + ", isWatched=" + isWatched + ", isFavourite=" + isFavourite + ", isRecommeded="
+				+ isRecommeded + ", ratingGiven=" + ratingGiven + ", review=" + review + "]";
 	}
-}
+
+	
+	}
+
+	
+
+

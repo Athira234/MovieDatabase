@@ -10,13 +10,13 @@ public interface IUserRepository {
 
 	public void giveMovieFeedback(UserMovie userMovie);
 
-	public void addMovieToWatchlist(UserWatchListItems movie);
+	public void addMovieToWatchlist(int watchlistId,int movieId );
 
 	public void addMovieToFavourites(UserMovie userMovie);
 
 	public void recommendMovie(UserMovie userMovie);
 
-	public List<UserWatchList> findWatchList(int userId);
+	public List<UserWatchListItems> findWatchList(int userId);
 
 	public List<Movie> findFavourites(int userId);
 

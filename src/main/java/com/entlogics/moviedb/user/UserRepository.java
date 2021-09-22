@@ -32,7 +32,7 @@ public class UserRepository implements IUserRepository {
 			System.out.println(usermovie1);
 			if (usermovie != null) {
 				// hard coded values will update when implementing user controller
-				if (usermovie1.getUserId() == 1 && usermovie1.getMovieId() == 1) {
+				if (usermovie1.getUserId() == 1 && usermovie1.getMovieId() == 7) {
 					usermovie1.setRatingGiven(5);
 					entityManager.merge(usermovie1);
 					flag = 1;
@@ -61,12 +61,12 @@ public class UserRepository implements IUserRepository {
 		EntityManager entityManager = factory.createEntityManager();
 		entityManager.getTransaction().begin();
 		List<UserMovie> userMovies = entityManager.createNativeQuery("select * from lt_user_movie", UserMovie.class)
-				.getResultList();
-		for(UserMovie um : userMovies) {
+    	.getResultList();
+		for(UserMovie usermovie : userMovies) {
 
-			System.out.println("UserMovie Details" + um);
-			if (um != null) {
-				if (um.getUserId() == 1 && um.getMovieId() == 4) {
+			System.out.println("UserMovie Details" +  usermovie);
+			if ( usermovie != null) {
+				if ( usermovie.getUserId() == 1 &&  usermovie.getMovieId() == 4) {
 					flag = 1;
 					break;
 				}
@@ -92,16 +92,21 @@ public class UserRepository implements IUserRepository {
 	}
 
 	@Override
-	public void addMovieToWatchlist(UserWatchListItems movie) {
+	public void addMovieToWatchlist(int watchlistId,int movieId ) {
 		System.out.println("Inside addMovieToWatchlist() method in UserRepository");
 
 		EntityManager entityManager = factory.createEntityManager();
 		entityManager.getTransaction().begin();
-		entityManager
+		UserWatchListItems item=new UserWatchListItems();
+		item.setMovieId(movieId);
+		item.setWatchlistId(watchlistId);
+	
+		entityManager.persist(item);
+		/*entityManager
 				.createNativeQuery(
 						"INSERT INTO  lt_user_watchlist_items(watchlist_id,movie_id,notes,date_added) VALUES (?,?,?,?)")
 				.setParameter(1, 1).setParameter(2, 1).setParameter(3, "No.1 Watchlist").setParameter(4, "2021-10-20")
-				.executeUpdate();
+				.executeUpdate();*/
 
 		entityManager.getTransaction().commit();
 		entityManager.close();
@@ -133,18 +138,20 @@ public class UserRepository implements IUserRepository {
 	}
 
 	@Override
-	public List<UserWatchList> findWatchList(int userId) {
+	public List<UserWatchListItems> findWatchList(int watchlistId) {
 		System.out.println("Inside findWatchList() method in UserRepository");
 		EntityManager entityManager = factory.createEntityManager();
 		entityManager.getTransaction().begin();
-
-		List<UserWatchList> userWatchlists = entityManager
-				.createNativeQuery("select * from dt_user_watchlist where user_id=" + userId, UserWatchList.class)
+        //find movies in watchlist of a user
+		List<UserWatchListItems> userWatchlistsItems = entityManager
+				.createNativeQuery("select * from lt_user_watchlist_items where watchlist_id=" + watchlistId, UserWatchListItems.class)
 				.getResultList();
-		System.out.println(userWatchlists);
+		System.out.println("watchListItems"+userWatchlistsItems);
+		
+		
 		entityManager.getTransaction().commit();
 		entityManager.close();
-		return userWatchlists;
+		return userWatchlistsItems;
 	}
 
 	@Override
@@ -254,11 +261,11 @@ public class UserRepository implements IUserRepository {
 		repo.rateMovie(us);
 		// repo.findProfile(1);
 		// repo.giveMovieFeedback(us);
-		// repo.addMovieToWatchlist(null);
+		// repo.addMovieToWatchlist(1,4);
 
 		// repo.addMovieToFavourites(us);
 		// repo.recommendMovie(us);
-		// repo.findWatchList(1);
+		//repo.findWatchList(1);
 		// repo.findFavourites(2);
 		// repo.findRatings(1);
 	}

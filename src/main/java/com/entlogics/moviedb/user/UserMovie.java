@@ -18,16 +18,7 @@ import com.entlogics.moviedb.movie.Movie;
 @IdClass(UserMovie.class)
 public class UserMovie implements Serializable {
 
-	public UserMovie() {
-		super();
-
-	}
-	@Column(name = "user_id")
-    private int userId;
-	
-	@Column(name = "movie_id")
-    private int movieId;
-	
+				
 	@Column(name = "is_watched")
 	private boolean isWatched;
 
@@ -43,14 +34,16 @@ public class UserMovie implements Serializable {
 	@Column(name = "review")
 	private String review;
 
-    
-	
 	@Id
+	@Column(name = "user_id")
+    private int userId;	
 	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH })
 	@JoinColumn(name = "user_id",referencedColumnName = "user_id", insertable = false, updatable = false)
 	private User user;
 
 	@Id
+	@Column(name = "movie_id")
+    private int movieId;
 	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH })
 	@JoinColumn(name = "movie_id",referencedColumnName = "movie_id", insertable = false, updatable = false)
 	private Movie movie;

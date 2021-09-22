@@ -654,17 +654,25 @@ components:
                               rating_given:
                                 type: number
                                 format: float 
+                              rating_given_date:
+                                type: string
+                                format: date
                           example:
                             - user_id: 1
                               rating_given: 7.8
+                              rating_given_date: '2021-08-12'
                             - user_id: 2
                               rating_given: 8.3
+                              rating_given_date: '2021-08-13'
                             - user_id: 40
                               rating_given: 7.1
+                              rating_given_date: '2021-08-14'
                             - user_id: 31
                               rating_given: 8.4
+                              rating_given_date: '2021-08-15'
                             - user_id: 150
                               rating_given: 8.1
+                              rating_given_date: '2021-08-16'
                 
                 movie-cast :
                       type: object

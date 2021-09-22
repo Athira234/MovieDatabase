@@ -5,31 +5,55 @@
     "movie_id":1,
     "movie_title":"Dangal",
     "rating_given":7.0,
+<<<<<<< HEAD
     "rating_given_date" :09-12-2021
+=======
+    "rating_given_date": "2021-07-08"
+
+>>>>>>> 4f2a62153ffd79bce8af11f1f811b9caf5cf319d
     },
     {
     "movie_id":2,
     "movie_title":"Mission Impossible:Fallout",
     "rating_given":8.0,
+<<<<<<< HEAD
     "rating_given_date" :09-12-2021
+=======
+    "rating_given_date": "2021-07-08"
+
+>>>>>>> 4f2a62153ffd79bce8af11f1f811b9caf5cf319d
     },
     {
     "movie_id":3,
     "movie_title":"Shutter Island",
     "rating_given":8.7,
+<<<<<<< HEAD
     "rating_given_date" :09-12-2021
+=======
+    rating_given_date": "2021-07-08"
+
+>>>>>>> 4f2a62153ffd79bce8af11f1f811b9caf5cf319d
     },
     {
     "movie_id":4,
     "movie_title":"Top Gun",
     "rating_given":8.3,
+<<<<<<< HEAD
      "rating_given_date" :09-12-2021
+=======
+     rating_given_date": "2021-07-08"
+
+>>>>>>> 4f2a62153ffd79bce8af11f1f811b9caf5cf319d
     },
     {
     "movie_id":5,
     "movie_title":"Drishyam",
     "rating_given":7.6,
+<<<<<<< HEAD
      "rating_given_date" :09-12-2021
+=======
+    rating_given_date": "2021-07-08"
+>>>>>>> 4f2a62153ffd79bce8af11f1f811b9caf5cf319d
     }
     ]
   }

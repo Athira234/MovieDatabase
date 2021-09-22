@@ -213,7 +213,7 @@ paths:
                       
       responses:
         '204':
-          description: succesfully updated a user details
+          description: succesfully updated a users password details
   
         
         
@@ -708,6 +708,10 @@ components:
                                 type: number
                                 format: float 
                                 example: 8.1
+                              rating_given_date:
+                                type: string
+                                format: date
+                                example: '2021-06-21'
                 
                 userview-watchlist_items :
                       type: object

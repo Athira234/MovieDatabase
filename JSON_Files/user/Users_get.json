@@ -10,7 +10,9 @@
     "role": "user",
     "created_by": "admin",
     "created_date":"2021-08-01",
-    "last_password_change": "2021-09-15" 
+    "last_password_change": "2021-09-15",
+    "gender": "Male",
+    "profile_image": " " 
   },
   {
     "user_id": 2,
@@ -21,7 +23,9 @@
     "role": "admin",
     "created_date": "2021-08-02",
     "created_by": "user",
-    "last_password_change": "2021-09-15" 
+    "last_password_change": "2021-09-15",
+    "gender": "Male",
+    "profile_image": " " 
   }
   ]
 }

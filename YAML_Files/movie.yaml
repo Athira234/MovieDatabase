@@ -95,6 +95,9 @@ paths:
                     type : string
                     format: date
                     example : '2021-09-12'
+                release_type:
+                  type: string
+                  example: Standard release
                 pg_rating :
                     type: string
                     example : "G"
@@ -190,6 +193,9 @@ paths:
                       type : string
                       format: date
                       example: '2021-09-12'
+                    release_type:
+                      type: string
+                      example: Simultaneous release
                     pg_rating :
                       type: string
                       example : "G"
@@ -340,9 +346,12 @@ paths:
                         actor_role:
                           type: string
                           example: HERO
+                        character_name:
+                          type: string
+                          example: Mahavir Singh Phogat
                        
       responses:
-        '204':
+        '201':
           description: succesfully posted a cast member for a movie
           
           
@@ -412,7 +421,7 @@ paths:
                           example: Cinematographer
                       
       responses:
-        '204':
+        '201':
           description: succesfully posted a crew member for a movie
           
           
@@ -482,6 +491,9 @@ components:
                           type : string
                           format: date
                           example : 2021-09-12
+                        release_type:
+                          type: string
+                          example: Simultaneous release
                         pg_rating :
                           type: string
                           example : "G"
@@ -508,7 +520,7 @@ components:
                           type: array
                           items:
                             properties:
-                              description:
+                              name:
                                 type: string
                           example:
                             - Action
@@ -552,6 +564,9 @@ components:
                           type : string
                           format: date
                           example : 2021-09-12
+                        release_type:
+                          type: string
+                          example: Standard release
                         pg_rating :
                           type: string
                           example : "G"
@@ -578,30 +593,43 @@ components:
                           type: array
                           items:
                             properties:
-                              description:
+                              genre_id:
+                                type: integer
+                              name:
                                 type: string
                           example:
-                            - description: Action
-                            - description: Drama
+                            - genre_id: 1
+                              name: Action
+                            - genre_id: 2
+                              name: Thriller
                         language:
                           type: array
                           items:
                             properties:
+                              language_id:
+                                type: integer
                               language:
                                 type: string
                           example:
-                            - language: Hindi
-                            - language: English
-                            - language: Marathi
+                            - language_id: 1 
+                              language: Hindi
+                            - language_id: 2   
+                              language: English
+                            - language_id: 3
+                              language: Marathi
                         company:
                           type: array
                           items:
-                            properties:
+                            properties: 
+                              company_id:
+                                type: integer
                               company_name:
                                 type: string
                           example:
-                            - company_name: Walt Disney pictures
-                            - company_name: Aamir khan productions
+                            - company_id: 2
+                              company_name: Walt disney pictures
+                            - company_id: 34
+                              company_name: Aamir khan productions
                             
                 movie-review:
                       type: object
@@ -622,19 +650,26 @@ components:
                                 type: string
                               review:
                                 type: string
+                              review_added_date:
+                                type: string
+                                format: date
                           example:
                             - userid: 11
                               username: shivam11
                               review: Total action packed movie, overall a great watch !
+                              review_added_date: '2021-05-02'
                             - userid: 22
                               username: baba22
                               review: Great storyline !
+                              review_added_date: '2021-05-04'
                             - userid: 33
                               username: cugs33
                               review: A must watch !
+                              review_added_date: '2021-05-11'
                             - userid: 44
                               username: redcolie44
                               review: Well directed !
+                              review_added_date: '2021-05-23'
                               
                 movie-ratings:
                       type: object
@@ -651,7 +686,7 @@ components:
                             properties:
                               user_id:
                                 type: integer
-                              rating_given:
+                              rating:
                                 type: number
                                 format: float 
                               rating_given_date:
@@ -659,19 +694,19 @@ components:
                                 format: date
                           example:
                             - user_id: 1
-                              rating_given: 7.8
+                              rating: 7.8
                               rating_given_date: '2021-08-12'
                             - user_id: 2
-                              rating_given: 8.3
+                              rating: 8.3
                               rating_given_date: '2021-08-13'
                             - user_id: 40
-                              rating_given: 7.1
+                              rating: 7.1
                               rating_given_date: '2021-08-14'
                             - user_id: 31
-                              rating_given: 8.4
+                              rating: 8.4
                               rating_given_date: '2021-08-15'
                             - user_id: 150
-                              rating_given: 8.1
+                              rating: 8.1
                               rating_given_date: '2021-08-16'
                 
                 movie-cast :
@@ -697,27 +732,33 @@ components:
                                 type: number
                               actor_role:
                                 type: string
+                              character_role:
+                                type: string
                           example:
                             - person_id: 1
                               first_name: Leonardo
                               last_name: Di Caprio
-                              renumeration: 650000
+                              remuneration: 650000
                               actor_role: Hero
+                              character_role: Teddy Daniels
                             - person_id: 45
                               first_name: Mark
                               last_name: Ruffalo
-                              renumeration: 560000
+                              remuneration: 560000
                               actor_role: supporting
+                              character_role: Chuck Aule
                             - person_id: 28
                               first_name: Ben
                               last_name: Kingsley
-                              renumeration: 432000
+                              remuneration: 432000
                               actor_role: Villain
+                              character_role: Dr. John Cawley
                             - person_id: 1
                               first_name: Patricia
                               last_name: Clarkson
-                              renumeration: 380000
+                              remuneration: 380000
                               actor_role: Heroine
+                              character_role: Rachel Solando
                               
                               
                 movie-crew:

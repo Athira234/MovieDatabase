@@ -5,27 +5,35 @@
     {
     "movie_id":1,
     "movie_title":"Dangal",
-    "review":"An exciting film."
+    "review":"An exciting film.",
+    "review_added_date": "2021-09-08"
     },
     {
     "movie_id":2,
     "movie_title":"Mission Impossible:Fallout",
-    "review":"Good storyline."
+    "review":"Good storyline.",
+    "review_added_date": "2021-09-08"
+
     },
     {
     "movie_id":3,
     "movie_title":"Shutter Island",
-    "review":"The climax is thrilling."
+    "review":"The climax is thrilling.",
+    "review_added_date": "2021-09-08"
+
     },
     {
     "movie_id":4,
     "movie_title":"Top gun",
-    "review":"All cast and crew did a fantastic job. "
+    "review":"All cast and crew did a fantastic job. ",
+    "review_added_date": "2021-09-08"
     },
     {
     "movie_id":5,
     "movie_title":"Drishyam",
-    "review":"The cast could have done better,but overall a nice movie to binge for a few hours."
+    "review":"The cast could have done better,but overall a nice movie to binge for a few hours.",
+    "review_added_date": "2021-09-08"
+
     }
     ]
 }

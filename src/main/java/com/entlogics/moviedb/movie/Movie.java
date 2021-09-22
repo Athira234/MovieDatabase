@@ -28,7 +28,7 @@ public class Movie {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "movie_id", nullable = false)
+	@Column(name = "movie_id", nullable = false,updatable=false)
 	private int movieId;
 
 	@Column(name = "movie_title")
@@ -87,8 +87,8 @@ public class Movie {
 	List<UserMovie> usersOfMovie;
 
 
-	@OneToMany(mappedBy = "moviesOfWatchlist", cascade = CascadeType.ALL)
-	private List<UserWatchListItems> watchlistOfMovie;
+//	@OneToMany(mappedBy = "moviesOfWatchlist", cascade = CascadeType.ALL)
+	//private List<UserWatchListItems> watchlistOfMovie;
 
 
 

@@ -19,22 +19,21 @@ import com.entlogics.moviedb.movie.Movie;
 @IdClass(UserWatchListItems.class)
 public class UserWatchListItems implements Serializable {
 
-		
 	@Id
 	@Column(name = "watchlist_id")
 	private int watchlistId;
-	@Id
-    @ManyToOne
-	@JoinColumn(name = "watchlist_id",referencedColumnName = "watchlist_id",insertable = false, updatable = false)
-	private UserWatchList watchlistOfMovie;
+
+	/*@ManyToOne
+	@JoinColumn(name = "watchlist_id", referencedColumnName = "watchlist_id", insertable = false, updatable = false)
+	private UserWatchList watchlistOfMovie;*/
 
 	@Id
 	@Column(name = "movie_id")
 	private int movieId;
-	
-	@ManyToOne
-	@JoinColumn(name = "movie_id",referencedColumnName = "movie_id", insertable = false, updatable = false)
-	private Movie moviesOfWatchlist;
+
+	/*@ManyToOne
+	@JoinColumn(name = "movie_id", referencedColumnName = "movie_id", insertable = false, updatable = false)
+	private Movie moviesOfWatchlist;*/
 
 	@Column(name = "notes")
 	private String notes;
@@ -42,11 +41,11 @@ public class UserWatchListItems implements Serializable {
 	@Column(name = "date_added")
 	private LocalDate dateAdded;
 
-	public UserWatchList getWatchlistOfMovie() {
+	/*public UserWatchList getWatchlistOfMovie() {
 		return watchlistOfMovie;
-	}
+	}*/
 
-	public void setWatchlistOfMovie(UserWatchList watchlistOfMovie) {
+	/*public void setWatchlistOfMovie(UserWatchList watchlistOfMovie) {
 		this.watchlistOfMovie = watchlistOfMovie;
 	}
 
@@ -56,7 +55,7 @@ public class UserWatchListItems implements Serializable {
 
 	public void setMoviesOfWatchlist(Movie moviesOfWatchlist) {
 		this.moviesOfWatchlist = moviesOfWatchlist;
-	}
+	}*/
 
 	public String getNotes() {
 		return notes;
@@ -73,9 +72,6 @@ public class UserWatchListItems implements Serializable {
 	public void setDateAdded(LocalDate dateAdded) {
 		this.dateAdded = dateAdded;
 	}
-	
-
-	
 
 	public int getWatchlistId() {
 		return watchlistId;
@@ -92,14 +88,11 @@ public class UserWatchListItems implements Serializable {
 	public void setMovieId(int movieId) {
 		this.movieId = movieId;
 	}
-	
 
 	@Override
 	public String toString() {
 		return "UserWatchListItems [watchlist_Id=" + watchlistId + ", movieId=" + movieId + ", notes=" + notes
 				+ ", dateAdded=" + dateAdded + "]";
 	}
-
-	
 
 }

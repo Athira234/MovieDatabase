@@ -10,7 +10,6 @@ public class WelcomeController {
 	@RequestMapping("/")
 	public String welcome() {
 		System.out.println("Inside Welcome method");
-
 		return "welcome";
 	}
 }

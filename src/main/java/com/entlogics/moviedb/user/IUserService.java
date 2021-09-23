@@ -2,8 +2,10 @@ package com.entlogics.moviedb.user;
 
 import java.util.List;
 
-import com.entlogics.moviedb.movie.Movie;
+import org.springframework.stereotype.Service;
 
+import com.entlogics.moviedb.movie.Movie;
+@Service
 public interface IUserService {
 	
 	public void rateMovie(UserMovie userMovie);

@@ -9,7 +9,7 @@ servers:
 info:
   description: This is a simple API
   version: "1.0.0"
-  title: Movie API
+  title: Person & Genre API
   contact:
     email: athira@entlogics.com
   license:
@@ -36,9 +36,12 @@ paths:
                   genre_id:
                     type: integer
                     example: 1
-                  description:
+                  name:
                      type: string
-                     example: Action
+                     example: Adventure
+                  description:
+                    type: string
+                    example: an undertaking usually involving danger and unknown risks that is an exciting or remarkable experience.
        "404":
           description: "Page not found"
         
@@ -53,14 +56,17 @@ paths:
             schema :
               type: object
               properties:
-                  description :
+                  name :
                     type : string
-                    example : Adventure
+                    example : Sci-fi
+                  description:
+                    type: string
+                    example: fiction dealing principally with the impact of actual or imagined science on society or individuals or having a scientific factor as an essential orienting component.
                  
               
               
       responses :
-          "200":
+          "201":
              description: "successful operation"
        
           
@@ -87,9 +93,12 @@ paths:
             schema :
               type: object
               properties :
-                 description :
+                name :
                     type : string
-                    example : Drama
+                    example : Fantasy
+                description:
+                    type: string
+                    example: Something that is produced by the imagination an idea about doing something that is far removed from normal reality
                   
       responses:
        "204":
@@ -124,7 +133,6 @@ paths:
       responses:
        "200":
           description: "successful operation"
-        
           content: 
             application/json:
              schema:
@@ -161,7 +169,7 @@ paths:
                   nationality: 
                     type: string
                     example: American
-                  imdb_link:
+                  imdb_profile_url:
                     type: string
                     example: "https://www.imdb.com/name/nm0000129/?ref_=fn_al_nm_1"
                   movies:
@@ -245,7 +253,7 @@ paths:
                   type: string
                   example : American
                         
-                imdb_link :
+                imdb_profile_url :
                   type: string
                   example : https://www.imdb.com/name/nm0000129/?ref_=fn_al_nm_1
                       
@@ -313,10 +321,10 @@ components:
                       
                       first_name:
                          type: string
-                         example: Tom
+                         example: Bruce
                       last_name:
                          type: string
-                         example: Cruise  
+                         example: Lee
                       
                       role :
                          type: string
@@ -335,12 +343,12 @@ components:
                       date_of_death :
                         type : string
                         format: date
-                        example : '2021-07-12'
+                        example : '1999-07-12'
                       nationality :
                         type: string
                         example : American
                         
-                      imdb_link :
+                      imdb_profile_url :
                         type: string
                         example : https://www.imdb.com/name/nm0000129/?ref_=fn_al_nm_1
                       
@@ -377,6 +385,6 @@ components:
                         type: string
                         example : American
                         
-                      imdb_link :
+                      imdb_profile_url :
                         type: string
-                        example : https://www.imdb.com/name/nm0000129/?ref_=fn_al_nm_1  
+                        example : https://www.imdb.com/name/nm0000129/?ref_=fn_al_nm_1

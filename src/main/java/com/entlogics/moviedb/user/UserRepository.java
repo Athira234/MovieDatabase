@@ -2,7 +2,6 @@ package com.entlogics.moviedb.user;
 
 import java.util.ArrayList;
 
-
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -10,6 +9,8 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 import org.hibernate.internal.build.AllowSysOut;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 import com.entlogics.moviedb.movie.Movie;
@@ -38,39 +39,31 @@ public class UserRepository implements IUserRepository {
 				Movie movie1 = usermovie1.getMovie();
 				User user1 = usermovie1.getUser();
 				// hard coded values will update when implementing user controller
-				if (user1.getUserId() == 1 && movie1.getMovieId() == 7) {
+				if (user1.getUserId() == 1 && movie1.getMovieId() == 8) {
 					System.out.println("update existing row");
-					id = usermovie1.getId();
-					/*
-					 * usermovie1.setRatingGiven(6); entityManager.merge(usermovie1);
-					 * entityManager.getTransaction().commit();
-					 */
+					// id = usermovie1.getId();
+					entityManager.getTransaction().begin();
+					usermovie1.setRatingGiven(6);
+					entityManager.merge(usermovie1);
+					entityManager.getTransaction().commit();
+
 					flag = 1;
 					break;
 				}
 			}
 		}
-		System.out.println("id=" + id);
-		System.out.println("flag=" + flag);
-		if (flag == 1) {
-			entityManager.getTransaction().begin();
-			usermovie = entityManager.find(UserMovie.class, id);
-			usermovie.setRatingGiven(4);
-			entityManager.merge(usermovie);
-			entityManager.getTransaction().commit();
 
-		}
 		System.out.println("flag=" + flag);
 		if (flag == 0) {
 			entityManager.getTransaction().begin();
 			// user and movie object will add to usermovie when implementing controllers
-			Movie movie = entityManager.find(Movie.class, 7);
+			Movie movie = entityManager.find(Movie.class, 8);
 			User user = entityManager.find(User.class, 1);
 			System.out.println("user" + user);
 			usermovie.setMovie(movie);
 			usermovie.setUser(user);
 			usermovie.setRatingGiven(5);
-			usermovie.setReview("");
+			// usermovie.setReview("");
 			entityManager.persist(usermovie);
 			entityManager.getTransaction().commit();
 		}
@@ -98,30 +91,23 @@ public class UserRepository implements IUserRepository {
 				Movie movie1 = usermovie1.getMovie();
 				User user1 = usermovie1.getUser();
 				// hard coded values will update when implementing user controller
-				if (user1.getUserId() == 1 && movie1.getMovieId() == 7) {
+				if (user1.getUserId() == 1 && movie1.getMovieId() == 1) {
 					System.out.println("update existing row");
-					id = usermovie1.getId();
+					entityManager.getTransaction().begin();
+					usermovie1.setReview("good movie,must watch");
+					entityManager.merge(usermovie1);
+					entityManager.getTransaction().commit();
 					flag = 1;
 					break;
 				}
 			}
 		}
-		System.out.println("id=" + id);
-		System.out.println("flag=" + flag);
-		if (flag == 1) {
-			entityManager.getTransaction().begin();
-			userMovie = entityManager.find(UserMovie.class, id);
-			System.out.println("usermovie details" + userMovie);
-			userMovie.setReview("good movie,must watch");
-			entityManager.merge(userMovie);
-			entityManager.getTransaction().commit();
 
-		}
 		System.out.println("flag=" + flag);
 		if (flag == 0) {
 			entityManager.getTransaction().begin();
 			// user and movie object will add to usermovie when implementing controllers
-			Movie movie = entityManager.find(Movie.class, 7);
+			Movie movie = entityManager.find(Movie.class, 1);
 			User user = entityManager.find(User.class, 1);
 			System.out.println("user" + user);
 			userMovie.setMovie(movie);
@@ -178,24 +164,18 @@ public class UserRepository implements IUserRepository {
 				Movie movie1 = usermovie1.getMovie();
 				User user1 = usermovie1.getUser();
 				// hard coded values will update when implementing user controller
-				if (user1.getUserId() == 1 && movie1.getMovieId() == 7) {
+				if (user1.getUserId() == 1 && movie1.getMovieId() == 8) {
 					System.out.println("update existing row");
-					id = usermovie1.getId();
+					entityManager.getTransaction().begin();
+					usermovie1.setFavourite(true);
+					entityManager.merge(usermovie1);
+					entityManager.getTransaction().commit();
 					flag = 1;
 					break;
 				}
 			}
 		}
-		System.out.println("id=" + id);
-		System.out.println("flag=" + flag);
-		if (flag == 1) {
-			entityManager.getTransaction().begin();
-			userMovie = entityManager.find(UserMovie.class, id);
-			userMovie.setFavourite(true);
-			entityManager.merge(userMovie);
-			entityManager.getTransaction().commit();
 
-		}
 		System.out.println("flag=" + flag);
 		if (flag == 0) {
 			entityManager.getTransaction().begin();
@@ -233,24 +213,18 @@ public class UserRepository implements IUserRepository {
 				Movie movie1 = usermovie1.getMovie();
 				User user1 = usermovie1.getUser();
 				// hard coded values will update when implementing user controller
-				if (user1.getUserId() == 1 && movie1.getMovieId() == 7) {
+				if (user1.getUserId() == 1 && movie1.getMovieId() == 8) {
 					System.out.println("update existing row");
-					id = usermovie1.getId();
+					entityManager.getTransaction().begin();
+					usermovie1.setRecommeded(true);
+					entityManager.merge(usermovie1);
+					entityManager.getTransaction().commit();
 					flag = 1;
 					break;
 				}
 			}
 		}
-		System.out.println("id=" + id);
-		System.out.println("flag=" + flag);
-		if (flag == 1) {
-			entityManager.getTransaction().begin();
-			userMovie = entityManager.find(UserMovie.class, id);
-			userMovie.setRecommeded(true);
-			entityManager.merge(userMovie);
-			entityManager.getTransaction().commit();
 
-		}
 		System.out.println("flag=" + flag);
 		if (flag == 0) {
 			entityManager.getTransaction().begin();
@@ -355,11 +329,15 @@ public class UserRepository implements IUserRepository {
 	public void updateProfile(User user) {
 		System.out.println("Inside updateProfile() method in UserRepository");
 		EntityManager entityManager = factory.createEntityManager();
-		entityManager.getTransaction().begin();
-		entityManager.clear();
-		user.setEmail("athira123@gmail.com");
-		entityManager.merge(user);
-		entityManager.getTransaction().commit();
+		try {
+			
+			entityManager.getTransaction().begin();
+			entityManager.merge(user);
+			entityManager.getTransaction().commit();
+		} catch (Exception e) {
+			entityManager.getTransaction().rollback();
+			e.printStackTrace();
+		}
 
 	}
 
@@ -369,7 +347,6 @@ public class UserRepository implements IUserRepository {
 
 		EntityManager entityManager = factory.createEntityManager();
 		entityManager.getTransaction().begin();
-		user.setPassword("ak123");
 		entityManager.merge(user);
 		entityManager.getTransaction().commit();
 		entityManager.close();
@@ -401,11 +378,11 @@ public class UserRepository implements IUserRepository {
 		// repo.rateMovie(us);
 		// repo.findProfile(1);
 		// User user = repo.findProfile(1);
-		//repo.giveMovieFeedback(us);
+		// repo.giveMovieFeedback(us);
 		// repo.addMovieToWatchlist(1,5);
 		// repo.updatePassword(user);
 		// repo.addMovieToFavourites(us);
-		 repo.recommendMovie(us);
+		repo.recommendMovie(us);
 		// repo.findWatchList(1);
 		// repo.findFavourites(2);
 		// repo.findRatings(1);

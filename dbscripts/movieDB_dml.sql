@@ -31,7 +31,7 @@ UNLOCK TABLES;
 
 LOCK TABLES `dt_genre` WRITE;
 /*!40000 ALTER TABLE `dt_genre` DISABLE KEYS */;
-INSERT INTO `dt_genre` VALUES (1,'Action'),(2,'Adventure'),(3,'Fantasy'),(4,'Sci-Fi'),(5,'Drama'),(6,'Horror'),(7,'Mystery'),(8,'Thriller'),(9,'Romance');
+INSERT INTO `dt_genre` VALUES (1,'Action','An action story is similar to adventure, and the protagonist usually takes a risky turn, which leads to desperate situations (including explosions, fight scenes, daring escapes, etc.)'),(2,'Adventure','an undertaking usually involving danger and unknown risks that is an exciting or remarkable experience'),(3,'Fantasy','A fantasy story is about magic or supernatural forces, as opposed to technology as seen in science fiction'),(4,'Sci-fi','fiction dealing principally with the impact of actual or imagined science on society or individuals or having a scientific factor as an essential orienting component'),(5,'Drama','a play, movie, television show, or radio show that is about a serious subject and is not meant to make the audience laugh” and “a composition in verse or prose intended to portray life or character or to tell a story usually involving conflicts and emotions through action and dialogue'),(6,'Horror','the quality of something that causes feelings of fear, dread, and shock: the horrible or shocking quality or character of something.'),(7,'Mystery','A mystery story follows an investigator as they attempt to solve a puzzle (often a crime). The details and clues are presented as the story continues and the protagonist discovers them and by the end of the story the mystery is solved'),(8,'Thriller','A thriller is a story that is usually a mix of fear and excitement. It has traits from the suspense genre and often from the action, adventure or mystery genres, but the level of terror makes it borderline horror fiction at times as well. It generally has a dark or serious theme, which also makes it similar to drama.'),(9,'Romance','a romance is understood to be \"love stories,\" emotion-driven stories that are primarily focused on the relationship between the main characters of the story. Beyond the focus on the relationship, the biggest defining characteristic of the romance genre is that a happy ending is always guaranteed.');
 /*!40000 ALTER TABLE `dt_genre` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -51,7 +51,7 @@ UNLOCK TABLES;
 
 LOCK TABLES `dt_movie` WRITE;
 /*!40000 ALTER TABLE `dt_movie` DISABLE KEYS */;
-INSERT INTO `dt_movie` VALUES (1,'Dangal','India','','2016-12-23','G',124,9497698,271329,8,15800123,'Former wrestler Mahavir Singh Phogat and his two wrestler daughters struggle towards glory at the Commonwealth Games in the face of societal oppression.'),(2,'Mission:Impossible Fallout','US','','2018-07-27','PG-13',199,150000000,271329,8,24800012,'Ethan Hunt and his IMF team, along with some familiar allies, race against time after a mission gone wrong.'),(3,'Drishyam','India','','2013-12-19','G',199,5156873,12739931,8,127890,'A man goes to extreme lengths to save his family from punishment after the family commits an accidental crime.'),(4,'PK','India','','2014-12-19','G',199,5186873,2739931,8,8976563,'An alien on Earth loses the only device he can use to communicate with his spaceship. His innocent nature and child-like questions force the country to evaluate the impact of religion on its people.'),(5,'The Matrix Revolutions','US','','2003-12-19','G',129,5186873,2739931,6,94567891,'The human city of Zion defends itself against the massive invasion of the machines as Neo fights to end the war at another front while also opposing the rogue Agent Smith.'),(6,'Anabelle','US','','2019-06-26','PG-13',106,30000000,741525915,5,1223524,'While babysitting the daughter of Ed and Lorraine Warren, a teenager and her friend unknowingly awaken an evil spirit trapped in a doll.'),(7,'Bahubali','India','','2015-07-12','G',139,18026148,741525915,8,14567061,'In ancient India, an adventurous and daring man becomes involved in a decades-old feud between two warring peoples.'),(8,'MIRZAPUR','India','','2018-06-15','G',139,18026148,741525915,8,54895707,'A shocking incident at a wedding procession ignites a series of events entangling the lives of two families in the lawless city of Mirzapur.');
+INSERT INTO `dt_movie` VALUES (1,'Dangal','India','','2016-12-23','Simultaneous release','G',124,9497698,271329,8,15800123,'Former wrestler Mahavir Singh Phogat and his two wrestler daughters struggle towards glory at the Commonwealth Games in the face of societal oppression.'),(2,'Mission:Impossible Fallout','US','','2018-07-27','Internet release','PG-13',199,150000000,271329,8,24800012,'Ethan Hunt and his IMF team, along with some familiar allies, race against time after a mission gone wrong.'),(3,'Drishyam','India','','2013-12-19','Simultaneous release','G',199,5156873,12739931,8,127890,'A man goes to extreme lengths to save his family from punishment after the family commits an accidental crime.'),(4,'PK','India','','2014-12-19','Standard release','G',199,5186873,2739931,8,8976563,'An alien on Earth loses the only device he can use to communicate with his spaceship. His innocent nature and child-like questions force the country to evaluate the impact of religion on its people.'),(5,'The Matrix Revolutions','US','','2003-12-19','Standard release','G',129,5186873,2739931,6,94567891,'The human city of Zion defends itself against the massive invasion of the machines as Neo fights to end the war at another front while also opposing the rogue Agent Smith.'),(6,'Anabelle','US','','2019-06-26','Simultaneous release','PG-13',106,30000000,741525915,5,1223524,'While babysitting the daughter of Ed and Lorraine Warren, a teenager and her friend unknowingly awaken an evil spirit trapped in a doll.'),(7,'Bahubali','India','','2015-07-12','Simultaneous release','G',139,18026148,741525915,8,14567061,'In ancient India, an adventurous and daring man becomes involved in a decades-old feud between two warring peoples.'),(8,'MIRZAPUR','India','','2018-06-15','Internet release','G',139,18026148,741525915,8,54895707,'A shocking incident at a wedding procession ignites a series of events entangling the lives of two families in the lawless city of Mirzapur.');
 /*!40000 ALTER TABLE `dt_movie` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -71,18 +71,8 @@ UNLOCK TABLES;
 
 LOCK TABLES `dt_user` WRITE;
 /*!40000 ALTER TABLE `dt_user` DISABLE KEYS */;
-INSERT INTO `dt_user` VALUES (1,'ATHIRA','K','USER','athira234','athira@1996','athira@gmail.com','ADMIN','2021-09-08','2021-09-10'),(2,'KUNAL','SALUNKHE','USER','kunal@05','kunal123','kunal@gmail.com','USER','2021-09-10','2021-09-12'),(3,'SHIVAM','DHOUNDIYAL','ADMIN','shivam_dhoundiyal','shivam@06','shivam@gmail.com','ADMIN','2021-09-05','2021-09-16');
+INSERT INTO `dt_user` VALUES (1,'ATHIRA','K','Female','','USER','athira234','athira@1996','athira@gmail.com','ADMIN','2021-09-08','2021-09-10'),(2,'KUNAL','SALUNKHE','Male','','USER','kunal@05','kunal123','kunal@gmail.com','USER','2021-09-10','2021-09-12'),(3,'SHIVAM','DHOUNDIYAL','Male','','ADMIN','shivam_dhoundiyal','shivam@06','shivam@gmail.com','ADMIN','2021-09-05','2021-09-16');
 /*!40000 ALTER TABLE `dt_user` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Dumping data for table `dt_user_activity`
---
-
-LOCK TABLES `dt_user_activity` WRITE;
-/*!40000 ALTER TABLE `dt_user_activity` DISABLE KEYS */;
-INSERT INTO `dt_user_activity` VALUES (1,'USER_ADD_MOVIE_TO_WATCHLIST','',1,1),(2,'USER_ADD_MOVIE_TO_WATCHLIST','',1,2);
-/*!40000 ALTER TABLE `dt_user_activity` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -96,16 +86,6 @@ INSERT INTO `dt_user_watchlist` VALUES (1,1,'MY_WATCHLIST_1'),(2,1,'MY_WATCHLIST
 UNLOCK TABLES;
 
 --
--- Dumping data for table `lt_movie_cast`
---
-
-LOCK TABLES `lt_movie_cast` WRITE;
-/*!40000 ALTER TABLE `lt_movie_cast` DISABLE KEYS */;
-INSERT INTO `lt_movie_cast` VALUES (2,1,500000,'HERO'),(2,2,400000,'VILLIAN');
-/*!40000 ALTER TABLE `lt_movie_cast` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Dumping data for table `lt_movie_company`
 --
 
@@ -113,16 +93,6 @@ LOCK TABLES `lt_movie_company` WRITE;
 /*!40000 ALTER TABLE `lt_movie_company` DISABLE KEYS */;
 INSERT INTO `lt_movie_company` VALUES (1,4);
 /*!40000 ALTER TABLE `lt_movie_company` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Dumping data for table `lt_movie_crew`
---
-
-LOCK TABLES `lt_movie_crew` WRITE;
-/*!40000 ALTER TABLE `lt_movie_crew` DISABLE KEYS */;
-INSERT INTO `lt_movie_crew` VALUES (2,1,1800000,'PRODUCER'),(2,4,800000,'DIRECTOR'),(2,7,300000,'CINEMATOGRAPHER');
-/*!40000 ALTER TABLE `lt_movie_crew` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -146,23 +116,53 @@ INSERT INTO `lt_movie_language` VALUES (1,1),(4,1),(2,2),(3,4),(4,4),(3,5);
 UNLOCK TABLES;
 
 --
--- Dumping data for table `lt_user_movie`
+-- Dumping data for table `tt_movie_cast`
 --
 
-LOCK TABLES `lt_user_movie` WRITE;
-/*!40000 ALTER TABLE `lt_user_movie` DISABLE KEYS */;
-INSERT INTO `lt_user_movie` VALUES (1,1,1,1,0,9,'Good Movie'),(1,2,1,0,0,8,'Good Movie'),(1,4,NULL,NULL,NULL,10,NULL),(2,1,1,1,0,8,'Good Movie'),(2,2,1,0,0,8,'Nice Movie'),(1,4,NULL,NULL,NULL,9,NULL),(1,4,NULL,NULL,NULL,9,NULL),(1,6,NULL,NULL,NULL,9,NULL);
-/*!40000 ALTER TABLE `lt_user_movie` ENABLE KEYS */;
+LOCK TABLES `tt_movie_cast` WRITE;
+/*!40000 ALTER TABLE `tt_movie_cast` DISABLE KEYS */;
+INSERT INTO `tt_movie_cast` VALUES (2,1,500000,'HERO','Ethan hunt'),(2,2,400000,'VILLIAN','Andrew laeddis');
+/*!40000 ALTER TABLE `tt_movie_cast` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Dumping data for table `lt_user_watchlist_items`
+-- Dumping data for table `tt_movie_crew`
 --
 
-LOCK TABLES `lt_user_watchlist_items` WRITE;
-/*!40000 ALTER TABLE `lt_user_watchlist_items` DISABLE KEYS */;
-INSERT INTO `lt_user_watchlist_items` VALUES (1,1,'Write a blog abou leonardo cast','2021-09-01'),(2,2,'recommend to friends','2021-09-02'),(3,1,'resume from 1h 30m','2021-09-03'),(1,1,'No.1 Watchlist','2021-10-20'),(1,1,'No.1 Watchlist','2021-10-20');
-/*!40000 ALTER TABLE `lt_user_watchlist_items` ENABLE KEYS */;
+LOCK TABLES `tt_movie_crew` WRITE;
+/*!40000 ALTER TABLE `tt_movie_crew` DISABLE KEYS */;
+INSERT INTO `tt_movie_crew` VALUES (2,1,1800000,'PRODUCER'),(2,4,800000,'DIRECTOR'),(2,7,300000,'CINEMATOGRAPHER');
+/*!40000 ALTER TABLE `tt_movie_crew` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Dumping data for table `tt_user_activity`
+--
+
+LOCK TABLES `tt_user_activity` WRITE;
+/*!40000 ALTER TABLE `tt_user_activity` DISABLE KEYS */;
+INSERT INTO `tt_user_activity` VALUES (1,'USER_ADD_MOVIE_TO_WATCHLIST','',1,1),(2,'USER_ADD_MOVIE_TO_WATCHLIST','',1,2);
+/*!40000 ALTER TABLE `tt_user_activity` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Dumping data for table `tt_user_movie`
+--
+
+LOCK TABLES `tt_user_movie` WRITE;
+/*!40000 ALTER TABLE `tt_user_movie` DISABLE KEYS */;
+INSERT INTO `tt_user_movie` VALUES (1,1,1,3,1,0,8.7,'2021-08-16','Good Movie'),(1,2,1,1,0,0,8,'2021-08-21','Good Movie'),(2,1,1,2,1,0,7.4,'2021-08-18','Good Movie'),(2,2,1,1,0,0,8,'2021-08-23','Nice Movie');
+/*!40000 ALTER TABLE `tt_user_movie` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Dumping data for table `tt_user_watchlist_items`
+--
+
+LOCK TABLES `tt_user_watchlist_items` WRITE;
+/*!40000 ALTER TABLE `tt_user_watchlist_items` DISABLE KEYS */;
+INSERT INTO `tt_user_watchlist_items` VALUES (1,1,'Write a blog abou leonardo cast','2021-09-01'),(2,2,'recommend to friends','2021-09-02'),(3,1,'resume from 1h 30m','2021-09-03');
+/*!40000 ALTER TABLE `tt_user_watchlist_items` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -174,8 +174,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
-<<<<<<< HEAD:dbscripts/movieDB_dml.sql
--- Dump completed on 2021-09-21 13:56:32
-=======
--- Dump completed on 2021-09-21  9:16:22
->>>>>>> afcb663b50c51e75806a56d65596eed3029a5341:dbscripts/movieDBdml.sql
+-- Dump completed on 2021-09-23 11:38:56

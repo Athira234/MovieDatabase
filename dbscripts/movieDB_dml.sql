@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.26, for Win64 (x86_64)
 --
--- Host: 127.0.0.1    Database: moviedb
+-- Host: 127.0.0.1    Database: moviedb1
 -- ------------------------------------------------------
 -- Server version	8.0.26
 
@@ -151,7 +151,7 @@ UNLOCK TABLES;
 
 LOCK TABLES `tt_user_movie` WRITE;
 /*!40000 ALTER TABLE `tt_user_movie` DISABLE KEYS */;
-INSERT INTO `tt_user_movie` VALUES (1,1,1,3,1,0,8.7,'2021-08-16','Good Movie'),(1,2,1,1,0,0,8,'2021-08-21','Good Movie'),(2,1,1,2,1,0,7.4,'2021-08-18','Good Movie'),(2,2,1,1,0,0,8,'2021-08-23','Nice Movie');
+INSERT INTO `tt_user_movie` VALUES (1,1,1,1,3,1,0,8.7,'2021-08-23','Fantastic watch'),(2,1,2,1,1,0,0,8,'2021-08-21','Good movie'),(3,2,1,1,2,1,0,7.4,'2021-08-18','Nice movie'),(4,2,2,1,1,0,0,8,'2021-08-16','Great movie');
 /*!40000 ALTER TABLE `tt_user_movie` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -174,4 +174,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-09-23 11:38:56
+-- Dump completed on 2021-09-23 13:55:16

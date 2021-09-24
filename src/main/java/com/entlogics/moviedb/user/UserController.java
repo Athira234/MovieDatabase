@@ -1,22 +1,24 @@
 package com.entlogics.moviedb.user;
-
+import java.util.ArrayList;
 import java.util.List;
-
+import java.util.ListIterator;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-
-
+import com.entlogics.moviedb.admin.IAdminService;
+import com.entlogics.moviedb.movie.Movie;
 @Controller
-
 public class UserController {
 
 	IUserService iUserService;
+	IAdminService iAdminService;
+	@Autowired
+	public void setiAdminService(IAdminService iAdminService) {
+		this.iAdminService = iAdminService;
+	}
 
 	@Autowired
 	public void setiUserService(IUserService iUserService) {
@@ -64,7 +66,15 @@ public class UserController {
 	public String viewWatchList(@PathVariable int userId, Model model) {
 		System.out.println("Inside viewWatchList method in UserController");
 		List<UserWatchListItems> watchListItems = iUserService.getWatchList(userId);
-		System.out.println("WatchListItems=" + watchListItems);
+		ListIterator litr = watchListItems.listIterator();
+		List<Movie> movies=new ArrayList<Movie>();
+		while (litr.hasNext()) {
+			UserWatchListItems watchlistItem = (UserWatchListItems) litr.next();
+		    movies.add(iAdminService.getMovie(watchlistItem.getMovieId()));
+			
+		}
+		System.out.println("WatchListItems=" +movies);
+		model.addAttribute("movies",movies);
 		model.addAttribute("watchList", watchListItems);
 		return "watchlist";
 

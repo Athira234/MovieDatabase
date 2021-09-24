@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.26, for Win64 (x86_64)
 --
--- Host: 127.0.0.1    Database: moviedb1
+-- Host: 127.0.0.1    Database: moviedb
 -- ------------------------------------------------------
 -- Server version	8.0.26
 
@@ -116,13 +116,13 @@ INSERT INTO `lt_movie_language` VALUES (1,1),(4,1),(2,2),(3,4),(4,4),(3,5);
 UNLOCK TABLES;
 
 --
--- Dumping data for table `tt_movie_cast`
+-- Dumping data for table `tt_movie_cost`
 --
 
-LOCK TABLES `tt_movie_cast` WRITE;
-/*!40000 ALTER TABLE `tt_movie_cast` DISABLE KEYS */;
-INSERT INTO `tt_movie_cast` VALUES (2,1,500000,'HERO','Ethan hunt'),(2,2,400000,'VILLIAN','Andrew laeddis');
-/*!40000 ALTER TABLE `tt_movie_cast` ENABLE KEYS */;
+LOCK TABLES `tt_movie_cost` WRITE;
+/*!40000 ALTER TABLE `tt_movie_cost` DISABLE KEYS */;
+INSERT INTO `tt_movie_cost` VALUES (2,1,500000,'HERO','Ethan hunt'),(2,2,400000,'VILLIAN','Andrew laeddis');
+/*!40000 ALTER TABLE `tt_movie_cost` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -174,4 +174,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-09-23 13:55:16
+-- Dump completed on 2021-09-23 23:30:12

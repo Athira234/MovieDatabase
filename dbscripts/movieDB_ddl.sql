@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.26, for Win64 (x86_64)
 --
--- Host: 127.0.0.1    Database: moviedb1
+-- Host: 127.0.0.1    Database: moviedb
 -- ------------------------------------------------------
 -- Server version	8.0.26
 
@@ -207,13 +207,13 @@ CREATE TABLE `lt_movie_language` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Table structure for table `tt_movie_cast`
+-- Table structure for table `tt_movie_cost`
 --
 
-DROP TABLE IF EXISTS `tt_movie_cast`;
+DROP TABLE IF EXISTS `tt_movie_cost`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `tt_movie_cast` (
+CREATE TABLE `tt_movie_cost` (
   `movie_id` int NOT NULL,
   `person_id` int NOT NULL,
   `remuneration` int DEFAULT NULL,
@@ -221,8 +221,8 @@ CREATE TABLE `tt_movie_cast` (
   `character_name` varchar(40) NOT NULL,
   PRIMARY KEY (`movie_id`,`person_id`),
   KEY `person_id` (`person_id`),
-  CONSTRAINT `tt_movie_cast_ibfk_1` FOREIGN KEY (`movie_id`) REFERENCES `dt_movie` (`id`) ON DELETE CASCADE,
-  CONSTRAINT `tt_movie_cast_ibfk_2` FOREIGN KEY (`person_id`) REFERENCES `dt_person` (`id`) ON DELETE CASCADE
+  CONSTRAINT `tt_movie_cost_ibfk_1` FOREIGN KEY (`movie_id`) REFERENCES `dt_movie` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `tt_movie_cost_ibfk_2` FOREIGN KEY (`person_id`) REFERENCES `dt_person` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -321,4 +321,4 @@ CREATE TABLE `tt_user_watchlist_items` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-09-23 13:54:54
+-- Dump completed on 2021-09-23 23:29:47

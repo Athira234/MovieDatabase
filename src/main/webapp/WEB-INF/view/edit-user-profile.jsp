@@ -8,7 +8,7 @@
 <title>EDIT USER DETAILS</title>
 </head>
 <body>
-	<form:form method="POST" action="editprofile/editdetails" modelAttribute="user">
+	<form:form method="POST" action="editprofile/editdetails" modelAttribute="user"><center>
 User Id :<form:hidden path="userId" />
 		<br>
 		<br>
@@ -22,7 +22,7 @@ Last Name:<form:input path="lastName" />
 		<br>
 		<br>
  
-		<input type="submit" value="UPDATE" />
+		<input type="submit" value="UPDATE" /></center>
 	</form:form>
 </body>
 </html>

@@ -8,17 +8,14 @@
 <title>EDIT USER Password</title>
 </head>
 <body>
-	<form:form method="POST" action="password/editdetails" modelAttribute="user">
-
+	<form:form method="POST" action="password/editdetails"
+		modelAttribute="user">
+		<center>
 New Password :<form:input path="password" />
 		<br>
 		<br>
-
-		<br>
-		<br>
-
- 
 		<input type="submit" value="UPDATE" />
+		</center>
 	</form:form>
 </body>
 </html>

@@ -14,6 +14,7 @@
 		<U> User DETAILS</U><br>
 		<br> Name : ${user.firstName}<br>
 		<br> LastName : ${user.lastName}<br>
+		<br> Emain    : ${user.email}
 		
 	</center>
 </body>

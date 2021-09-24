@@ -45,7 +45,7 @@ public class Company {
 	@Column(name = "website")
 	private String website;
 
-	@Column(name = "desciption")
+	@Column(name = "description")
 	private String desciption;
 
 	@OneToMany(mappedBy = "company", fetch = FetchType.LAZY, cascade = CascadeType.ALL)

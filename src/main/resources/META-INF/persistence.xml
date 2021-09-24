@@ -15,7 +15,12 @@
 			<property name="javax.persistence.jdbc.user" value="moviedb" />
 			<property name="javax.persistence.jdbc.password"
 				value="moviedb" />
+				         
+                <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" /> 
+               
+         </properties> 
+           
+     
 
-		</properties>
 	</persistence-unit>
 </persistence>

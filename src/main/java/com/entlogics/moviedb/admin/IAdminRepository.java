@@ -14,7 +14,7 @@ public interface IAdminRepository {
 
 	public void updateCompany(Company company);
 
-	public void deleteCompany(Company company);
+	public void deleteCompany(int companyId);
 
 	/*
 	 * public List<User> findAllCompanies();
@@ -36,7 +36,7 @@ public interface IAdminRepository {
 
 	public void updateMovie(Movie movie);
 
-	public void deleteMovie(Movie movie);
+	public void deleteMovie(int movieId);
 
 	public List<Person> findAllPersons();
 
@@ -46,7 +46,7 @@ public interface IAdminRepository {
 
 	public void updatePerson(Person person);
 
-	public void deletePerson(Person person);
+	public void deletePerson(int personId);
 
 	public List<Genre> findAllGenre();
 
@@ -54,6 +54,6 @@ public interface IAdminRepository {
 
 	public void updateGenre(Genre genre);
 
-	public void deleteGenre(Genre genre);
+	public void deleteGenre(int genreId);
 
 }

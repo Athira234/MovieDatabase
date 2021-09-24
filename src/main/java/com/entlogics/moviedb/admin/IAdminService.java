@@ -13,7 +13,7 @@ public interface IAdminService {
 
 	public void editCompany(Company company);
 
-	public void deleteCompany(Company company);
+	public void deleteCompany(int companyId);
 /*
 	public List<User> getAllUsers();
 
@@ -33,7 +33,7 @@ public interface IAdminService {
 
 	public void editMovie(Movie movie);
 
-	public void deleteMovie(Movie movie);
+	public void deleteMovie(int movieId);
 
 	public List<Person> getAllPersons();
 
@@ -43,7 +43,7 @@ public interface IAdminService {
 
 	public void editPerson(Person person);
 
-	public void deletePerson(Person person);
+	public void deletePerson(int personId);
 
 	public List<Genre> getAllGenre();
 
@@ -51,6 +51,6 @@ public interface IAdminService {
 
 	public void editGenre(Genre genre);
 
-	public void deleteGenre(Genre genre);
+	public void deleteGenre(int genreId);
 
 }

@@ -1,9 +1,9 @@
 package com.entlogics.moviedb.user;
-
 import java.util.List;
-
+import org.springframework.stereotype.Component;
 import com.entlogics.moviedb.movie.Movie;
 
+@Component
 public interface IUserRepository {
 	
 	public void rateMovie(UserMovie usermovie);

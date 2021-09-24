@@ -1,16 +1,12 @@
 package com.entlogics.moviedb.user;
 
 import java.util.ArrayList;
-
 import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import org.hibernate.internal.build.AllowSysOut;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 import com.entlogics.moviedb.movie.Movie;
@@ -244,20 +240,29 @@ public class UserRepository implements IUserRepository {
 	}
 
 	@Override
-	public List<UserWatchListItems> findWatchList(int watchlistId) {
+	public List<UserWatchListItems> findWatchList(int userId) {
 		System.out.println("Inside findWatchList() method in UserRepository");
 		EntityManager entityManager = factory.createEntityManager();
 		entityManager.getTransaction().begin();
+		List<UserWatchList> watchlists=entityManager.createNativeQuery("select * from dt_user_watchlist where user_id=" + userId,
+						UserWatchList.class).getResultList();
+		List<UserWatchListItems> items=new ArrayList<UserWatchListItems>();
 		// find movies in watchlist of a user
+		for(UserWatchList watchlist:watchlists)
+		{
 		List<UserWatchListItems> userWatchlistsItems = entityManager
-				.createNativeQuery("select * from lt_user_watchlist_items where watchlist_id=" + watchlistId,
+				.createNativeQuery("select * from lt_user_watchlist_items where watchlist_id=" + watchlist.getWatchlistId(),
 						UserWatchListItems.class)
 				.getResultList();
-		System.out.println("watchListItems" + userWatchlistsItems);
+		
+		items.addAll(userWatchlistsItems);
+		
+		}
+		System.out.println("watchListItems" +items);
 
 		entityManager.getTransaction().commit();
 		entityManager.close();
-		return userWatchlistsItems;
+		return items;
 	}
 
 	@Override

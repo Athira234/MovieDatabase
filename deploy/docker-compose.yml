@@ -1,0 +1,21 @@
+version: '3.1' #version of Docker-compose
+services: #specifies 2 microservices "web" and "mysql"
+  db: 
+    image: mysql:8.0 
+    ports: ["3306:3306"]
+    hostname: mysql 
+    environment: 
+        - MYSQL_ROOT_PASSWORD=moviedb
+        - MYSQL_DATABASE=moviedb
+  web: 
+    build: .
+    image: moviedbapp_1
+    ports: ["5558:8080"] 
+    hostname: web
+    tty: true
+    depends_on:
+      - db
+    links:
+      - db
+    environment:
+      - DB_PORT=tcp://mysql:3306  

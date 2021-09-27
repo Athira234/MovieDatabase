@@ -24,14 +24,14 @@ public class UserWatchList {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "watchlist_id", nullable = false)
+	@Column(name = "id", nullable = false)
 	private int watchlistId;
 
 	@Column(name = "watchlist_name")
 	private String watchlistName;
 
 	@OneToOne
-	@JoinColumn(name = "user_id",updatable=false)
+	@JoinColumn(name = "id",updatable=false)
 	private User user;
 
 	/*@OneToMany(mappedBy = "watchlistOfMovie", cascade = CascadeType.ALL)

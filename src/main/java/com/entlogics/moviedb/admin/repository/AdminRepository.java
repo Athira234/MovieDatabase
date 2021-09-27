@@ -28,7 +28,7 @@ public class AdminRepository implements IAdminRepository {
 		System.out.println("printing list of companies " + companies.size() + "\n" + companies);
 		entityManager.getTransaction().commit();
 		entityManager.close();
-		return null;
+		return companies;
 	}
 
 	// find a Company details
@@ -40,7 +40,7 @@ public class AdminRepository implements IAdminRepository {
 		System.out.println("company details :" + company);
 		entityManager.getTransaction().commit();
 		entityManager.close();
-		return null;
+		return company;
 	}
 
 	// add new company

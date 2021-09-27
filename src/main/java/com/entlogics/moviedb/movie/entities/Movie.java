@@ -2,7 +2,6 @@ package com.entlogics.moviedb.movie.entities;
 
 import java.time.LocalDate;
 
-
 import java.util.Arrays;
 import java.util.List;
 
@@ -20,19 +19,18 @@ import com.entlogics.moviedb.user.entities.UserActivity;
 import com.entlogics.moviedb.user.entities.UserMovie;
 import com.entlogics.moviedb.user.entities.UserWatchListItems;
 
-
 @Entity
 @Table(name = "dt_movie")
 public class Movie {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "movie_id", nullable = false,updatable=false)
+	@Column(name = "id", nullable = false, updatable = false)
 	private int movieId;
 
 	@Column(name = "movie_title")
 	private String movieTitle;
-
+	
 	@Column(name = "release_date")
 	private LocalDate releaseDate;
 
@@ -55,14 +53,13 @@ public class Movie {
 	private int budgetInDollar;
 
 	@Column(name = "country_of_origin")
-	private String countryOfOrigin;
+	private String country;
 
 	@Column(name = "overall_rating")
 	private float overallRating;
 
 	@Column(name = "no_of_recommendations")
 	private int numberOfRecommendations;
-
 
 	@OneToMany(mappedBy = "movie", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<MovieCast> movieCast;
@@ -85,11 +82,8 @@ public class Movie {
 	@OneToMany(mappedBy = "movie", cascade = CascadeType.ALL)
 	List<UserMovie> usersOfMovie;
 
-
 //	@OneToMany(mappedBy = "moviesOfWatchlist", cascade = CascadeType.ALL)
-	//private List<UserWatchListItems> watchlistOfMovie;
-
-
+	// private List<UserWatchListItems> watchlistOfMovie;
 
 	public int getMovieId() {
 		return movieId;
@@ -155,13 +149,7 @@ public class Movie {
 		this.budgetInDollar = budgetInDollar;
 	}
 
-	public String getCountryOfOrigin() {
-		return countryOfOrigin;
-	}
-
-	public void setCountryOfOrigin(String countryOfOrigin) {
-		this.countryOfOrigin = countryOfOrigin;
-	}
+	
 
 	public float getOverallRating() {
 		return overallRating;
@@ -186,7 +174,6 @@ public class Movie {
 	public void setPgRating(String pgRating) {
 		this.pgRating = pgRating;
 	}
-
 
 	public List<MovieLanguage> getMovieLanguages() {
 		return movieLanguages;
@@ -228,13 +215,20 @@ public class Movie {
 		this.movieCompanies = movieCompanies;
 	}
 
+	public String getCountry() {
+		return country;
+	}
+
+	public void setCountry(String country) {
+		this.country = country;
+	}
 
 	@Override
 	public String toString() {
 		return "Movie [movieId=" + movieId + ", movieTitle=" + movieTitle + ", releaseDate=" + releaseDate
 				+ ", runtime=" + runtime + ", totalGrossIncomeDollar=" + totalGrossIncomeDollar + ", overview="
 				+ overview + ", pgRating=" + pgRating + ", moviePoster=" + Arrays.toString(moviePoster)
-				+ ", budgetInDollar=" + budgetInDollar + ", countryOfOrigin=" + countryOfOrigin + ", overallRating="
+				+ ", budgetInDollar=" + budgetInDollar + ", countryOfOrigin=" + country + ", overallRating="
 				+ overallRating + ", numberOfRecommendations=" + numberOfRecommendations + "]";
 	}
 

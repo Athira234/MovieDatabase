@@ -1,6 +1,7 @@
 package com.entlogics.moviedb.user.entities;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -17,7 +18,7 @@ import javax.persistence.Table;
 import com.entlogics.moviedb.movie.entities.Movie;
 
 @Entity
-@Table(name = "lt_user_movie")
+@Table(name = "tt_user_movie")
 //@IdClass(UserMovie.class)
 public class UserMovie implements Serializable {
 	@Id
@@ -34,12 +35,15 @@ public class UserMovie implements Serializable {
 	@Column(name = "is_recommended")
 	private boolean isRecommeded;
 
-	@Column(name = "rating_given")
+	@Column(name = "rating")
 	private float ratingGiven;
 
 	@Column(name = "review")
 	private String review;
-
+	
+	@Column(name = "rating_given_date")
+	private LocalDate ratingGivenDate;
+	
 	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH,
 			CascadeType.REFRESH }, fetch = FetchType.LAZY)
 	@JoinColumn(name = "user_id")
@@ -112,6 +116,14 @@ public class UserMovie implements Serializable {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public LocalDate getRatingGivenDate() {
+		return ratingGivenDate;
+	}
+
+	public void setRatingGivenDate(LocalDate ratingGivenDate) {
+		this.ratingGivenDate = ratingGivenDate;
 	}
 
 	@Override

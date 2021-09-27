@@ -21,7 +21,7 @@ public class Company {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "company_id")
+	@Column(name = "id")
 	private int companyId;
 
 	@Column(name = "company_name")
@@ -46,8 +46,9 @@ public class Company {
 	private String website;
 
 	@Column(name = "description")
-	private String desciption;
-
+	private String description;
+	
+	
 	@OneToMany(mappedBy = "company", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<MovieCompany> moviesOfThisCompany;
 
@@ -128,12 +129,12 @@ public class Company {
 		this.website = website;
 	}
 
-	public String getDesciption() {
-		return desciption;
+	public String getDescription() {
+		return description;
 	}
 
-	public void setDesciption(String desciption) {
-		this.desciption = desciption;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public List<MovieCompany> getMoviesOfThisCompany() {
@@ -144,6 +145,7 @@ public class Company {
 		this.moviesOfThisCompany = moviesOfThisCompany;
 	}
 
+	
 	@Override
 	public String toString() {
 		return "Company [companyId=" + companyId + ", companyName=" + companyName + ", ceo=" + ceo + ", establishedIn="

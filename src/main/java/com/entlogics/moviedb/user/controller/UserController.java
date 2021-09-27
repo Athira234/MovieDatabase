@@ -53,6 +53,7 @@ public class UserController {
 		UserMovie userMovie1=new UserMovie();
 		userMovie.setMovie(movie);
 		userMovie.setUser(user);
+		
 		System.out.println("User  Details"+userMovie.getUser()+"movie"+userMovie.getMovie());
 	
 		iUserService.rateMovie(userMovie);
@@ -62,12 +63,26 @@ public class UserController {
 	}
 
 	// Method for giving feedback for a movie
-
-	public String giveMovieFeedback() {
+	@RequestMapping("users/{userId}/movies/{movieId}/feedbacks")
+	public String giveMovieFeedbackForm(@PathVariable int movieId,@PathVariable int userId, Model model) {
 		System.out.println("Inside giveMovieFeedback() method in UserController");
-		return null;
+		UserMovie userMovie=new UserMovie();
+		model.addAttribute("userMovie",userMovie);
+	    return "feedback-form";
 	}
-
+	@RequestMapping("users/{userId}/movies/{movieId}/ratings/feedbackdetails")
+	public String postFeedback(@PathVariable int movieId,@PathVariable int userId,@ModelAttribute("userMovie") UserMovie userMovie) {
+		System.out.println("Inside postRating() method in UserController");
+		
+		Movie movie=iAdminService.getMovie(movieId);
+		User user=iUserService.getProfile(userId);
+		UserMovie userMovie1=new UserMovie();
+		userMovie.setMovie(movie);
+		userMovie.setUser(user);
+		System.out.println("User  Details"+userMovie.getUser()+"movie"+userMovie.getMovie());
+	    iUserService.giveMovieFeedback(userMovie);
+		return "success";
+	}
 	// Method for adding a movie to watchlist
 	public String addMovieToWatchlist() {
 		System.out.println("Inside addMovieToWatchlist() method in UserController");
@@ -75,6 +90,7 @@ public class UserController {
 	}
 
 	// Method for adding movie to favourites
+
 	public String addMovieToFavourites() {
 		System.out.println("Inside addMovieToFavourites() method in UserController");
 		return null;

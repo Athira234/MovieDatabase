@@ -15,7 +15,7 @@ import javax.persistence.Table;
 import com.entlogics.moviedb.movie.entities.Movie;
 
 @Entity
-@Table(name = "lt_user_watchlist_items")
+@Table(name = "tt_user_watchlist_items")
 @IdClass(UserWatchListItems.class)
 public class UserWatchListItems implements Serializable {
 

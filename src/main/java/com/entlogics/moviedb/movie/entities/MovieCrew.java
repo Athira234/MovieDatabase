@@ -13,7 +13,7 @@ import javax.persistence.Table;
 import com.entlogics.moviedb.admin.entities.Person;
 
 @Entity
-@Table(name = "lt_movie_crew")
+@Table(name = "tt_movie_crew")
 @IdClass(MovieCrew.class)
 public class MovieCrew implements Serializable {
 

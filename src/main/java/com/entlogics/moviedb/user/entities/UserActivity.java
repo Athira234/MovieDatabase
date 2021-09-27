@@ -14,7 +14,7 @@ import javax.persistence.Table;
 import com.entlogics.moviedb.movie.entities.Movie;
 
 @Entity
-@Table(name = "dt_user_activity")
+@Table(name = "tt_user_activity")
 public class UserActivity {
 
 	public UserActivity() {
@@ -24,7 +24,7 @@ public class UserActivity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "activity_id", nullable = false)
+	@Column(name = "id", nullable = false)
 	private int activityId;
 
 	@Column(name = "user_id")
@@ -40,11 +40,11 @@ public class UserActivity {
 	private String description;
 
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinColumn(name = "movie_id", referencedColumnName = "movie_id", insertable = false, updatable = false)
+	@JoinColumn(name = "user_id", referencedColumnName = "id", insertable = false, updatable = false)
 	private Movie userActivityOnmovie;
 
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinColumn(name = "user_id", referencedColumnName = "user_id", insertable = false, updatable = false)
+	@JoinColumn(name = "movie_id", referencedColumnName = "id", insertable = false, updatable = false)
 	private User userActivity;
 
 	public int getActivityId() {

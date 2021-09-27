@@ -1,20 +1,52 @@
 package com.entlogics.moviedb.admin.controller;
 
+import java.util.List;
+
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.entlogics.moviedb.admin.entities.Company;
+import com.entlogics.moviedb.admin.entities.Genre;
+import com.entlogics.moviedb.admin.entities.Person;
+import com.entlogics.moviedb.admin.service.IAdminService;
+import com.entlogics.moviedb.movie.entities.Movie;
+
+
+
 
 @Controller
 public class AdminController {
 
+	
+	IAdminService iAdminService;
+	@Autowired
+	public void setiAdminService(IAdminService iAdminService) {
+		this.iAdminService = iAdminService;
+	}
+	
 	// get list of companies
-	public String getAllCompanies() {
+	@RequestMapping(value = "/companies",method = RequestMethod.GET)
+	public String getAllCompanies(Model model) {
 		System.out.println("Inside AdminController getAllCompanies()");
-		return "allCompanies";
+		//call getAllcompany method in userservice
+		List<Company> companies=iAdminService.getAllCompanies();
+		System.out.println("Companies :"+companies); 
+		model.addAttribute("companyList", companies);
+		return "companies";
 	}
 
 	// get a Company details
-	public String getCompany() {
+	@RequestMapping(value = "/companies/{companyId}",method = RequestMethod.GET)
+	public String getCompany(@PathVariable int companyId, Model model) {
 		System.out.println("Inside AdminController getCompany()");
-		return "companyDetails";
+		Company company = iAdminService.getCompany(companyId);
+		model.addAttribute("company", company);
+		return "company-details";
 	}
 
 	// add new company
@@ -28,14 +60,20 @@ public class AdminController {
 	}
 
 	// deleting a company
-	public void deleteCompany() {
+	@RequestMapping(value = "/companies/delete/{companyId}")
+	public void deleteCompany(@PathVariable int companyId) {
 		System.out.println("Inside AdminController deleteCompany()");
+		iAdminService.deleteCompany(companyId);
+		//return "success";
+		
 	}
 
 	// get list of users
+	/*
 	public String getAllUsers() {
 		System.out.println("Inside AdminController getAllUsers()");
-		return "allUsers";
+		//call getAllusers method in userservice
+				return "null";
 	}
 
 	// get a User details
@@ -57,19 +95,26 @@ public class AdminController {
 	// deleting a User
 	public void deleteUser() {
 		System.out.println("Inside AdminController deleteUser()");
-	}
+	}*/
 
 	// get list of Movies
-	public String getAllMovies() {
+	@RequestMapping(value = "/movies",method = RequestMethod.GET)
+	public String getAllMovies(Model model) {
 		System.out.println("Inside AdminController getAllMovies()");
-		return "allMovies";
+		List<Movie> movies=iAdminService.getAllMovies();
+		System.out.println("Movies :"+movies); 
+		model.addAttribute("movieList",movies);
+        return "movies";
 	}
 
 	// get a Movie details
-	public String getMovie() {
+	@RequestMapping(value = "/movies/{movieId}",method = RequestMethod.GET)
+	public String getMovie(@PathVariable int movieId, Model model) {
 		System.out.println("Inside AdminController getMovie()");
-		return "movieDetails";
-	}
+		Movie movie = iAdminService.getMovie(movieId);
+		model.addAttribute("movie",movie);
+		return "movie-details";
+		}
 
 	// add new Movie
 	public void createMovie() {
@@ -82,20 +127,32 @@ public class AdminController {
 	}
 
 	// deleting a Movie
-	public void deleteMovie() {
+	@RequestMapping(value = "/movies/delete/{movieId}")
+	public String deleteMovie(@PathVariable int movieId) {
 		System.out.println("Inside AdminController deleteMovie()");
+		iAdminService.deleteMovie(movieId);
+		return "success";
 	}
 
 	// get list of Persons
-	public String getAllPersons() {
+	@RequestMapping(value = "/persons",method = RequestMethod.GET)
+	public String getAllPersons(Model model) {
 		System.out.println("Inside AdminController getAllPersons()");
-		return "allPersons";
+		List<Person> persons=iAdminService.getAllPersons();
+		System.out.println("Persons :"+persons); 
+		model.addAttribute("personList", persons);
+        return "persons";
+		
 	}
 
 	// get a Person details
-	public String getPerson() {
+	@RequestMapping(value = "/persons/{personId}",method = RequestMethod.GET)
+	public String getPerson(@PathVariable int personId, Model model) {
 		System.out.println("Inside AdminController getPerson()");
-		return "personDetails";
+		Person person = iAdminService.getPerson(personId);
+		System.out.println("Person details"+person);
+		model.addAttribute("person",person);
+		return "person-details";
 	}
 
 	// add new Person
@@ -109,14 +166,23 @@ public class AdminController {
 	}
 
 	// deleting a Person
-	public void deletePerson() {
+	@RequestMapping(value = "/persons/delete/{personId}")
+	public String deletePerson(@PathVariable int personId) {
 		System.out.println("Inside AdminController deletePerson()");
+		iAdminService.deletePerson(personId);
+		return "success";
+		
 	}
 
 	// get list of Genre
-	public String getAllGenre() {
+	@RequestMapping(value = "/genre",method = RequestMethod.GET)
+	public String getAllGenre(Model model) {
 		System.out.println("Inside AdminController getAllGenre()");
-		return "allGenre";
+		List<Genre> genre=iAdminService.getAllGenre();
+		System.out.println("Genre :"+genre); 
+		model.addAttribute("genreList", genre);
+      
+		return "genre";
 	}
 
 	// add new Genre
@@ -130,7 +196,10 @@ public class AdminController {
 	}
 
 	// deleting a Genre
-	public void deleteGenre() {
+	@RequestMapping(value = "/genre/delete/{genreId}")
+	public String deleteGenre(@PathVariable int genreId) {
 		System.out.println("Inside AdminController deleteGenre()");
+		iAdminService.deleteGenre(genreId);
+		return "success";
 	}
 }

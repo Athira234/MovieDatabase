@@ -8,7 +8,7 @@ import com.entlogics.moviedb.movie.entities.Movie;
 import com.entlogics.moviedb.user.entities.User;
 import com.entlogics.moviedb.user.entities.UserMovie;
 import com.entlogics.moviedb.user.entities.UserWatchListItems;
-@Service
+
 public interface IUserService {
 	
 	public void rateMovie(UserMovie userMovie);

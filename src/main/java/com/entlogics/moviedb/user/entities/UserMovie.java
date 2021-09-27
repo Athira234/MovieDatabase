@@ -40,25 +40,10 @@ public class UserMovie implements Serializable {
 	@Column(name = "review")
 	private String review;
 
-	/*
-	 * @Column(name = "user_id") private int userId;
-	 */
-	
 	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH,
 			CascadeType.REFRESH }, fetch = FetchType.LAZY)
 	@JoinColumn(name = "user_id")
 	private User user;
-
-	/*
-	 * @Id
-	 * 
-	 * @Column(name = "movie_id") private int movieId;
-	 */
-	
-	public UserMovie() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
 
 	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH,
 			CascadeType.REFRESH }, fetch = FetchType.LAZY)

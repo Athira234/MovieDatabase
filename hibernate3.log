@@ -6701,3 +6701,155 @@
 2021-Sep-24 15:06:52 pm [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.entlogics.moviedb.movie.MovieCrew
 2021-Sep-24 15:06:52 pm [main] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
 2021-Sep-24 15:06:52 pm [main] DEBUG org.hibernate.SQL - select company0_.company_id as company_1_0_0_, company0_.ceo as ceo2_0_0_, company0_.company_name as company_3_0_0_, company0_.country as country4_0_0_, company0_.description as descript5_0_0_, company0_.email_id as email_id6_0_0_, company0_.established_in as establis7_0_0_, company0_.headquarter as headquar8_0_0_, company0_.website as website9_0_0_ from dt_company company0_ where company0_.company_id=?
+2021-Sep-27 14:19:42 pm [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: MDB]
+2021-Sep-27 14:19:42 pm [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.5.6.Final
+2021-Sep-27 14:19:43 pm [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-Sep-27 14:19:43 pm [main] WARN  org.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-Sep-27 14:19:43 pm [main] INFO  org.hibernate.orm.connections.pooling - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/moviedb?useSSL=false&allowPublicKeyRetrieval=true]
+2021-Sep-27 14:19:43 pm [main] INFO  org.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=****, user=moviedb}
+2021-Sep-27 14:19:43 pm [main] INFO  org.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+2021-Sep-27 14:19:43 pm [main] INFO  org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2021-Sep-27 14:19:43 pm [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2021-Sep-27 14:19:43 pm [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.entlogics.moviedb.movie.entities.MovieGenre
+2021-Sep-27 14:19:43 pm [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.entlogics.moviedb.movie.entities.MovieGenre
+2021-Sep-27 14:19:43 pm [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.entlogics.moviedb.movie.entities.MovieCompany
+2021-Sep-27 14:19:43 pm [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.entlogics.moviedb.movie.entities.MovieCompany
+2021-Sep-27 14:19:43 pm [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.entlogics.moviedb.movie.entities.MovieCast
+2021-Sep-27 14:19:43 pm [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.entlogics.moviedb.movie.entities.MovieCast
+2021-Sep-27 14:19:43 pm [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.entlogics.moviedb.user.entities.UserWatchListItems
+2021-Sep-27 14:19:43 pm [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.entlogics.moviedb.user.entities.UserWatchListItems
+2021-Sep-27 14:19:43 pm [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.entlogics.moviedb.movie.entities.MovieCrew
+2021-Sep-27 14:19:43 pm [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.entlogics.moviedb.movie.entities.MovieCrew
+2021-Sep-27 14:19:43 pm [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.entlogics.moviedb.movie.entities.MovieLanguage
+2021-Sep-27 14:19:43 pm [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.entlogics.moviedb.movie.entities.MovieLanguage
+2021-Sep-27 14:19:44 pm [main] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-Sep-27 14:19:44 pm [main] DEBUG org.hibernate.SQL - select * from lt_user_movie
+2021-Sep-27 14:19:44 pm [main] DEBUG org.hibernate.SQL - select movie0_.movie_id as movie_id1_3_0_, movie0_.budget_dollar as budget_d2_3_0_, movie0_.country_of_origin as country_3_3_0_, movie0_.movie_poster as movie_po4_3_0_, movie0_.movie_title as movie_ti5_3_0_, movie0_.no_of_recommendations as no_of_re6_3_0_, movie0_.overall_rating as overall_7_3_0_, movie0_.overview as overview8_3_0_, movie0_.pg_rating as pg_ratin9_3_0_, movie0_.release_date as release10_3_0_, movie0_.runtime as runtime11_3_0_, movie0_.total_gross_income_dollar as total_g12_3_0_ from dt_movie movie0_ where movie0_.movie_id=?
+2021-Sep-27 14:19:44 pm [main] DEBUG org.hibernate.SQL - select user0_.user_id as user_id1_5_0_, user0_.created_by as created_2_5_0_, user0_.created_date as created_3_5_0_, user0_.email as email4_5_0_, user0_.first_name as first_na5_5_0_, user0_.last_name as last_nam6_5_0_, user0_.last_password_change as last_pas7_5_0_, user0_.password as password8_5_0_, user0_.role as role9_5_0_, user0_.username as usernam10_5_0_ from dt_user user0_ where user0_.user_id=?
+2021-Sep-27 14:19:44 pm [main] DEBUG org.hibernate.SQL - select moviesofus0_.user_id as user_id8_13_0_, moviesofus0_.id as id1_13_0_, moviesofus0_.id as id1_13_1_, moviesofus0_.is_favourite as is_favou2_13_1_, moviesofus0_.is_recommended as is_recom3_13_1_, moviesofus0_.is_watched as is_watch4_13_1_, moviesofus0_.movie_id as movie_id7_13_1_, moviesofus0_.rating_given as rating_g5_13_1_, moviesofus0_.review as review6_13_1_, moviesofus0_.user_id as user_id8_13_1_ from lt_user_movie moviesofus0_ where moviesofus0_.user_id=?
+2021-Sep-27 14:19:44 pm [main] DEBUG org.hibernate.SQL - insert into lt_user_movie (is_favourite, is_recommended, is_watched, movie_id, rating_given, review, user_id) values (?, ?, ?, ?, ?, ?, ?)
+2021-Sep-27 14:26:27 pm [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: MDB]
+2021-Sep-27 14:26:27 pm [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.5.6.Final
+2021-Sep-27 14:26:27 pm [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-Sep-27 14:26:27 pm [main] WARN  org.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-Sep-27 14:26:27 pm [main] INFO  org.hibernate.orm.connections.pooling - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/moviedb?useSSL=false&allowPublicKeyRetrieval=true]
+2021-Sep-27 14:26:27 pm [main] INFO  org.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=****, user=moviedb}
+2021-Sep-27 14:26:27 pm [main] INFO  org.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+2021-Sep-27 14:26:27 pm [main] INFO  org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2021-Sep-27 14:26:28 pm [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2021-Sep-27 14:26:28 pm [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.entlogics.moviedb.movie.entities.MovieGenre
+2021-Sep-27 14:26:28 pm [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.entlogics.moviedb.movie.entities.MovieGenre
+2021-Sep-27 14:26:28 pm [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.entlogics.moviedb.movie.entities.MovieCompany
+2021-Sep-27 14:26:28 pm [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.entlogics.moviedb.movie.entities.MovieCompany
+2021-Sep-27 14:26:28 pm [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.entlogics.moviedb.movie.entities.MovieCast
+2021-Sep-27 14:26:28 pm [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.entlogics.moviedb.movie.entities.MovieCast
+2021-Sep-27 14:26:28 pm [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.entlogics.moviedb.user.entities.UserWatchListItems
+2021-Sep-27 14:26:28 pm [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.entlogics.moviedb.user.entities.UserWatchListItems
+2021-Sep-27 14:26:28 pm [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.entlogics.moviedb.movie.entities.MovieCrew
+2021-Sep-27 14:26:28 pm [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.entlogics.moviedb.movie.entities.MovieCrew
+2021-Sep-27 14:26:28 pm [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.entlogics.moviedb.movie.entities.MovieLanguage
+2021-Sep-27 14:26:28 pm [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.entlogics.moviedb.movie.entities.MovieLanguage
+2021-Sep-27 14:26:28 pm [main] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-Sep-27 14:26:28 pm [main] DEBUG org.hibernate.SQL - select * from lt_user_movie
+2021-Sep-27 14:26:28 pm [main] DEBUG org.hibernate.SQL - select movie0_.movie_id as movie_id1_3_0_, movie0_.budget_dollar as budget_d2_3_0_, movie0_.country_of_origin as country_3_3_0_, movie0_.movie_poster as movie_po4_3_0_, movie0_.movie_title as movie_ti5_3_0_, movie0_.no_of_recommendations as no_of_re6_3_0_, movie0_.overall_rating as overall_7_3_0_, movie0_.overview as overview8_3_0_, movie0_.pg_rating as pg_ratin9_3_0_, movie0_.release_date as release10_3_0_, movie0_.runtime as runtime11_3_0_, movie0_.total_gross_income_dollar as total_g12_3_0_ from dt_movie movie0_ where movie0_.movie_id=?
+2021-Sep-27 14:26:28 pm [main] DEBUG org.hibernate.SQL - select user0_.user_id as user_id1_5_0_, user0_.created_by as created_2_5_0_, user0_.created_date as created_3_5_0_, user0_.email as email4_5_0_, user0_.first_name as first_na5_5_0_, user0_.last_name as last_nam6_5_0_, user0_.last_password_change as last_pas7_5_0_, user0_.password as password8_5_0_, user0_.role as role9_5_0_, user0_.username as usernam10_5_0_ from dt_user user0_ where user0_.user_id=?
+2021-Sep-27 14:26:28 pm [main] DEBUG org.hibernate.SQL - select moviesofus0_.user_id as user_id8_13_0_, moviesofus0_.id as id1_13_0_, moviesofus0_.id as id1_13_1_, moviesofus0_.is_favourite as is_favou2_13_1_, moviesofus0_.is_recommended as is_recom3_13_1_, moviesofus0_.is_watched as is_watch4_13_1_, moviesofus0_.movie_id as movie_id7_13_1_, moviesofus0_.rating_given as rating_g5_13_1_, moviesofus0_.review as review6_13_1_, moviesofus0_.user_id as user_id8_13_1_ from lt_user_movie moviesofus0_ where moviesofus0_.user_id=?
+2021-Sep-27 14:26:28 pm [main] DEBUG org.hibernate.SQL - insert into lt_user_movie (is_favourite, is_recommended, is_watched, movie_id, rating_given, review, user_id) values (?, ?, ?, ?, ?, ?, ?)
+2021-Sep-27 14:27:54 pm [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: MDB]
+2021-Sep-27 14:27:54 pm [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.5.6.Final
+2021-Sep-27 14:27:54 pm [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-Sep-27 14:27:54 pm [main] WARN  org.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-Sep-27 14:27:54 pm [main] INFO  org.hibernate.orm.connections.pooling - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/moviedb?useSSL=false&allowPublicKeyRetrieval=true]
+2021-Sep-27 14:27:54 pm [main] INFO  org.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=****, user=moviedb}
+2021-Sep-27 14:27:54 pm [main] INFO  org.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+2021-Sep-27 14:27:54 pm [main] INFO  org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2021-Sep-27 14:27:54 pm [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2021-Sep-27 14:27:54 pm [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.entlogics.moviedb.movie.entities.MovieGenre
+2021-Sep-27 14:27:54 pm [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.entlogics.moviedb.movie.entities.MovieGenre
+2021-Sep-27 14:27:54 pm [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.entlogics.moviedb.movie.entities.MovieCompany
+2021-Sep-27 14:27:54 pm [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.entlogics.moviedb.movie.entities.MovieCompany
+2021-Sep-27 14:27:54 pm [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.entlogics.moviedb.movie.entities.MovieCast
+2021-Sep-27 14:27:54 pm [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.entlogics.moviedb.movie.entities.MovieCast
+2021-Sep-27 14:27:54 pm [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.entlogics.moviedb.user.entities.UserWatchListItems
+2021-Sep-27 14:27:54 pm [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.entlogics.moviedb.user.entities.UserWatchListItems
+2021-Sep-27 14:27:54 pm [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.entlogics.moviedb.movie.entities.MovieCrew
+2021-Sep-27 14:27:54 pm [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.entlogics.moviedb.movie.entities.MovieCrew
+2021-Sep-27 14:27:54 pm [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.entlogics.moviedb.movie.entities.MovieLanguage
+2021-Sep-27 14:27:54 pm [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.entlogics.moviedb.movie.entities.MovieLanguage
+2021-Sep-27 14:27:55 pm [main] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-Sep-27 14:27:55 pm [main] DEBUG org.hibernate.SQL - select * from lt_user_movie
+2021-Sep-27 14:29:09 pm [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: MDB]
+2021-Sep-27 14:29:09 pm [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.5.6.Final
+2021-Sep-27 14:29:09 pm [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-Sep-27 14:29:09 pm [main] WARN  org.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-Sep-27 14:29:09 pm [main] INFO  org.hibernate.orm.connections.pooling - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/moviedb?useSSL=false&allowPublicKeyRetrieval=true]
+2021-Sep-27 14:29:09 pm [main] INFO  org.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=****, user=moviedb}
+2021-Sep-27 14:29:09 pm [main] INFO  org.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+2021-Sep-27 14:29:09 pm [main] INFO  org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2021-Sep-27 14:29:09 pm [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2021-Sep-27 14:29:09 pm [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.entlogics.moviedb.movie.entities.MovieGenre
+2021-Sep-27 14:29:09 pm [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.entlogics.moviedb.movie.entities.MovieGenre
+2021-Sep-27 14:29:09 pm [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.entlogics.moviedb.movie.entities.MovieCompany
+2021-Sep-27 14:29:09 pm [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.entlogics.moviedb.movie.entities.MovieCompany
+2021-Sep-27 14:29:09 pm [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.entlogics.moviedb.movie.entities.MovieCast
+2021-Sep-27 14:29:09 pm [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.entlogics.moviedb.movie.entities.MovieCast
+2021-Sep-27 14:29:09 pm [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.entlogics.moviedb.user.entities.UserWatchListItems
+2021-Sep-27 14:29:09 pm [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.entlogics.moviedb.user.entities.UserWatchListItems
+2021-Sep-27 14:29:09 pm [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.entlogics.moviedb.movie.entities.MovieCrew
+2021-Sep-27 14:29:09 pm [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.entlogics.moviedb.movie.entities.MovieCrew
+2021-Sep-27 14:29:09 pm [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.entlogics.moviedb.movie.entities.MovieLanguage
+2021-Sep-27 14:29:09 pm [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.entlogics.moviedb.movie.entities.MovieLanguage
+2021-Sep-27 14:29:10 pm [main] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-Sep-27 14:29:10 pm [main] DEBUG org.hibernate.SQL - select * from lt_user_movie
+2021-Sep-27 14:29:10 pm [main] DEBUG org.hibernate.SQL - select movie0_.movie_id as movie_id1_3_0_, movie0_.budget_dollar as budget_d2_3_0_, movie0_.country_of_origin as country_3_3_0_, movie0_.movie_poster as movie_po4_3_0_, movie0_.movie_title as movie_ti5_3_0_, movie0_.no_of_recommendations as no_of_re6_3_0_, movie0_.overall_rating as overall_7_3_0_, movie0_.overview as overview8_3_0_, movie0_.pg_rating as pg_ratin9_3_0_, movie0_.release_date as release10_3_0_, movie0_.runtime as runtime11_3_0_, movie0_.total_gross_income_dollar as total_g12_3_0_ from dt_movie movie0_ where movie0_.movie_id=?
+2021-Sep-27 14:29:10 pm [main] DEBUG org.hibernate.SQL - select user0_.user_id as user_id1_5_0_, user0_.created_by as created_2_5_0_, user0_.created_date as created_3_5_0_, user0_.email as email4_5_0_, user0_.first_name as first_na5_5_0_, user0_.last_name as last_nam6_5_0_, user0_.last_password_change as last_pas7_5_0_, user0_.password as password8_5_0_, user0_.role as role9_5_0_, user0_.username as usernam10_5_0_ from dt_user user0_ where user0_.user_id=?
+2021-Sep-27 14:29:10 pm [main] DEBUG org.hibernate.SQL - select moviesofus0_.user_id as user_id8_13_0_, moviesofus0_.id as id1_13_0_, moviesofus0_.id as id1_13_1_, moviesofus0_.is_favourite as is_favou2_13_1_, moviesofus0_.is_recommended as is_recom3_13_1_, moviesofus0_.is_watched as is_watch4_13_1_, moviesofus0_.movie_id as movie_id7_13_1_, moviesofus0_.rating_given as rating_g5_13_1_, moviesofus0_.review as review6_13_1_, moviesofus0_.user_id as user_id8_13_1_ from lt_user_movie moviesofus0_ where moviesofus0_.user_id=?
+2021-Sep-27 14:29:10 pm [main] DEBUG org.hibernate.SQL - insert into lt_user_movie (is_favourite, is_recommended, is_watched, movie_id, rating_given, review, user_id) values (?, ?, ?, ?, ?, ?, ?)
+2021-Sep-27 14:29:58 pm [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: MDB]
+2021-Sep-27 14:29:58 pm [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.5.6.Final
+2021-Sep-27 14:29:58 pm [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-Sep-27 14:29:58 pm [main] WARN  org.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-Sep-27 14:29:58 pm [main] INFO  org.hibernate.orm.connections.pooling - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/moviedb?useSSL=false&allowPublicKeyRetrieval=true]
+2021-Sep-27 14:29:58 pm [main] INFO  org.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=****, user=moviedb}
+2021-Sep-27 14:29:58 pm [main] INFO  org.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+2021-Sep-27 14:29:58 pm [main] INFO  org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2021-Sep-27 14:29:59 pm [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2021-Sep-27 14:29:59 pm [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.entlogics.moviedb.movie.entities.MovieGenre
+2021-Sep-27 14:29:59 pm [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.entlogics.moviedb.movie.entities.MovieGenre
+2021-Sep-27 14:29:59 pm [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.entlogics.moviedb.movie.entities.MovieCompany
+2021-Sep-27 14:29:59 pm [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.entlogics.moviedb.movie.entities.MovieCompany
+2021-Sep-27 14:29:59 pm [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.entlogics.moviedb.movie.entities.MovieCast
+2021-Sep-27 14:29:59 pm [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.entlogics.moviedb.movie.entities.MovieCast
+2021-Sep-27 14:29:59 pm [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.entlogics.moviedb.user.entities.UserWatchListItems
+2021-Sep-27 14:29:59 pm [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.entlogics.moviedb.user.entities.UserWatchListItems
+2021-Sep-27 14:29:59 pm [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.entlogics.moviedb.movie.entities.MovieCrew
+2021-Sep-27 14:29:59 pm [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.entlogics.moviedb.movie.entities.MovieCrew
+2021-Sep-27 14:29:59 pm [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.entlogics.moviedb.movie.entities.MovieLanguage
+2021-Sep-27 14:29:59 pm [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.entlogics.moviedb.movie.entities.MovieLanguage
+2021-Sep-27 14:29:59 pm [main] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-Sep-27 14:29:59 pm [main] DEBUG org.hibernate.SQL - select * from lt_user_movie
+2021-Sep-27 14:29:59 pm [main] DEBUG org.hibernate.SQL - update lt_user_movie set is_favourite=?, is_recommended=?, is_watched=?, movie_id=?, rating_given=?, review=?, user_id=? where id=?
+2021-Sep-27 14:30:34 pm [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: MDB]
+2021-Sep-27 14:30:34 pm [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.5.6.Final
+2021-Sep-27 14:30:35 pm [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-Sep-27 14:30:35 pm [main] WARN  org.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-Sep-27 14:30:35 pm [main] INFO  org.hibernate.orm.connections.pooling - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/moviedb?useSSL=false&allowPublicKeyRetrieval=true]
+2021-Sep-27 14:30:35 pm [main] INFO  org.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {password=****, user=moviedb}
+2021-Sep-27 14:30:35 pm [main] INFO  org.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+2021-Sep-27 14:30:35 pm [main] INFO  org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2021-Sep-27 14:30:35 pm [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2021-Sep-27 14:30:35 pm [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.entlogics.moviedb.movie.entities.MovieGenre
+2021-Sep-27 14:30:35 pm [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.entlogics.moviedb.movie.entities.MovieGenre
+2021-Sep-27 14:30:35 pm [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.entlogics.moviedb.movie.entities.MovieCompany
+2021-Sep-27 14:30:35 pm [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.entlogics.moviedb.movie.entities.MovieCompany
+2021-Sep-27 14:30:35 pm [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.entlogics.moviedb.movie.entities.MovieCast
+2021-Sep-27 14:30:35 pm [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.entlogics.moviedb.movie.entities.MovieCast
+2021-Sep-27 14:30:35 pm [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.entlogics.moviedb.user.entities.UserWatchListItems
+2021-Sep-27 14:30:35 pm [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.entlogics.moviedb.user.entities.UserWatchListItems
+2021-Sep-27 14:30:35 pm [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.entlogics.moviedb.movie.entities.MovieCrew
+2021-Sep-27 14:30:35 pm [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.entlogics.moviedb.movie.entities.MovieCrew
+2021-Sep-27 14:30:35 pm [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.entlogics.moviedb.movie.entities.MovieLanguage
+2021-Sep-27 14:30:35 pm [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.entlogics.moviedb.movie.entities.MovieLanguage
+2021-Sep-27 14:30:35 pm [main] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-Sep-27 14:30:36 pm [main] DEBUG org.hibernate.SQL - select * from lt_user_movie
+2021-Sep-27 14:30:36 pm [main] DEBUG org.hibernate.SQL - update lt_user_movie set is_favourite=?, is_recommended=?, is_watched=?, movie_id=?, rating_given=?, review=?, user_id=? where id=?

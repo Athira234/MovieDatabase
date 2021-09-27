@@ -32,18 +32,21 @@ public class UserRepository implements IUserRepository {
 		// iterate each UserMovie object
 		// if the row with particular user_id and movie_id exists ,update the
 		// rating_given else add new row
-
+		Movie movie = usermovie.getMovie();
+		User user = usermovie.getUser();
+		int userId=user.getUserId();
+		int movieId=movie.getMovieId();
 		for (UserMovie usermovie1 : userMovie) {
 			System.out.println(usermovie1);
 			if (usermovie != null) {
 				Movie movie1 = usermovie1.getMovie();
 				User user1 = usermovie1.getUser();
 				// hard coded values will update when implementing user controller
-				if (user1.getUserId() == 1 && movie1.getMovieId() == 8) {
+				if (user1.getUserId()==userId && movie1.getMovieId()==movieId) {
 					System.out.println("update existing row");
 					// id = usermovie1.getId();
 					entityManager.getTransaction().begin();
-					usermovie1.setRatingGiven(6);
+					usermovie1.setRatingGiven(usermovie.getRatingGiven());
 					entityManager.merge(usermovie1);
 					entityManager.getTransaction().commit();
 
@@ -57,14 +60,15 @@ public class UserRepository implements IUserRepository {
 		if (flag == 0) {
 			entityManager.getTransaction().begin();
 			// user and movie object will add to usermovie when implementing controllers
-			Movie movie = entityManager.find(Movie.class, 8);
-			User user = entityManager.find(User.class, 1);
+			Movie movie1 = entityManager.find(Movie.class, movieId);
+			User user1 = entityManager.find(User.class, userId);
+			UserMovie usermovie2=new UserMovie();
 			System.out.println("user" + user);
-			usermovie.setMovie(movie);
-			usermovie.setUser(user);
-			usermovie.setRatingGiven(5);
+			usermovie2.setMovie(movie1);
+		    usermovie2.setUser(user1);
+		     usermovie2.setRatingGiven(usermovie.getRatingGiven());
 			// usermovie.setReview("");
-			entityManager.persist(usermovie);
+			entityManager.persist(usermovie2);
 			entityManager.getTransaction().commit();
 		}
 
@@ -384,14 +388,14 @@ public class UserRepository implements IUserRepository {
 		UserRepository repo = new UserRepository();
 		UserMovie us = new UserMovie();
 
-		// repo.rateMovie(us);
+		 repo.rateMovie(us);
 		// repo.findProfile(1);
 		// User user = repo.findProfile(1);
 		// repo.giveMovieFeedback(us);
 		// repo.addMovieToWatchlist(1,5);
 		// repo.updatePassword(user);
 		// repo.addMovieToFavourites(us);
-		repo.recommendMovie(us);
+		//repo.recommendMovie(us);
 		// repo.findWatchList(1);
 		// repo.findFavourites(2);
 		// repo.findRatings(1);

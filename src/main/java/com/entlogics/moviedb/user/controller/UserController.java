@@ -1,5 +1,6 @@
 package com.entlogics.moviedb.user.controller;
 import java.util.ArrayList;
+
 import java.util.List;
 import java.util.ListIterator;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.entlogics.moviedb.admin.service.IAdminService;
 import com.entlogics.moviedb.movie.entities.Movie;
 import com.entlogics.moviedb.user.entities.User;
+import com.entlogics.moviedb.user.entities.UserMovie;
 import com.entlogics.moviedb.user.entities.UserWatchListItems;
 import com.entlogics.moviedb.user.service.IUserService;
 @Controller
@@ -30,13 +32,33 @@ public class UserController {
 	}
 
 	// Method for rating a movie
-	@RequestMapping("/movies/{movieId}/ratings")
-	public String rateMovieForm(@PathVariable int userId, Model model) {
+	@RequestMapping("users/{userId}/movies/{movieId}/ratings")
+	public String rateMovieForm(@PathVariable int movieId,@PathVariable int userId, Model model) {
 		System.out.println("Inside rateMovie() method in UserController");
+		Movie movie=iAdminService.getMovie(movieId);
+		User user=iUserService.getProfile(userId);
+		UserMovie userMovie=new UserMovie();
+		userMovie.setMovie(movie);
+		userMovie.setUser(user);
+		model.addAttribute("userMovie",userMovie);
 		// User user=iUserService.getUser();
-
+        return "rating-form";
+	}
+	@RequestMapping("users/{userId}/movies/{movieId}/ratings/ratingdetails")
+	public String postRating(@PathVariable int movieId,@PathVariable int userId,@ModelAttribute("userMovie") UserMovie userMovie) {
+		System.out.println("Inside postRating() method in UserController");
+		
+		Movie movie=iAdminService.getMovie(movieId);
+		User user=iUserService.getProfile(userId);
+		UserMovie userMovie1=new UserMovie();
+		userMovie.setMovie(movie);
+		userMovie.setUser(user);
+		System.out.println("User  Details"+userMovie.getUser()+"movie"+userMovie.getMovie());
 	
-		return null;
+		iUserService.rateMovie(userMovie);
+		
+		// User user=iUserService.getUser();
+        return "success";
 	}
 
 	// Method for giving feedback for a movie
@@ -142,7 +164,7 @@ public class UserController {
 	}
 	@RequestMapping("/users/{userId}/password/editdetails")
 	public String updatePassword(@ModelAttribute("user") User user) {
-		System.out.println("Inside updateUser() method in SchoolController ");
+		System.out.println("Inside updatePassword() method in SchoolController ");
 		User user1=iUserService.getProfile(user.getUserId());
 		user1.setPassword(user.getPassword());
 		iUserService.updatePassword(user1);

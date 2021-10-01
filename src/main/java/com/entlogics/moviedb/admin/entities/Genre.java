@@ -24,6 +24,9 @@ public class Genre {
 	@Column(name = "id")
 	private int genreId;
 
+	@Column(name = "name")
+	private String name;
+	
 	@Column(name = "description")
 	private String description;
 
@@ -51,12 +54,20 @@ public class Genre {
 		this.description = description;
 	}
 
-	public List<MovieGenre> getMoviesWithThisGenre() {
+	public List<MovieGenre> getMoviesWithThicmsGenre() {
 		return moviesWithThisGenre;
 	}
 
 	public void setMoviesWithThisGenre(List<MovieGenre> moviesWithThisGenre) {
 		this.moviesWithThisGenre = moviesWithThisGenre;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	@Override

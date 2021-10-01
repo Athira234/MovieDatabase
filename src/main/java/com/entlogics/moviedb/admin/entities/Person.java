@@ -1,6 +1,7 @@
 package com.entlogics.moviedb.admin.entities;
 
 import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -46,19 +47,19 @@ public class Person {
 	@Column(name = "age")
 	private int age;
 
-	@Column(name = "is_alive")
-	private int isAlive;
+	@Column(name = "date_of_death")
+	private LocalDate dateOfDeath;
 
 	@Column(name = "nationality")
 	private String nationality;
 
-	@Column(name = "imdb_link")
+	@Column(name = "imdb_profile_url")
 	private String imdbLink;
 
-	@OneToMany(mappedBy = "person", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "person", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
 	private List<MovieCast> personMoviesAsCast;
 
-	@OneToMany(mappedBy = "person", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "person", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
 	private List<MovieCrew> personMoviesAsCrew;
 
 	public Person() {
@@ -137,12 +138,13 @@ public class Person {
 		this.age = age;
 	}
 
-	public int getIsAlive() {
-		return isAlive;
+	
+	public LocalDate getDateOfDeath() {
+		return dateOfDeath;
 	}
 
-	public void setIsAlive(int isAlive) {
-		this.isAlive = isAlive;
+	public void setDateOfDeath(LocalDate dateOfDeath) {
+		this.dateOfDeath = dateOfDeath;
 	}
 
 	public String getNationality() {

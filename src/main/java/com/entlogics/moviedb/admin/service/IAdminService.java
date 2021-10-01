@@ -2,10 +2,12 @@ package com.entlogics.moviedb.admin.service;
 
 import java.util.List;
 
+
 import com.entlogics.moviedb.admin.entities.Company;
 import com.entlogics.moviedb.admin.entities.Genre;
 import com.entlogics.moviedb.admin.entities.Person;
 import com.entlogics.moviedb.movie.entities.Movie;
+import com.entlogics.moviedb.user.entities.User;
 
 public interface IAdminService {
 
@@ -56,5 +58,15 @@ public interface IAdminService {
 	public void editGenre(Genre genre);
 
 	public void deleteGenre(int genreId);
+
+	public Genre getGenre(int genreId);
+
+	public List<User> getAllUsers();
+
+	public void deleteUser(int userId);
+
+	public void createUser(User user);
+
+	public void editUser(User user);
 
 }

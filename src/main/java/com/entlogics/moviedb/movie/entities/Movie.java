@@ -60,6 +60,17 @@ public class Movie {
 
 	@Column(name = "no_of_recommendations")
 	private int numberOfRecommendations;
+	
+	@Column(name = "release_type")
+	private String releaseType;
+
+	public String getReleaseType() {
+		return releaseType;
+	}
+
+	public void setReleaseType(String releaseType) {
+		this.releaseType = releaseType;
+	}
 
 	@OneToMany(mappedBy = "movie", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<MovieCast> movieCast;

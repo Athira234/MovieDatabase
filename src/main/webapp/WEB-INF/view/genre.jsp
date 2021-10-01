@@ -35,9 +35,9 @@ tr td:first-child:before {
 			<c:forEach items="${genreList}" var="g">
 				<tr>
 					<td></td>
-
+                    <td><c:out value="${g.name}" /></td>
 					<td><c:out value="${g.description}" /></td>
-					<td><a href="genre/edit/${g.genreId}"> Edit </a></td>
+					<td><a href="genre/${g.genreId}/edit"> Edit </a></td>
 					<td><a href="genre/delete/${g.genreId}"> Delete </a></td>
 					<td></td>
 				</tr>

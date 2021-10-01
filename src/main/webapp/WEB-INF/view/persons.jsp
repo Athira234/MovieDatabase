@@ -42,7 +42,7 @@ tr td:first-child:before {
                     <td><c:out value="${p.gender}" /></td>
                     <td><c:out value="${p.role}" /></td>
                     <td><a href="${p.imdbLink}"><c:out value="${p.imdbLink}" /></td>
-                    <td><a href="persons/edit/${p.personId}"> Edit </a></td>
+                    <td><a href="persons/${p.personId}/edit"> Edit </a></td>
 					<td><a href="persons/delete/${p.personId}"> Delete </a></td>
 				</tr>
 

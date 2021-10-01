@@ -10,6 +10,7 @@ import com.entlogics.moviedb.admin.entities.Genre;
 import com.entlogics.moviedb.admin.entities.Person;
 import com.entlogics.moviedb.admin.repository.IAdminRepository;
 import com.entlogics.moviedb.movie.entities.Movie;
+import com.entlogics.moviedb.user.entities.User;
 import com.entlogics.moviedb.user.repository.IUserRepository;
 
 @Service
@@ -159,5 +160,40 @@ public class AdminService implements IAdminService {
 	public void deleteGenre(int genreId) {
 		System.out.println("Inside AdminService deleteGenre()");
 		adminRepo.deleteGenre(genreId);
+	}
+
+	@Override
+	public Genre getGenre(int genreId) {
+		System.out.println("Inside AdminService  getGenre()");
+		Genre genre=adminRepo.findGenre(genreId);
+		return genre;
+	}
+
+	@Override
+	public List<User> getAllUsers() {
+		System.out.println("Inside AdminService getAllUsers()");
+		List<User> users=adminRepo.findAllUsers();
+		return users;
+	}
+
+	@Override
+	public void deleteUser(int userId) {
+		System.out.println("Inside AdminService deleteUser()");
+		adminRepo.deleteUser(userId);
+		
+	}
+
+	@Override
+	public void createUser(User user) {
+		
+		System.out.println("Inside AdminService createUser()");
+		adminRepo.addUser(user);
+	}
+
+	@Override
+	public void editUser(User user) {
+		System.out.println("Inside AdminService editUser()");
+		adminRepo.updateUser(user);
+		
 	}
 }

@@ -22,6 +22,9 @@ public class User {
 
 	@Column(name = "password")
 	private String password;
+	
+	@Column(name = "gender")
+	private String gender;
 
 	@Column(name = "first_name")
 	private String firstName;
@@ -46,6 +49,9 @@ public class User {
 	
 	@Column(name = "last_password_change")
 	private LocalDate lastPasswordChange;
+	
+	@Column(name = "profile_image")
+	private byte[] profileImage;
 	
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
 	List<UserMovie> moviesOfUser;
@@ -147,6 +153,22 @@ public class User {
 
 	public void setUserActivities(List<UserActivity> userActivities) {
 		this.userActivities = userActivities;
+	}
+
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
+	public byte[] getProfileImage() {
+		return profileImage;
+	}
+
+	public void setProfileImage(byte[] profileImage) {
+		this.profileImage = profileImage;
 	}
 
 	@Override

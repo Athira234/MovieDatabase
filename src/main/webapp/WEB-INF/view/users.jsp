@@ -22,26 +22,26 @@ tr td:first-child:before {
 </style>
 <body>
 	<center>
-		<U>COMPANY LIST</U> 
-		<br> <br> <a href="companies/add"> <input
-			type="submit" value="ADD NEW COMPANY" /></a><br> <br>
+		<U>USER'S LIST</U> 
+		<br> <br> <a href="users/add"> <input
+			type="submit" value="ADD NEW USER" /></a><br> <br>
 		<table border=1>
 			<th>Sl.No</th>
-			<th>Company Name</th>
+			<th>User Name</th>
 			<th>Country</th>
 			<th>Website</th>
 			<th>Edit</th>
 			<th>Delete</th>
 		
 
-			<c:forEach items="${companyList}" var="c">
+			<c:forEach items="${userList}" var="user">
 				<tr>
 				    <td></td>
-					<td><a href="companies/${c.companyId}"><c:out value="${c.companyName}" /></td>
-					<td><c:out value="${c.country}" /></td>
-					<td><c:out value="${c.website}" /></td>
-					<td><a href="companies/${c.companyId}/edit"> Edit </a></td>
-					<td><a href="companies/delete/${c.companyId}"> Delete </a></td>
+					<td><a href="users/${user.userId}"><c:out value="${user.firstName} ${user.lastName}" /></td>
+					<td><c:out value="${user.createdBy}" /></td>
+					<td><c:out value="${user.createdDate}" /></td>
+					<td><a href="users/${user.userId}/edit"> Edit </a></td>
+					<td><a href="users/${user.userId}/delete"> Delete </a></td>
 					
 				</tr>
 

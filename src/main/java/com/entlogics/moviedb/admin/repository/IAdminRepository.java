@@ -6,6 +6,7 @@ import com.entlogics.moviedb.admin.entities.Company;
 import com.entlogics.moviedb.admin.entities.Genre;
 import com.entlogics.moviedb.admin.entities.Person;
 import com.entlogics.moviedb.movie.entities.Movie;
+import com.entlogics.moviedb.user.entities.User;
 
 public interface IAdminRepository {
 
@@ -58,5 +59,15 @@ public interface IAdminRepository {
 	public void updateGenre(Genre genre);
 
 	public void deleteGenre(int genreId);
+
+	public Genre findGenre(int genreId);
+
+	public List<User> findAllUsers();
+
+	public void deleteUser(int userId);
+
+	public void addUser(User user);
+
+	public void updateUser(User user);
 
 }

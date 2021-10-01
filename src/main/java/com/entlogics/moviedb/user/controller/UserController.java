@@ -86,6 +86,7 @@ public class UserController {
 	// Method for adding a movie to watchlist
 	public String addMovieToWatchlist() {
 		System.out.println("Inside addMovieToWatchlist() method in UserController");
+		
 		return null;
 	}
 

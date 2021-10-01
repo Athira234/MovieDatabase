@@ -42,7 +42,7 @@ tr td:first-child:before {
                     <td><c:out value="${m.releaseDate}" /></td>
                     <td><c:out value="${m.overallRating}" /></td>
                     <td><c:out value="${m.numberOfRecommendations}" /></td>
-                    <td><a href="movies/edit/${m.movieId}"> Edit </a></td>
+                    <td><a href="movies/${m.movieId}/edit"> Edit </a></td>
 					<td><a href="movies/delete/${m.movieId}"> Delete </a></td>
 				</tr>
 

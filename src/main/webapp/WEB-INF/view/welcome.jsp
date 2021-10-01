@@ -19,5 +19,6 @@
 <A href="movies">List of all Movies</A><br><br>
 <A href="persons">List of all Persons</A><br><br>
 <A href="genre">List of all Genre</A><br><br>
+<A href="users">List of all Users</A><br><br>
 </body>
 </html>

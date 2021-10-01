@@ -1,5 +1,6 @@
 package com.entlogics.moviedb.admin.repository;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -12,12 +13,13 @@ import com.entlogics.moviedb.admin.entities.Company;
 import com.entlogics.moviedb.admin.entities.Genre;
 import com.entlogics.moviedb.admin.entities.Person;
 import com.entlogics.moviedb.movie.entities.Movie;
+import com.entlogics.moviedb.user.entities.User;
 
 @Repository
 public class AdminRepository implements IAdminRepository {
 
 	EntityManagerFactory factory = Persistence.createEntityManagerFactory("MDB");
-
+	LocalDate localDate = LocalDate.now();
 	// find all companies
 	public List<Company> findAllCompanies() {
 		System.out.println("Inside AdminRepository findAllCompanies()");
@@ -50,6 +52,7 @@ public class AdminRepository implements IAdminRepository {
 		EntityManager entityManager = factory.createEntityManager();
 		entityManager.getTransaction().begin();
 		entityManager.persist(company);
+		entityManager.getTransaction().commit();
 		System.out.println("Company details :" + company);
 		entityManager.close();
 	}
@@ -125,7 +128,7 @@ public class AdminRepository implements IAdminRepository {
 		System.out.println("Inside AdminRepository addMovie()");
 		EntityManager entityManager = factory.createEntityManager();
 		entityManager.getTransaction().begin();
-		//movie object will passed when implementing controller
+		// movie object will passed when implementing controller
 		entityManager.persist(movie);
 		System.out.println("Movie details :" + movie);
 		entityManager.getTransaction().commit();
@@ -261,6 +264,74 @@ public class AdminRepository implements IAdminRepository {
 		entityManager.close();
 	}
 
+	@Override
+	public Genre findGenre(int genreId) {
+		System.out.println("Inside AdminRepository findGenre()");
+		EntityManager entityManager = factory.createEntityManager();
+		entityManager.getTransaction().begin();
+		Genre genre = entityManager.find(Genre.class, genreId);
+		System.out.println("genre details :" + genre);
+		entityManager.getTransaction().commit();
+		entityManager.close();
+		return genre;
+	}
+
+	@Override
+	public List<User> findAllUsers() {
+		System.out.println("Inside AdminRepository findAllUsers()");
+		EntityManager entityManager = factory.createEntityManager();
+		entityManager.getTransaction().begin();
+		List<User> users = entityManager.createNativeQuery("select * from dt_user", User.class).getResultList();
+		System.out.println("printing list of users " + users.size() + "\n" + users);
+		entityManager.getTransaction().commit();
+		entityManager.close();
+		return users;
+	}
+
+	@Override
+	public void deleteUser(int userId) {
+		System.out.println("Inside AdminRepository deleteUser()");
+		EntityManager entityManager = factory.createEntityManager();
+		entityManager.getTransaction().begin();
+		User user = entityManager.find(User.class, userId);
+		entityManager.remove(user);
+		System.out.println("deleted");
+		entityManager.getTransaction().commit();
+		entityManager.close();
+
+	}
+
+	@Override
+	public void addUser(User user) {
+		System.out.println("Inside AdminRepository addUser()");
+		EntityManager entityManager = factory.createEntityManager();
+		entityManager.getTransaction().begin();
+		user.setCreatedBy("ADMIN");
+		user.setCreatedDate(localDate);
+		user.setLastPasswordChange(localDate);
+		user.setProfileImage(null);
+		entityManager.persist(user);
+		System.out.println("User details :" + user);
+		entityManager.getTransaction().commit();
+		entityManager.close();
+
+	}
+
+	@Override
+	public void updateUser(User user) {
+		System.out.println("Inside AdminRepository updateUser()");
+		EntityManager entityManager = factory.createEntityManager();
+		try {
+
+			entityManager.getTransaction().begin();
+			entityManager.merge(user);
+			entityManager.getTransaction().commit();
+		} catch (Exception e) {
+			entityManager.getTransaction().rollback();
+			e.printStackTrace();
+		}
+	}
+
 	public static void main(String[] args) {
 
 		AdminRepository repo = new AdminRepository();
@@ -272,7 +343,10 @@ public class AdminRepository implements IAdminRepository {
 		// repo.findAllGenre();
 		// repo.deleteGenre(9);
 		// repo.findAllCompanies();
-		repo.findCompany(1);
+		// repo.findCompany(1);
+		// repo.findGenre(1);
+		repo.findAllUsers();
 
 	}
+
 }

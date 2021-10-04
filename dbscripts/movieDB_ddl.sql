@@ -76,7 +76,7 @@ CREATE TABLE `dt_movie` (
   `id` int NOT NULL AUTO_INCREMENT,
   `movie_title` varchar(50) DEFAULT NULL,
   `country_of_origin` varchar(50) DEFAULT NULL,
-  `movie_poster` blob DEFAULT NULL,
+  `movie_poster` blob,
   `release_date` date DEFAULT NULL,
   `release_type` varchar(30) NOT NULL,
   `pg_rating` enum('G','PG','PG-13','R','X') DEFAULT NULL,
@@ -125,7 +125,7 @@ CREATE TABLE `dt_user` (
   `first_name` varchar(100) DEFAULT NULL,
   `last_name` varchar(100) DEFAULT NULL,
   `gender` varchar(20) NOT NULL,
-  `profile_image` blob DEFAULT NULL,
+  `profile_image` blob,
   `role` enum('ADMIN','USER') DEFAULT NULL,
   `username` varchar(50) DEFAULT NULL,
   `password` varchar(50) DEFAULT NULL,
@@ -321,4 +321,4 @@ CREATE TABLE `tt_user_watchlist_items` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-09-23 23:29:47
+-- Dump completed on 2021-10-04 14:58:19

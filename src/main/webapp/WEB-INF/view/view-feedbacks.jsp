@@ -26,18 +26,19 @@ tr td:first-child:before {
 		<table border=1>
 			<th>Sl.No</th>
 			<th>Movie Name</th>
-			<th>Date Added</th>
+			<th>FeedBack </th>
+			
 			<c:forEach items="${movies}" var="movies" varStatus="status">
 					<tr>
 					<td></td>
 					<td><c:out value="${movies.movieTitle}" /></td>
-					<td><c:out value="${watchList[status.index].dateAdded}" /></td>
+						<td><c:out value="${userMovies[status.index].review}" /></td>
+					
 				</tr>
           </c:forEach>
 			
 		</table>
-		<A href="watchlist/items">Add Movie to WatchList</A><br><br>
-		 
+	
 		</center>
 </body>
 

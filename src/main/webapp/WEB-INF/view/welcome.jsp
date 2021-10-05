@@ -20,5 +20,11 @@
 <A href="persons">List of all Persons</A><br><br>
 <A href="genre">List of all Genre</A><br><br>
 <A href="users">List of all Users</A><br><br>
+<A href="users/1/favourite">Add Movie to Favourites</A><br><br>
+<A href="users/1/recommend">Recommend Movie</A><br><br>
+<A href="users/1/favourites">List of Favourites</A><br><br>
+
+<A href="users/1/viewratings">Ratings</A><br><br>
+<A href="users/1/viewfeedbacks">Feedbacks</A><br><br>
 </body>
 </html>

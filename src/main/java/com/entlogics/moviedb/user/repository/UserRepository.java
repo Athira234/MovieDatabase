@@ -96,7 +96,7 @@ public class UserRepository implements IUserRepository {
 		int movieId=movie.getMovieId();
 		// iterate each UserMovie object
 		// if the row with particular user_id and movie_id exists ,update the
-		// rating_given else add new row
+		// feedback else add new row
 
 		for (UserMovie usermovie1 : usermovies) {
 			System.out.println(usermovie1);
@@ -139,23 +139,14 @@ public class UserRepository implements IUserRepository {
 	}
 
 	@Override
-	public void addMovieToWatchlist(int watchlistId, int movieId) {
+	public void addMovieToWatchlist( UserWatchListItems watchListItem) {
 		System.out.println("Inside addMovieToWatchlist() method in UserRepository");
-
+		LocalDate localDate = LocalDate.now();
 		EntityManager entityManager = factory.createEntityManager();
 		entityManager.getTransaction().begin();
-		UserWatchListItems item = new UserWatchListItems();
-		item.setMovieId(movieId);
-		item.setWatchlistId(watchlistId);
-		System.out.println("Items " + item);
-		entityManager.persist(item);
-		/*
-		 * entityManager .createNativeQuery(
-		 * "INSERT INTO  lt_user_watchlist_items(watchlist_id,movie_id,notes,date_added) VALUES (?,?,?,?)"
-		 * ) .setParameter(1, 1).setParameter(2, 1).setParameter(3,
-		 * "No.1 Watchlist").setParameter(4, "2021-10-20") .executeUpdate();
-		 */
-
+		watchListItem.setDateAdded(localDate);
+		watchListItem.setNotes("");
+		entityManager.persist(watchListItem);
 		entityManager.getTransaction().commit();
 		entityManager.close();
 
@@ -171,17 +162,19 @@ public class UserRepository implements IUserRepository {
 		List<UserMovie> userMovies = entityManager.createNativeQuery("select * from tt_user_movie", UserMovie.class)
 				.getResultList();
 		entityManager.getTransaction().commit();
+		Movie movie = userMovie.getMovie();
+		User user = userMovie.getUser();
+		
 		// iterate each UserMovie object
-		// if the row with particular user_id and movie_id exists ,update the
-		// rating_given else add new row
-
+		// if the row with particular user_id and movie_id exists ,update the is_favourite else add new row
+          
 		for (UserMovie usermovie1 : userMovies) {
 			System.out.println(usermovie1);
 			if (usermovie1 != null) {
 				Movie movie1 = usermovie1.getMovie();
 				User user1 = usermovie1.getUser();
 				// hard coded values will update when implementing user controller
-				if (user1.getUserId() == 1 && movie1.getMovieId() == 8) {
+				if (user1.getUserId() ==user.getUserId() && movie1.getMovieId()==(movie.getMovieId())) {
 					System.out.println("update existing row");
 					entityManager.getTransaction().begin();
 					usermovie1.setFavourite(true);
@@ -197,11 +190,11 @@ public class UserRepository implements IUserRepository {
 		if (flag == 0) {
 			entityManager.getTransaction().begin();
 			// user and movie object will add to usermovie when implementing controllers
-			Movie movie = entityManager.find(Movie.class, 7);
-			User user = entityManager.find(User.class, 1);
-			System.out.println("user" + user);
-			userMovie.setMovie(movie);
-			userMovie.setUser(user);
+			//Movie movie = entityManager.find(Movie.class, 7);
+		//	User user = entityManager.find(User.class, 1);
+			//System.out.println("user" + user);
+			//userMovie.setMovie(movie);
+			//userMovie.setUser(user);
 			userMovie.setFavourite(true);
 			entityManager.persist(userMovie);
 			entityManager.getTransaction().commit();
@@ -220,17 +213,20 @@ public class UserRepository implements IUserRepository {
 		List<UserMovie> userMovies = entityManager.createNativeQuery("select * from tt_user_movie", UserMovie.class)
 				.getResultList();
 		entityManager.getTransaction().commit();
+		Movie movie = userMovie.getMovie();
+		User user = userMovie.getUser();
 		// iterate each UserMovie object
-		// if the row with particular user_id and movie_id exists ,update the
-		// rating_given else add new row
+		// if the row with particular user_id and movie_id exists ,update the is Recommend
+		
 
 		for (UserMovie usermovie1 : userMovies) {
 			System.out.println(usermovie1);
 			if (usermovie1 != null) {
 				Movie movie1 = usermovie1.getMovie();
 				User user1 = usermovie1.getUser();
+				
 				// hard coded values will update when implementing user controller
-				if (user1.getUserId() == 1 && movie1.getMovieId() == 8) {
+				if (user1.getUserId() == user.getUserId() && movie1.getMovieId() == movie.getMovieId()) {
 					System.out.println("update existing row");
 					entityManager.getTransaction().begin();
 					usermovie1.setRecommeded(true);
@@ -246,12 +242,6 @@ public class UserRepository implements IUserRepository {
 		if (flag == 0) {
 			entityManager.getTransaction().begin();
 			// user and movie object will add to usermovie when implementing controllers
-			Movie movie = entityManager.find(Movie.class, 7);
-			User user = entityManager.find(User.class, 1);
-			System.out.println("user" + user);
-			userMovie.setMovie(movie);
-			userMovie.setUser(user);
-			userMovie.setRecommeded(true);
 			entityManager.persist(userMovie);
 			entityManager.getTransaction().commit();
 		}
@@ -259,6 +249,19 @@ public class UserRepository implements IUserRepository {
 		entityManager.close();
 
 	}
+	
+	public List<UserWatchList> findWatchListsOfUser(int userId)
+	{
+		System.out.println("Inside findWatchLists() method in UserRepository");
+		EntityManager entityManager = factory.createEntityManager();
+		entityManager.getTransaction().begin();
+		List<UserWatchList> watchlists=entityManager.createNativeQuery("select * from dt_user_watchlist where user_id=" + userId,
+						UserWatchList.class).getResultList();	
+		System.out.println("User's watchLists"+watchlists);
+	   return watchlists;
+	}
+	
+	
 
 	@Override
 	public List<UserWatchListItems> findWatchList(int userId) {
@@ -334,7 +337,7 @@ public class UserRepository implements IUserRepository {
 		// print usermovie list
 		System.out.println("usermovies :" + userMovies);
 		entityManager.close();
-		return null;
+		return userMovies;
 	}
 
 	@Override
@@ -413,5 +416,6 @@ public class UserRepository implements IUserRepository {
 		// repo.findFavourites(2);
 		// repo.findRatings(1);
 		// repo.updateProfile(user);
+		repo.findWatchListsOfUser(1);
 	}
 }

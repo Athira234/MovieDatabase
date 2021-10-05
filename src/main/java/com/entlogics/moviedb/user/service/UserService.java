@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import com.entlogics.moviedb.movie.entities.Movie;
 import com.entlogics.moviedb.user.entities.User;
 import com.entlogics.moviedb.user.entities.UserMovie;
+import com.entlogics.moviedb.user.entities.UserWatchList;
 import com.entlogics.moviedb.user.entities.UserWatchListItems;
 import com.entlogics.moviedb.user.repository.IUserRepository;
 
@@ -42,9 +43,9 @@ public class UserService implements IUserService {
 
 	// Method for adding a movie to watchlist
 	@Override
-	public void addMovieToWatchlist(int watchlistId, int movieId) {
+	public void addMovieToWatchlist( UserWatchListItems watchListItem) {
 		System.out.println("Inside addMovieToWatchlist() method in UserService");
-		userRepo.addMovieToWatchlist(watchlistId, movieId);
+		userRepo.addMovieToWatchlist(watchListItem);
 	}
 
 	// Method for adding movie to favourites
@@ -132,6 +133,12 @@ public class UserService implements IUserService {
 	public void logout() {
 		System.out.println("Inside logout() method in UserService");
 
+	}
+
+	@Override
+	public List<UserWatchList> getWatchListsOfUser(int userId) {
+		 List<UserWatchList> watchLists=userRepo.findWatchListsOfUser(userId);
+		return watchLists;
 	}
 
 }

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import com.entlogics.moviedb.movie.entities.Movie;
 import com.entlogics.moviedb.user.entities.User;
 import com.entlogics.moviedb.user.entities.UserMovie;
+import com.entlogics.moviedb.user.entities.UserWatchList;
 import com.entlogics.moviedb.user.entities.UserWatchListItems;
 
 public interface IUserService {
@@ -15,7 +16,7 @@ public interface IUserService {
 
 	public void giveMovieFeedback(UserMovie userMovie);
 
-	public void addMovieToWatchlist(int watchlistId,int movieId);
+	public void addMovieToWatchlist( UserWatchListItems watchListItem);
 
 	public void addMovieToFavourites(UserMovie userMovie);
 
@@ -28,6 +29,9 @@ public interface IUserService {
 	public List<UserMovie> getRatings(int userId);
 
 	public List<UserMovie> getFeedbacks(int userId);
+	
+	
+	public List<UserWatchList> getWatchListsOfUser(int userId);
 
 	public User getProfile(int userId);
 

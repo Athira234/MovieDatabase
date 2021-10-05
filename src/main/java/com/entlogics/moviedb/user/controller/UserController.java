@@ -14,18 +14,19 @@ import com.entlogics.moviedb.admin.service.IAdminService;
 import com.entlogics.moviedb.movie.entities.Movie;
 import com.entlogics.moviedb.user.entities.User;
 import com.entlogics.moviedb.user.entities.UserMovie;
+import com.entlogics.moviedb.user.entities.UserWatchList;
 import com.entlogics.moviedb.user.entities.UserWatchListItems;
 import com.entlogics.moviedb.user.service.IUserService;
 @Controller
 public class UserController {
 
-	IUserService iUserService;
+	
 	IAdminService iAdminService;
 	@Autowired
 	public void setiAdminService(IAdminService iAdminService) {
 		this.iAdminService = iAdminService;
 	}
-
+	IUserService iUserService;
 	@Autowired
 	public void setiUserService(IUserService iUserService) {
 		this.iUserService = iUserService;
@@ -84,28 +85,87 @@ public class UserController {
 		return "success";
 	}
 	// Method for adding a movie to watchlist
-	public String addMovieToWatchlist() {
+	@RequestMapping("users/{userId}/watchlist/items")
+	public String addMovieToWatchlist(@PathVariable int userId,Model model) {
 		System.out.println("Inside addMovieToWatchlist() method in UserController");
-		
-		return null;
+		//create UserWatchListItems object
+		UserWatchListItems watchListItem=new UserWatchListItems();
+		//get List of movies
+		List<Movie> movies=iAdminService.getAllMovies();
+		//get List of WatchLists
+		List<UserWatchList> watchLists=iUserService.getWatchListsOfUser(userId);
+		//add watchLists to Model
+		model.addAttribute("watchLists",watchLists);
+		//add watchListItem to Model
+		model.addAttribute("watchListItem",watchListItem);
+		//add movies to Model
+		model.addAttribute("movies", movies);
+		return "movie-to-watchlist-form";
 	}
-
+	
+	@RequestMapping("users/{userId}/watchlist/save")
+	public String saveMovieToWatchlist(@ModelAttribute("watchListItem") UserWatchListItems watchListItem){
+		System.out.println("Inside saveMovieToWatchlist() method in UserController");
+		iUserService.addMovieToWatchlist(watchListItem);
+		return "success";
+	}
 	// Method for adding movie to favourites
-
-	public String addMovieToFavourites() {
+	@RequestMapping("users/{userId}/favourite")
+	public String addMovieToFavourites(Model model) {
 		System.out.println("Inside addMovieToFavourites() method in UserController");
-		return null;
+		//create UserMovie Object
+		UserMovie userMovie=new UserMovie();
+		//get list of movies
+		List<Movie> movies=iAdminService.getAllMovies();
+		
+		Movie movie=new Movie();
+		//add movies list to model
+		model.addAttribute("movies", movies);
+		model.addAttribute("movie",movie);
+		return "add-to-favourites-form";
+	}
+	@RequestMapping("users/{userId}/favourite/save")
+	public String saveMovieToFavourites(@PathVariable int userId,@ModelAttribute("movie") Movie movie) {
+		System.out.println("Inside saveMovieToFavourites() method in UserController");
+		User user=iUserService.getProfile(userId);
+		UserMovie userMovie=new UserMovie();
+		userMovie.setUser(user);
+		userMovie.setMovie(movie);
+		iUserService.addMovieToFavourites(userMovie);
+		return "success";
 	}
 
 	// Method for recommending a movie to another user
-	public String recommendMovie() {
+	@RequestMapping("users/{userId}/recommend")
+	public String recommendMovie(Model model) {
 		System.out.println("Inside recommendMovie() method in UserController");
-		return null;
+		//create UserMovie Object
+				UserMovie userMovie=new UserMovie();
+				//get list of movies
+				List<Movie> movies=iAdminService.getAllMovies();
+				
+				Movie movie=new Movie();
+				//add movies list to model
+				model.addAttribute("movies", movies);
+				model.addAttribute("movie",movie);
+				return "recommend-movie-form";
+	
+	}
+	//save recommendation method
+	@RequestMapping("users/{userId}/recommend/save")
+	public String saveRecommendMovie(@PathVariable int userId,@ModelAttribute("movie") Movie movie) {
+		System.out.println("Inside saveMovieToFavourites() method in UserController");
+		User user=iUserService.getProfile(userId);
+		UserMovie userMovie=new UserMovie();
+		userMovie.setUser(user);
+		userMovie.setMovie(movie);
+		iUserService.recommendMovie(userMovie);
+		return "success";
 	}
 
 	// Method for viewing watchlist
 
-	@RequestMapping("/users/{userId}/watchlist")
+	@RequestMapping("users/{userId}/watchlist")
 	public String viewWatchList(@PathVariable int userId, Model model) {
 		System.out.println("Inside viewWatchList method in UserController");
 		List<UserWatchListItems> watchListItems = iUserService.getWatchList(userId);
@@ -116,7 +176,9 @@ public class UserController {
 		    movies.add(iAdminService.getMovie(watchlistItem.getMovieId()));
 			
 		}
-		System.out.println("WatchListItems=" +movies);
+		System.out.println("WatchListItems  =" +watchListItems);
+		System.out.println("WatchListItems Details =" +movies);
+		model.addAttribute("userId",userId);
 		model.addAttribute("movies",movies);
 		model.addAttribute("watchList", watchListItems);
 		return "watchlist";
@@ -124,22 +186,49 @@ public class UserController {
 	}
 
 	// Method for viewing favourites
-	public String viewFavourites() {
+	@RequestMapping("users/{userId}/favourites")
+	public String viewFavourites(@PathVariable int userId,Model model) {
 		System.out.println("Inside viewFavourites method in UserController");
-		return null;
+		List<Movie> movies=iUserService.getFavourites(userId);
+		System.out.println("movie list"+movies);
+		model.addAttribute("movies",movies);
+		return "favourites-list";
 	}
 
 	// Method for viewing ratings
-	public String viewRatings() {
+	@RequestMapping("users/{userId}/viewratings")
+	public String viewRatings(@PathVariable int userId,Model model) {
 		System.out.println("Inside viewRatings method in UserController");
-		return null;
+		List<UserMovie> userMovies=iUserService.getRatings(userId);
+		ListIterator litr = userMovies.listIterator();
+		List<Movie> movies=new ArrayList<Movie>();
+		while (litr.hasNext()) {
+			UserMovie userMovie= (UserMovie) litr.next();
+		    movies.add(userMovie.getMovie());
+			
+		}
+		model.addAttribute("userMovies",userMovies);
+		model.addAttribute("movies",movies);
+		return "view-ratings";
 	}
 
 	// Method for viewing feedback
-
-	public String viewFeedbacks() {
+	@RequestMapping("users/{userId}/viewfeedbacks")
+	public String viewFeedbacks(@PathVariable int userId,Model model) {
 		System.out.println("Inside viewFeedbacks method in UserController");
-		return null;
+		List<UserMovie> userMovies=iUserService.getFeedbacks(userId);
+		ListIterator litr = userMovies.listIterator();
+		List<Movie> movies=new ArrayList<Movie>();
+		while (litr.hasNext()) {
+			UserMovie userMovie= (UserMovie) litr.next();
+		    movies.add(userMovie.getMovie());
+			
+		}
+		model.addAttribute("userMovies",userMovies);
+		model.addAttribute("movies",movies);
+		System.out.println("Movies "+ movies);
+		System.out.println("UserMovies "+userMovies);
+		return "view-feedbacks";
 	}
 
 	// Method for viewing his/her profile

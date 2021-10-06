@@ -35,46 +35,6 @@ public class MovieDTO implements Serializable {
 
 	private String releaseType;
 
-	
-
-	
-
-	public MovieDTO(int movieId, String movieTitle, LocalDate releaseDate, int runtime, int totalGrossIncomeDollar,
-			String overview, String pgRating, byte[] moviePoster, int budgetInDollar, String country,
-			float overallRating, int numberOfRecommendations, String releaseType, List<MovieCast> movieCast,
-			List<MovieCrew> movieCrew, List<MovieCompany> movieCompanies, List<MovieGenre> movieGenres,
-			List<MovieLanguage> movieLanguages, List<UserActivity> userActivityOnmovie, List<UserMovie> usersOfMovie) {
-		super();
-		this.movieId = movieId;
-		this.movieTitle = movieTitle;
-		this.releaseDate = releaseDate;
-		this.runtime = runtime;
-		this.totalGrossIncomeDollar = totalGrossIncomeDollar;
-		this.overview = overview;
-		this.pgRating = pgRating;
-		this.moviePoster = moviePoster;
-		this.budgetInDollar = budgetInDollar;
-		this.country = country;
-		this.overallRating = overallRating;
-		this.numberOfRecommendations = numberOfRecommendations;
-		this.releaseType = releaseType;
-		this.movieCast = movieCast;
-		this.movieCrew = movieCrew;
-		this.movieCompanies = movieCompanies;
-		this.movieGenres = movieGenres;
-		this.movieLanguages = movieLanguages;
-		this.userActivityOnmovie = userActivityOnmovie;
-		this.usersOfMovie = usersOfMovie;
-	}
-
-	public String getReleaseType() {
-		return releaseType;
-	}
-
-	public void setReleaseType(String releaseType) {
-		this.releaseType = releaseType;
-	}
-
 	private List<MovieCast> movieCast;
 
 	private List<MovieCrew> movieCrew;
@@ -85,11 +45,15 @@ public class MovieDTO implements Serializable {
 
 	private List<MovieLanguage> movieLanguages;
 
-	private List<UserActivity> userActivityOnmovie;
+	public String getReleaseType() {
+		return releaseType;
+	}
 
-	List<UserMovie> usersOfMovie;
+	public void setReleaseType(String releaseType) {
+		this.releaseType = releaseType;
+	}
 
-//	@OneToMany(mappedBy = "moviesOfWatchlist", cascade = CascadeType.ALL)
+	//	@OneToMany(mappedBy = "moviesOfWatchlist", cascade = CascadeType.ALL)
 	// private List<UserWatchListItems> watchlistOfMovie;
 
 	public int getMovieId() {

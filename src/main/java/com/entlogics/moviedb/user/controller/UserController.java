@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.entlogics.moviedb.admin.service.IAdminService;
 import com.entlogics.moviedb.movie.entities.Movie;
+import com.entlogics.moviedb.movie.service.IMovieService;
 import com.entlogics.moviedb.user.entities.User;
 import com.entlogics.moviedb.user.entities.UserMovie;
 import com.entlogics.moviedb.user.entities.UserWatchList;
@@ -22,6 +23,11 @@ public class UserController {
 
 	
 	IAdminService iAdminService;
+	IMovieService iMovieService;
+	@Autowired
+	public void setiMovieService(IMovieService iMovieService) {
+		this.iMovieService = iMovieService;
+	}
 	@Autowired
 	public void setiAdminService(IAdminService iAdminService) {
 		this.iAdminService = iAdminService;
@@ -91,7 +97,7 @@ public class UserController {
 		//create UserWatchListItems object
 		UserWatchListItems watchListItem=new UserWatchListItems();
 		//get List of movies
-		List<Movie> movies=iAdminService.getAllMovies();
+		List<Movie> movies=iMovieService.getAllMovies();
 		//get List of WatchLists
 		List<UserWatchList> watchLists=iUserService.getWatchListsOfUser(userId);
 		//add watchLists to Model
@@ -116,7 +122,7 @@ public class UserController {
 		//create UserMovie Object
 		UserMovie userMovie=new UserMovie();
 		//get list of movies
-		List<Movie> movies=iAdminService.getAllMovies();
+		List<Movie> movies=iMovieService.getAllMovies();
 		
 		Movie movie=new Movie();
 		//add movies list to model
@@ -142,7 +148,7 @@ public class UserController {
 		//create UserMovie Object
 				UserMovie userMovie=new UserMovie();
 				//get list of movies
-				List<Movie> movies=iAdminService.getAllMovies();
+				List<Movie> movies=iMovieService.getAllMovies();
 				
 				Movie movie=new Movie();
 				//add movies list to model

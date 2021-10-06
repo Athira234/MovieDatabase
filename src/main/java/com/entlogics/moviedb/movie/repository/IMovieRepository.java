@@ -12,7 +12,7 @@ public interface IMovieRepository {
 	
 	public List<Movie> findAllMovies();
 	
-	public List<MovieDTO> findTopRatingMovies();
+	public List<Movie> findTopRatingMovies();
 
 	// method to find highest gross Movies
 	public List<Movie> findHighestGrossMovies();

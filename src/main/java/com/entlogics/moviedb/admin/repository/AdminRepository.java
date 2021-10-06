@@ -99,17 +99,7 @@ public class AdminRepository implements IAdminRepository {
 	 * // deleting a User public void deleteUser() {
 	 * System.out.println("Inside AdminRepository deleteUser()"); }
 	 */
-	// find list of Movies
-	public List<Movie> findAllMovies() {
-		System.out.println("Inside AdminRepository findAllMovies()");
-		EntityManager entityManager = factory.createEntityManager();
-		entityManager.getTransaction().begin();
-		List<Movie> movies = entityManager.createNativeQuery("select * from dt_movie", Movie.class).getResultList();
-		System.out.println("printing list of movies " + movies.size() + "\n" + movies);
-		entityManager.getTransaction().commit();
-		entityManager.close();
-		return movies;
-	}
+
 
 	// find a Movie details
 	public Movie findMovie(int movieId) {

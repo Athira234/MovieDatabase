@@ -72,12 +72,7 @@ public class AdminService implements IAdminService {
 	 * System.out.println("Inside AdminService deleteUser()"); }
 	 */
 
-	// get list of Movies
-	public List<Movie> getAllMovies() {
-		System.out.println("Inside AdminService getAllMovies()");
-		List<Movie> movies=adminRepo.findAllMovies();
-		return movies;
-	}
+
 
 	// get a Movie details
 	public Movie getMovie(int movieId) {

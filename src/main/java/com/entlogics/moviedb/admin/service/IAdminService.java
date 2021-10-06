@@ -31,8 +31,7 @@ public interface IAdminService {
 
 	public void deleteUser(User user);
 */
-	public List<Movie> getAllMovies();
-
+	
 	public Movie getMovie(int movieId);
 
 	public void createMovie(Movie movie);

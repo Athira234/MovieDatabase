@@ -32,7 +32,7 @@ public interface IAdminRepository {
 	 * public void deleteUser(User user);
 	 */
 
-	public List<Movie> findAllMovies();
+	
 
 	public Movie findMovie(int movieId);
 

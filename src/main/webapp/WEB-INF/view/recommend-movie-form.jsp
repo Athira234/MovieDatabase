@@ -9,7 +9,7 @@
 </head>
 <body>
 	<center>
-		<br> ADD MOVIE TO FAVOURITES
+		<br>RECOMMEND MOVIE
 		<form:form method="POST" action="recommend/save"
 			modelAttribute="movie">
 

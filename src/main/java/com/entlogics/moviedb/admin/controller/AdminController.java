@@ -15,6 +15,7 @@ import com.entlogics.moviedb.admin.entities.Genre;
 import com.entlogics.moviedb.admin.entities.Person;
 import com.entlogics.moviedb.admin.service.IAdminService;
 import com.entlogics.moviedb.movie.entities.Movie;
+import com.entlogics.moviedb.movie.service.IMovieService;
 import com.entlogics.moviedb.user.entities.User;
 import com.entlogics.moviedb.user.service.IUserService;
 
@@ -23,7 +24,11 @@ public class AdminController {
 
 	IAdminService iAdminService;
 	IUserService iUserService;
-
+	IMovieService iMovieService;
+	@Autowired
+	public void setiMovieService(IMovieService iMovieService) {
+		this.iMovieService = iMovieService;
+	}
 	@Autowired
 	public void setiAdminService(IAdminService iAdminService) {
 		this.iAdminService = iAdminService;
@@ -157,7 +162,7 @@ public class AdminController {
 	@RequestMapping(value = "/movies", method = RequestMethod.GET)
 	public String getAllMovies(Model model) {
 		System.out.println("Inside AdminController getAllMovies()");
-		List<Movie> movies = iAdminService.getAllMovies();
+		List<Movie> movies = iMovieService.getAllMovies();
 		System.out.println("Movies :" + movies);
 		model.addAttribute("movieList", movies);
 		return "movies";

@@ -11,6 +11,8 @@ public interface IMovieService {
 
 	public List<Movie> getTopRatingMovies();
 
+	public List<Movie> getAllMovies();
+
 	// method to find highest gross Movies
 	public List<Movie> getHighestRatingMovies();
 

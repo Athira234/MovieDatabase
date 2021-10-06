@@ -5,13 +5,17 @@ import java.util.List;
 import com.entlogics.moviedb.movie.entities.Movie;
 import com.entlogics.moviedb.movie.entities.MovieCast;
 import com.entlogics.moviedb.movie.entities.MovieCrew;
+import com.entlogics.moviedb.movie.entities.MovieDTO;
 import com.entlogics.moviedb.user.entities.UserMovie;
 
 public interface IMovieRepository {
-	public List<Movie> findTopRatingMovies();
+	
+	public List<Movie> findAllMovies();
+	
+	public List<MovieDTO> findTopRatingMovies();
 
 	// method to find highest gross Movies
-	public List<Movie> findHighestRatingMovies();
+	public List<Movie> findHighestGrossMovies();
 
 	// method to find Top Recommended Movies
 	public List<Movie> findTopRecommendedMovies();

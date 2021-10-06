@@ -4,8 +4,10 @@ import java.util.List;
 
 import com.entlogics.moviedb.movie.entities.Movie;
 import com.entlogics.moviedb.movie.entities.MovieCast;
+import com.entlogics.moviedb.movie.entities.MovieCompany;
 import com.entlogics.moviedb.movie.entities.MovieCrew;
 import com.entlogics.moviedb.movie.entities.MovieDTO;
+import com.entlogics.moviedb.movie.entities.MovieGenre;
 import com.entlogics.moviedb.user.entities.UserMovie;
 
 public interface IMovieRepository {
@@ -42,13 +44,13 @@ public interface IMovieRepository {
 	public void deleteCrew(int personId);
 
 	// method to get Movie by Company
-	public List<Movie> movieByCompany(int companyId);
+	public List<MovieCompany> movieByCompany(int companyId);
 
 	// method to get Movie by actor
-	public List<Movie> movieByActor(int personId);
+	public List<MovieCast> movieByActor(int personId);
 
 	// method to get Movie by genre
-	public List<Movie> movieByGenre(int genreId);
+	public List<MovieGenre> movieByGenre(int genreId);
 
 	// method to get Movie by Title
 	public List<Movie> movieByTitle(String title);

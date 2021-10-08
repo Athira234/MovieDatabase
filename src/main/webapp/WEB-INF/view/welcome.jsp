@@ -8,7 +8,6 @@
 </head>
 <body>
 
-
 <a href="users/1/profile">User Profile</a><br><br><br>
 <a href="users/1/watchlist">View Watchlist</a><br><br>
 <a href="users/1/editprofile">Edit user Profile</a><br><br>

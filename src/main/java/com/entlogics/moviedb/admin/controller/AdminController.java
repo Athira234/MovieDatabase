@@ -15,6 +15,7 @@ import com.entlogics.moviedb.admin.entities.Genre;
 import com.entlogics.moviedb.admin.entities.Person;
 import com.entlogics.moviedb.admin.service.IAdminService;
 import com.entlogics.moviedb.movie.entities.Movie;
+import com.entlogics.moviedb.movie.entities.MovieDto;
 import com.entlogics.moviedb.movie.service.IMovieService;
 import com.entlogics.moviedb.user.entities.User;
 import com.entlogics.moviedb.user.service.IUserService;
@@ -158,15 +159,7 @@ public class AdminController {
 	
 	}
 
-	// get list of Movies
-	@RequestMapping(value = "/movies", method = RequestMethod.GET)
-	public String getAllMovies(Model model) {
-		System.out.println("Inside AdminController getAllMovies()");
-		List<Movie> movies = iMovieService.getAllMovies();
-		System.out.println("Movies :" + movies);
-		model.addAttribute("movieList", movies);
-		return "movies";
-	}
+	
 
 	// get a Movie details
 	@RequestMapping(value = "/movies/{movieId}", method = RequestMethod.GET)

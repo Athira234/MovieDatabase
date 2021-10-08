@@ -4,10 +4,8 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
-import com.entlogics.moviedb.user.entities.UserActivity;
-import com.entlogics.moviedb.user.entities.UserMovie;
 
-public class MovieDTO implements Serializable {
+public class MovieDto implements Serializable {
 
 	private int movieId;
 
@@ -44,6 +42,17 @@ public class MovieDTO implements Serializable {
 	private List<MovieGenre> movieGenres;
 
 	private List<MovieLanguage> movieLanguages;
+
+	public MovieDto() {
+		super();
+		
+	}
+
+	public MovieDto(int movieId, String movieTitle) {
+		super();
+		this.movieId = movieId;
+		this.movieTitle = movieTitle;
+	}
 
 	public String getReleaseType() {
 		return releaseType;

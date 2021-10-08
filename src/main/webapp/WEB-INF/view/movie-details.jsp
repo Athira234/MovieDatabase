@@ -23,6 +23,10 @@
 	    <br> TotalGross : ${movie.totalGrossIncomeDollar}$<br>
 	    <br> Review : ${movie.overview}<br>
 			<br>
+			<br>
+			<a href="${movie.movieId}/cast"><input
+			type="submit" value="Cast" /></a> <br><br><br><a href="${movie.movieId}/crew"><input
+			type="submit" value="Crew" /></a>
 	</center>
 </body>
 </html>

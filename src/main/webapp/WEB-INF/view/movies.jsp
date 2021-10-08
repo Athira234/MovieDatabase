@@ -48,6 +48,17 @@ tr td:first-child:before {
 
 			</c:forEach>
 		</table>
+		<br><br>Search Movie By Company
+		<form action="moviesbycompany">
+			<select id="companyId" name="companyId">
+				<c:forEach items="${companyList}" var="company">
+					<option value="${company.companyId}">${company.companyName}
+					</option>
+				</c:forEach>
+			</select> <input type="submit" value="search">
+	</center>
+ </form>
+		
 	</center>
 </body>
 </html>

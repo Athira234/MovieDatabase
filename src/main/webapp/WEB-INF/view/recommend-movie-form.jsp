@@ -17,7 +17,7 @@
 			<br>
 
 
-Favourite:
+Select movie to Recommend:
 <select id="movieId" name="movieId">
 				<c:forEach items="${movies}" var="movie">
 					

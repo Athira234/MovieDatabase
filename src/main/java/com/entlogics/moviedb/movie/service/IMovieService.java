@@ -5,28 +5,29 @@ import java.util.List;
 import com.entlogics.moviedb.movie.entities.Movie;
 import com.entlogics.moviedb.movie.entities.MovieCast;
 import com.entlogics.moviedb.movie.entities.MovieCrew;
+import com.entlogics.moviedb.movie.entities.MovieDto;
 import com.entlogics.moviedb.user.entities.UserMovie;
 
 public interface IMovieService {
 
-	public List<Movie> getTopRatingMovies();
+	public List<MovieDto> getTopRatingMovies();
 
-	public List<Movie> getAllMovies();
+	public List<MovieDto> getAllMovies();
 
 	// method to find highest gross Movies
-	public List<Movie> getHighestRatingMovies();
+	public List<MovieDto> getHighestGrossMovies();
 
 	// method to find Top Recommended Movies
-	public List<Movie> getTopRecommendedMovies();
+	public List<MovieDto> getTopRecommendedMovies();
 
 	// method to find ratings of a Movie
 	public List<UserMovie> getRatingsOfMovie(int MovieId);
 
 	// method to find cast of a Movie
-	public List<MovieCast> getCastOfMovie(int MovieId);
+	public MovieDto getCastOfMovie(int MovieId);
 
 	// method to find crew of a Movie
-	public List<MovieCrew> getCrewOfMovie(int MovieId);
+	public MovieDto getCrewOfMovie(int MovieId);
 
 	// method to add cast to movie
 	public void addCast(MovieCast movieCast);
@@ -41,14 +42,14 @@ public interface IMovieService {
 	public void deleteCrew(int personId);
 
 	// method to get Movie by Company
-	public List<Movie> movieByCompany(int companyId);
+	public MovieDto movieByCompany(int companyId);
 
 	// method to get Movie by actor
-	public List<Movie> movieByActor(int personId);
+	public MovieDto movieByActor(int personId);
 
 	// method to get Movie by genre
-	public List<Movie> movieByGenre(int genreId);
+	public MovieDto movieByGenre(int genreId);
 
 	// method to get Movie by Title
-	public List<Movie> movieByTitle(String title);
+	public List<MovieDto> movieByTitle(String title);
 }

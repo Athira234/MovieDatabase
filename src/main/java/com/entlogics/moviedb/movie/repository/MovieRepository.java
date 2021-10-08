@@ -1,5 +1,6 @@
 package com.entlogics.moviedb.movie.repository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -41,11 +42,11 @@ public class MovieRepository implements IMovieRepository {
 		EntityManager entityManager = factory.createEntityManager();
 		entityManager.getTransaction().begin();
 		// get list of Movies
-		List<Movie> movies = entityManager
+		List<Movie> topRatedMovies = entityManager
 				.createNativeQuery("select * from dt_movie where overall_rating between 7 and 10", Movie.class)
 				.getResultList();
-		System.out.println("Top rated Movies" + movies);
-		return movies;
+		System.out.println("Top rated Movies" + topRatedMovies);
+		return topRatedMovies;
 	}
 
 	@Override
@@ -169,8 +170,18 @@ public class MovieRepository implements IMovieRepository {
 		EntityManager entityManager = factory.createEntityManager();
 		entityManager.getTransaction().begin();
 		Company company = entityManager.find(Company.class, companyId);
-		// get list of Movies
-		List<MovieCompany> movies = company.getMoviesOfThisCompany();
+		//create list of Movies
+		//List<Movie> movies=new ArrayList<Movie>();
+		// get list of MovieCompany List
+		List<MovieCompany> movies= company.getMoviesOfThisCompany();
+		
+		/*for(MovieCompany movieCompany:movieCompanies)
+		{
+			Movie movie=movieCompany.getMovie();
+			
+		}
+		*/
+		
 		System.out.println("Movies" + movies);
 		return movies;
 	}
@@ -219,12 +230,13 @@ public class MovieRepository implements IMovieRepository {
 		// repo.findHighestGrossMovies();
 		// repo.findTopRecommendedMovies();
 		// repo.findRatingsOfMovie(1);
-		// repo.findCrewOfMovie(2);
+		repo.findCrewOfMovie(2);
 		// repo.findCastOfMovie(2);
 		// repo.deleteCast(3);
 		// repo.movieByCompany(4);
 		// repo.movieByTitle("'Dangal'");
-		repo.movieByActor(1);
+		//repo.movieByActor(1);
+		//repo.findAllMovies();
 
 	}
 

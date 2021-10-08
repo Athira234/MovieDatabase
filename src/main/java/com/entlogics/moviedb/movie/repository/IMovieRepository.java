@@ -2,14 +2,15 @@ package com.entlogics.moviedb.movie.repository;
 
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+
 import com.entlogics.moviedb.movie.entities.Movie;
 import com.entlogics.moviedb.movie.entities.MovieCast;
 import com.entlogics.moviedb.movie.entities.MovieCompany;
 import com.entlogics.moviedb.movie.entities.MovieCrew;
-import com.entlogics.moviedb.movie.entities.MovieDTO;
 import com.entlogics.moviedb.movie.entities.MovieGenre;
 import com.entlogics.moviedb.user.entities.UserMovie;
-
+@Component
 public interface IMovieRepository {
 	
 	public List<Movie> findAllMovies();

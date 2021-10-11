@@ -25,5 +25,21 @@
 
 <A href="users/1/viewratings">Ratings</A><br><br>
 <A href="users/1/viewfeedbacks">Feedbacks</A><br><br>
+
+<br> <br>
+		<form action="movies">
+			<input type="checkbox" name="rating" value="top"/>Top Rating Movies
+				 <input type="submit" value="search"><br><br>
+		<form action="movies">
+			<input type="checkbox" name="gross" value="highest"/>Highest Gross Movies
+				 <input type="submit" value="search"><br><br>
+        <form action="movies">
+			<input type="checkbox" name="recommended" value="top"/>Top Recommended Movies
+				 <input type="submit" value="search"><br><br>
+		  <form action="movies">
+			<input type="checkbox" />List of All movies
+				 <input type="submit" value="search"><br><br>
+
+
 </body>
 </html>

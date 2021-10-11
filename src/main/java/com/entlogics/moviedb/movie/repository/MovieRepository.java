@@ -183,6 +183,7 @@ public class MovieRepository implements IMovieRepository {
 		*/
 		
 		System.out.println("Movies" + movies);
+		entityManager.close();
 		return movies;
 	}
 
@@ -195,6 +196,7 @@ public class MovieRepository implements IMovieRepository {
 		// get list of Movies of actor
 		List<MovieCast> movies = person.getPersonMoviesAsCast();
 		System.out.println("Movies" + movies);
+		entityManager.close();
 		return movies;
 
 	}
@@ -208,6 +210,7 @@ public class MovieRepository implements IMovieRepository {
 		// get list of Movies for particular Gnere
 		List<MovieGenre> movies = genre.getMoviesWithThicmsGenre();
 		System.out.println("Movies" + movies);
+		entityManager.close();
 		return movies;
 	}
 
@@ -217,9 +220,17 @@ public class MovieRepository implements IMovieRepository {
 		EntityManager entityManager = factory.createEntityManager();
 		entityManager.getTransaction().begin();
 		// get list of Movies
+		//List<Movie> movies = entityManager
+				//.createNativeQuery("select * from dt_movie where movie_title=" + title, Movie.class).getResultList();
+		
+		
+		
 		List<Movie> movies = entityManager
-				.createNativeQuery("select * from dt_movie where movie_title=" + title, Movie.class).getResultList();
+				.createNativeQuery("select * from dt_movie where movie_title= :movie_title", Movie.class).setParameter("movie_title",title).getResultList();
+		
+		//SELECT * FROM MyTable WHERE Column1 Like "*word*"
 		System.out.println(" Movies" + movies);
+		entityManager.close();
 		return movies;
 	}
 
@@ -230,11 +241,11 @@ public class MovieRepository implements IMovieRepository {
 		// repo.findHighestGrossMovies();
 		// repo.findTopRecommendedMovies();
 		// repo.findRatingsOfMovie(1);
-		repo.findCrewOfMovie(2);
+		//repo.findCrewOfMovie(2);
 		// repo.findCastOfMovie(2);
 		// repo.deleteCast(3);
 		// repo.movieByCompany(4);
-		// repo.movieByTitle("'Dangal'");
+		 repo.movieByTitle("Dangal");
 		//repo.movieByActor(1);
 		//repo.findAllMovies();
 

@@ -367,7 +367,7 @@ public class UserRepository implements IUserRepository {
 			entityManager.getTransaction().rollback();
 			e.printStackTrace();
 		}
-
+		entityManager.close();
 	}
 
 	@Override

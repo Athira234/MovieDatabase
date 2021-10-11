@@ -25,8 +25,14 @@
 			<br>
 			<br>
 			<a href="${movie.movieId}/cast"><input
-			type="submit" value="Cast" /></a> <br><br><br><a href="${movie.movieId}/crew"><input
+			type="submit" value="Cast" /></a> <br><br><br>
+			<a href="${movie.movieId}/crew"><input
 			type="submit" value="Crew" /></a>
+			
+			<br><br><br>
+			<a href="${movie.movieId}/ratings"><input
+			type="submit" value="Ratings" /></a>
+			
 	</center>
 </body>
 </html>

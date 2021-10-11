@@ -24,28 +24,21 @@ tr td:first-child:before {
 </head>
 <body>
 	<center>
-		<U> MOVIES </U> <br> <br> <br> <br> 
-			<a href="movies/add"> <input type="submit" value="ADD NEW MOVIE" /></a><br>
-		<br>
-		<br>
+		<U>TOP RATED MOVIE LIST</U> <br> <br> <br> <br>
+
 		<table border=1>
 			<th>Sl.No</th>
 			<th>Movie</th>
-			<th>Released Date</th>
-			<th>Overall Ratings</th>
-			<th>Number of Recommendations</th>
-			<th>Edit</th>
-			<th>Delete</th>
-			<c:forEach items="${movieList}" var="m">
+
+			<th>Total Gross</th>
+
+			<c:forEach items="${movies}" var="m">
 				<tr>
 					<td></td>
 					<td><a href="movies/${m.movieId}"><c:out
 								value="${m.movieTitle}" /></td>
-					<td><c:out value="${m.releaseDate}" /></td>
-					<td><c:out value="${m.overallRating}" /></td>
-					<td><c:out value="${m.numberOfRecommendations}" /></td>
-					<td><a href="movies/${m.movieId}/edit"> Edit </a></td>
-					<td><a href="movies/delete/${m.movieId}"> Delete </a></td>
+					<td><c:out value="${m.totalGrossIncomeDollar}" /></td>
+
 				</tr>
 
 			</c:forEach>
@@ -89,8 +82,8 @@ tr td:first-child:before {
 				</c:forEach>
 			</select> <input type="submit" value="search">
 
-				
-			
+
+
 
 		</form>
 

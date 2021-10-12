@@ -152,7 +152,7 @@ public class MovieService implements IMovieService {
 
 	@Override
 	public void deleteCrew(int personId) {
-
+		movieRepo.deleteCrew(personId);
 	}
 
 	@Override

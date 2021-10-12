@@ -155,6 +155,7 @@ public class MovieController {
 		System.out.println("Inside MovieController addCast()");
 		// get all persons
 		List<Person> persons = iAdminService.getAllPersons();
+		System.out.println("Persons in Cast"+persons);
 		// get all movies
 		List<MovieDto> movies = iMovieService.getAllMovies();
 		System.out.println("\n\nmovie" + movies);
@@ -168,7 +169,7 @@ public class MovieController {
 	}
 
 	@RequestMapping("movies/{movieId}/cast/save")
-	public String saveCast(@ModelAttribute("movieCast") MovieCast movieCast, @PathVariable int movieId) {
+	public String saveCast(@ModelAttribute("movieCast") MovieCast movieCast,@PathVariable int movieId) {
 		System.out.println("Inside saveCast() method in MovieController ");
 		iMovieService.addCast(movieCast);
 		return "success";
@@ -186,7 +187,7 @@ public class MovieController {
 		System.out.println("\n\nmovie" + movies);
 		// create new movieCrew object
 		MovieCrew movieCrew = new MovieCrew();
-		model.addAttribute("movieCast", movieCrew);
+		model.addAttribute("movieCrew", movieCrew);
 		model.addAttribute("persons", persons);
 		model.addAttribute("movies", movies);
 		return "add-crew-form";
@@ -215,7 +216,7 @@ public class MovieController {
 	public String deleteCrew(@RequestParam(value = "personId") int personId, @PathVariable int movieId) {
 		System.out.println("Inside deleteCrew() in movieController ");
 		// call delete crew method in movie service
-		iMovieService.deleteCrew(personId);
+       iMovieService.deleteCrew(personId);
 		return "success";
 
 	}

@@ -17,14 +17,20 @@ import com.entlogics.moviedb.admin.entities.Person;
 @IdClass(MovieCast.class)
 public class MovieCast implements Serializable {
 
+	
 	@Id
+	@Column(name = "movie_id")
+	private int movieId;
+	
 	@ManyToOne
-	@JoinColumn(name = "movie_id")
+	@JoinColumn(name="movie_id", referencedColumnName = "id",insertable = false, updatable = false)
 	private Movie movie;
 
 	@Id
+	@Column(name = "person_id")
+	private int personId;
 	@ManyToOne
-	@JoinColumn(name = "person_id")
+	@JoinColumn(name = "person_id",referencedColumnName = "id",insertable = false, updatable = false)
 	private Person person;
 
 	@Column(name = "remuneration")
@@ -32,10 +38,21 @@ public class MovieCast implements Serializable {
 
 	@Column(name = "actor_role")
 	private String actorRole;
+	
+	@Column(name = "character_name")
+	private String characterName;
 
 	public MovieCast() {
 		super();
 
+	}
+
+	public String getCharacterName() {
+		return characterName;
+	}
+
+	public void setCharacterName(String characterName) {
+		this.characterName = characterName;
 	}
 
 	public Movie getMovie() {
@@ -69,6 +86,23 @@ public class MovieCast implements Serializable {
 
 	public void setRemuneration(int remuneration) {
 		this.remuneration = remuneration;
+	}
+	
+
+	public int getMovieId() {
+		return movieId;
+	}
+
+	public void setMovieId(int movieId) {
+		this.movieId = movieId;
+	}
+
+	public int getPersonId() {
+		return personId;
+	}
+
+	public void setPersonId(int personId) {
+		this.personId = personId;
 	}
 
 	@Override

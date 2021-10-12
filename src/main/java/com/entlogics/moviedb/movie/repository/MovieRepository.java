@@ -121,7 +121,13 @@ public class MovieRepository implements IMovieRepository {
 		EntityManager entityManager = factory.createEntityManager();
 		entityManager.getTransaction().begin();
 		// save movieCast
-		entityManager.persist(movieCast);
+		entityManager.createNativeQuery(
+				"INSERT INTO  tt_movie_cost(movie_id,person_id,remuneration,actor_role,character_name) VALUES (?,?,?,?,?)")
+				.setParameter(1, movieCast.getMovieId()).setParameter(2,movieCast.getPersonId() )
+				.setParameter(3, movieCast.getRemuneration())
+				 .setParameter(4, movieCast.getActorRole()).setParameter(5,movieCast.getCharacterName()).executeUpdate();
+				
+		
 		entityManager.getTransaction().commit();
 		entityManager.close();
 	}
@@ -133,7 +139,11 @@ public class MovieRepository implements IMovieRepository {
 		EntityManager entityManager = factory.createEntityManager();
 		entityManager.getTransaction().begin();
 		// save movieCrew
-		entityManager.persist(movieCrew);
+		entityManager.createNativeQuery(
+				"INSERT INTO  tt_movie_crew(movie_id,person_id,remuneration,crew_role) VALUES (?,?,?,?)")
+				.setParameter(1, movieCrew.getMovieId()).setParameter(2,movieCrew.getPersonId() )
+				.setParameter(3, movieCrew.getRemuneration())
+				 .setParameter(4, movieCrew.getCrewRole()).executeUpdate();
 		entityManager.getTransaction().commit();
 		entityManager.close();
 

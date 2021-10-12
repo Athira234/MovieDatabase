@@ -42,6 +42,17 @@ tr td:first-child:before {
 
 			</c:forEach>
 		</table>
+		<br>
+			<br>
+			<form action="crew/delete">
+				<select id="personId" name="personId">
+					<c:forEach items="${persons}" var="p">
+						<option value="${p.personId}">${p.firstName} ${p.lastName}
+							${p.lastName}</option>
+					</c:forEach>
+				</select> <input type="submit" value="delete">
+
+			</form>
 	</center>
 </body>
 </html>}<br>

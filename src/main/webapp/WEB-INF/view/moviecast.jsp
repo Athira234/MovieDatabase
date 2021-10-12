@@ -24,7 +24,8 @@ tr td:first-child:before {
 </head>
 <body>
 	<center>
-		<U>MOVIE CAST LIST</U> <br> <br> <br> <br> <a
+	
+		<U>MOVIE CAST LIST</U> <br> <br> <a
 			href="cast/add"> <input type="submit" value="ADD NEW CAST" /></a><br>
 		<br>
 		<table border=1>
@@ -32,22 +33,37 @@ tr td:first-child:before {
 			<th>Person</th>
 			<th>Actor Role</th>
 
+
 			<c:forEach items="${movieCast}" var="cast" varStatus="status">
 				<tr>
 					<td></td>
 					<td><c:out
 							value="${persons[status.index].firstName}${persons[status.index].lastName}" /></td>
 					<td><c:out value="${cast.actorRole}" /></td>
-					
+
 				</tr>
 
 			</c:forEach>
-
-
-
-
-
+			
 		</table>
+		
+		<br>
+			<br>
+			<br>
+			<form action="cast/delete">
+				<select id="personId" name="personId">
+					<c:forEach items="${persons}" var="p">
+						<option value="${p.personId}">${p.firstName} ${p.lastName}
+							${p.lastName}</option>
+					</c:forEach>
+				</select> <input type="submit" value="delete">
+
+			</form>
+		
+		
+		
+		
+		
 	</center>
 </body>
 </html>

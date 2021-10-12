@@ -101,18 +101,7 @@ public class AdminRepository implements IAdminRepository {
 	 */
 
 
-	// find a Movie details
-	public Movie findMovie(int movieId) {
-		System.out.println("Inside AdminRepository findMovie()");
-		EntityManager entityManager = factory.createEntityManager();
-		entityManager.getTransaction().begin();
-		Movie movie = entityManager.find(Movie.class, movieId);
-		System.out.println("Movie details :" + movie);
-		entityManager.getTransaction().commit();
-		entityManager.close();
-		return movie;
-	}
-
+	
 	// add new Movie
 	public void addMovie(Movie movie) {
 		System.out.println("Inside AdminRepository addMovie()");

@@ -43,49 +43,7 @@ tr td:first-child:before {
 
 			</c:forEach>
 		</table>
-		<br> <br>Search Movie By Company
-		<form action="moviesbycompany">
-			<select id="companyId" name="companyId">
-				<c:forEach items="${companyList}" var="company">
-					<option value="${company.companyId}">${company.companyName}
-					</option>
-				</c:forEach>
-			</select> <input type="submit" value="search">
-
-		</form>
-		<br> <br>Search Movie By Person
-		<form action="moviesbyperson">
-			<select id="personId" name="personId">
-				<c:forEach items="${personList}" var="person">
-					<option value="${person.personId}">${person.firstName}
-						${person.lastName}</option>
-				</c:forEach>
-			</select> <input type="submit" value="search">
-
-		</form>
-		</form>
-		<br> <br>Search Movie By Genre
-		<form action="moviesbygenre">
-			<select id="genreId" name="genreId">
-				<c:forEach items="${genreList}" var="genre">
-					<option value="${genre.genreId}">${genre.name}</option>
-				</c:forEach>
-			</select> <input type="submit" value="search">
-
-		</form>
-		</form>
-		<br> <br>Search Movie By Genre
-		<form action="moviesbytitle">
-			<select id="movieTitle" name="movieTitle">
-				<c:forEach items="${movieList}" var="movie">
-					<option value="${movie.movieTitle}">${movie.movieTitle}</option>
-				</c:forEach>
-			</select> <input type="submit" value="search">
-
-
-
-
-		</form>
+		
 
 
 	</center>

@@ -2,7 +2,6 @@ package com.entlogics.moviedb.admin.service;
 
 import java.util.List;
 
-
 import com.entlogics.moviedb.admin.entities.Company;
 import com.entlogics.moviedb.admin.entities.Genre;
 import com.entlogics.moviedb.admin.entities.Person;
@@ -20,19 +19,6 @@ public interface IAdminService {
 	public void editCompany(Company company);
 
 	public void deleteCompany(int companyId);
-/*
-	public List<User> getAllUsers();
-
-	public User getUser(int userId);
-
-	public void createUser(User user);
-
-	public void editUser(User user);
-
-	public void deleteUser(User user);
-*/
-	
-	public Movie getMovie(int movieId);
 
 	public void createMovie(Movie movie);
 

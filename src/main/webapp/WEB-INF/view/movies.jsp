@@ -81,7 +81,7 @@ tr td:first-child:before {
 
 		</form>
 		</form>
-		<br> <br>Search Movie By Genre
+		<br> <br>Search Movie By Title
 		<form action="moviesbytitle">
 			<select id="movieTitle" name="movieTitle">
 				<c:forEach items="${movieList}" var="movie">

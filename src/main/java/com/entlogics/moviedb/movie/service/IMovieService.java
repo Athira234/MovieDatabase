@@ -14,6 +14,8 @@ public interface IMovieService {
 
 	public List<MovieDto> getAllMovies();
 
+	public Movie getMovie(int movieId);
+
 	// method to find highest gross Movies
 	public List<MovieDto> getHighestGrossMovies();
 

@@ -26,6 +26,9 @@ public class UserMovie implements Serializable {
 	@Column(name = "id",nullable=false)
 	private Integer id;
 	
+	@Column(name = "count")
+	private int countOfWatching;
+	
 	@Column(name = "is_watched")
 	private boolean isWatched;
 
@@ -126,6 +129,15 @@ public class UserMovie implements Serializable {
 		this.ratingGivenDate = ratingGivenDate;
 	}
 
+	public int getCountOfWatching() {
+		return countOfWatching;
+	}
+
+	public void setCountOfWatching(int countOfWatching) {
+		this.countOfWatching = countOfWatching;
+	}
+
+	
 	@Override
 	public String toString() {
 		return "UserMovie [id=" + id + ", isWatched=" + isWatched + ", isFavourite=" + isFavourite + ", isRecommeded="

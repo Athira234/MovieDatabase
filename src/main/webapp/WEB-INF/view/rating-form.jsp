@@ -11,22 +11,9 @@
 		Enter The Details
 		<form:form method="POST" action="ratings/ratingdetails"
 			modelAttribute="userMovie">
-			<%-- School ID:<form:input path="classSchoolId" />--%>
-			<br>
-			<br>
+			
 
-Ratings :
-  <select id="ratingGiven" name="ratingGiven">
-				
-					<option value="1">
-					*</option>
-                    <option value="2">**</option>
-                    <option value="3">***</option>
-                    <option value="4">****</option>
-                    <option value="5">*****</option>
-
-	
-			</select>
+Ratings :<form:input path="ratingGiven" />
 			<br>
 			<br>
 

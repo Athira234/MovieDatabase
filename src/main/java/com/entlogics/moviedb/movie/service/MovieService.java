@@ -18,18 +18,18 @@ import com.entlogics.moviedb.user.entities.UserMovie;
 @Service
 public class MovieService implements IMovieService {
 
-	IAdminRepository adminRepo;
-
-	@Autowired
-	public void setAdminRepo(IAdminRepository adminRepo) {
-		this.adminRepo = adminRepo;
-	}
-
+	
 	IMovieRepository movieRepo;
 
 	@Autowired
 	public void setMovieRepo(IMovieRepository movieRepo) {
 		this.movieRepo = movieRepo;
+	}
+	// get a Movie details
+	public Movie getMovie(int movieId) {
+		System.out.println("Inside MovieService getMovie()");
+		Movie movie=movieRepo.findMovie(movieId);
+		return movie;
 	}
 
 	// get list of Movies
@@ -116,7 +116,7 @@ public class MovieService implements IMovieService {
 	public MovieDto getCastOfMovie(int movieId) {
 		System.out.println("Inside MovieService getCastOfMovie()");
 		// get movie of movieId
-		Movie movie = adminRepo.findMovie(movieId);
+		Movie movie = movieRepo.findMovie(movieId);
 		// create movieDto Object
 		MovieDto movieDto = new MovieDto(movie.getMovieId(), movie.getMovieTitle());
 		movieDto.setMovieCast(movieRepo.findCastOfMovie(movieId));
@@ -127,7 +127,7 @@ public class MovieService implements IMovieService {
 	public MovieDto getCrewOfMovie(int movieId) {
 		System.out.println("Inside MovieService getCrewOfMovie()");
 		// get movie of movieId
-		Movie movie = adminRepo.findMovie(movieId);
+		Movie movie = movieRepo.findMovie(movieId);
 		// create movieDto Object
 		MovieDto movieDto = new MovieDto(movie.getMovieId(), movie.getMovieTitle());
 		movieDto.setMovieCrew(movieRepo.findCrewOfMovie(movieId));

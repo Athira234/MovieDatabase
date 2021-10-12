@@ -2,6 +2,7 @@ package com.entlogics.moviedb.movie.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+
 import com.entlogics.moviedb.admin.entities.Company;
 import com.entlogics.moviedb.admin.entities.Genre;
 import com.entlogics.moviedb.admin.entities.Person;
@@ -40,12 +42,21 @@ public class MovieController {
 		this.iMovieService = iMovieService;
 	}
 
+	// get a Movie details
+	@RequestMapping(value = "/movies/{movieId}", method = RequestMethod.GET)
+	public String getMovie(@PathVariable int movieId, Model model) {
+		System.out.println("Inside MovieController getMovie()");
+		Movie movie = iMovieService.getMovie(movieId);
+		model.addAttribute("movie", movie);
+		return "movie-details";
+	}
+
 	// get list of Movies
 	@RequestMapping(value = "/movies", method = RequestMethod.GET)
 	public String getAllMovies(Model model, @RequestParam(value = "rating", required = false) String rating,
 			@RequestParam(value = "gross", required = false) String gross,
 			@RequestParam(value = "recommended", required = false) String recommended) {
-		System.out.println("Inside AdminController getAllMovies()");
+		System.out.println("Inside MovieController getAllMovies()");
 		// check if the rating parameter is not null..then return the toprating movies
 		if (rating != null) {
 			List<MovieDto> movies = iMovieService.getTopRatingMovies();
@@ -91,7 +102,7 @@ public class MovieController {
 		List<UserMovie> userMovies = iMovieService.getRatingsOfMovie(movieId);
 		List<User> users = new ArrayList<User>();
 		// getting Movie details
-		Movie movie = iAdminService.getMovie(movieId);
+		Movie movie = iMovieService.getMovie(movieId);
 		for (UserMovie userMovie : userMovies) {
 
 			User user = userMovie.getUser();
@@ -155,7 +166,7 @@ public class MovieController {
 		System.out.println("Inside MovieController addCast()");
 		// get all persons
 		List<Person> persons = iAdminService.getAllPersons();
-		System.out.println("Persons in Cast"+persons);
+		System.out.println("Persons in Cast" + persons);
 		// get all movies
 		List<MovieDto> movies = iMovieService.getAllMovies();
 		System.out.println("\n\nmovie" + movies);
@@ -169,7 +180,7 @@ public class MovieController {
 	}
 
 	@RequestMapping("movies/{movieId}/cast/save")
-	public String saveCast(@ModelAttribute("movieCast") MovieCast movieCast,@PathVariable int movieId) {
+	public String saveCast(@ModelAttribute("movieCast") MovieCast movieCast, @PathVariable int movieId) {
 		System.out.println("Inside saveCast() method in MovieController ");
 		iMovieService.addCast(movieCast);
 		return "success";
@@ -216,7 +227,7 @@ public class MovieController {
 	public String deleteCrew(@RequestParam(value = "personId") int personId, @PathVariable int movieId) {
 		System.out.println("Inside deleteCrew() in movieController ");
 		// call delete crew method in movie service
-       iMovieService.deleteCrew(personId);
+		iMovieService.deleteCrew(personId);
 		return "success";
 
 	}

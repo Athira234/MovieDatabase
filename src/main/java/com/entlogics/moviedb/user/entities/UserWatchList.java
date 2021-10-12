@@ -31,11 +31,8 @@ public class UserWatchList {
 	private String watchlistName;
 
 	@OneToOne
-	@JoinColumn(name = "id",updatable=false)
+	@JoinColumn(name = "id", updatable = false)
 	private User user;
-
-	/*@OneToMany(mappedBy = "watchlistOfMovie", cascade = CascadeType.ALL)
-	private List<UserWatchListItems> moviesOfWatchlist;*/
 
 	public int getWatchlistId() {
 		return watchlistId;
@@ -61,19 +58,9 @@ public class UserWatchList {
 		this.user = user;
 	}
 
-	/*public List<UserWatchListItems> getMoviesOfWatchlist() {
-		return moviesOfWatchlist;
-	}
-
-	public void setMoviesOfWatchlist(List<UserWatchListItems> moviesOfWatchlist) {
-		this.moviesOfWatchlist = moviesOfWatchlist;
-	}*/
-
 	@Override
 	public String toString() {
 		return "UserWatchList [watchlistId=" + watchlistId + ", watchlistName=" + watchlistName + "]";
 	}
-
-
 
 }

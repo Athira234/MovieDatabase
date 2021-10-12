@@ -2,8 +2,10 @@ package com.entlogics.moviedb.movie.entities;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
@@ -22,14 +24,14 @@ public class MovieCast implements Serializable {
 	@Column(name = "movie_id")
 	private int movieId;
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name="movie_id", referencedColumnName = "id",insertable = false, updatable = false)
 	private Movie movie;
 
 	@Id
 	@Column(name = "person_id")
 	private int personId;
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "person_id",referencedColumnName = "id",insertable = false, updatable = false)
 	private Person person;
 

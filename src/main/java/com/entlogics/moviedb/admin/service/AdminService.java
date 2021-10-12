@@ -74,12 +74,7 @@ public class AdminService implements IAdminService {
 
 
 
-	// get a Movie details
-	public Movie getMovie(int movieId) {
-		System.out.println("Inside AdminService getMovie()");
-		Movie movie=adminRepo.findMovie(movieId);
-		return movie;
-	}
+
 
 	// add new Movie
 	public void createMovie(Movie movie) {

@@ -28,8 +28,8 @@ tr td:first-child:before {
 		<table border=1>
 			<th>Sl.No</th>
 			<th>User Name</th>
-			<th>Country</th>
-			<th>Website</th>
+			<th>Created By</th>
+			<th>CreatedDate</th>
 			<th>Edit</th>
 			<th>Delete</th>
 		

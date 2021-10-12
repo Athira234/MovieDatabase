@@ -169,14 +169,7 @@ public class AdminController {
 
 	}
 
-	// get a Movie details
-	@RequestMapping(value = "/movies/{movieId}", method = RequestMethod.GET)
-	public String getMovie(@PathVariable int movieId, Model model) {
-		System.out.println("Inside AdminController getMovie()");
-		Movie movie = iAdminService.getMovie(movieId);
-		model.addAttribute("movie", movie);
-		return "movie-details";
-	}
+	
 
 	// add new Movie
 	@RequestMapping("/movies/add")
@@ -199,7 +192,7 @@ public class AdminController {
 	public String editMovie(@PathVariable int movieId, Model model) {
 		System.out.println("Inside AdminController editMovie()");
 		Movie movie;
-		movie = iAdminService.getMovie(movieId);
+		movie = iMovieService.getMovie(movieId);
 		System.out.println(movie);
 		model.addAttribute("movie", movie);
 		return "edit-movie-form";

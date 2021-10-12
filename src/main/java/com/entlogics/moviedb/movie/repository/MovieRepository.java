@@ -23,6 +23,18 @@ import com.entlogics.moviedb.user.entities.UserMovie;
 public class MovieRepository implements IMovieRepository {
 
 	EntityManagerFactory factory = Persistence.createEntityManagerFactory("MDB");
+	// find a Movie details
+		public Movie findMovie(int movieId) {
+			System.out.println("Inside MovieRepository findMovie()");
+			EntityManager entityManager = factory.createEntityManager();
+			entityManager.getTransaction().begin();
+			Movie movie = entityManager.find(Movie.class, movieId);
+			System.out.println("Movie details :" + movie);
+			entityManager.getTransaction().commit();
+			entityManager.close();
+			return movie;
+		}
+
 
 	// find list of Movies
 	public List<Movie> findAllMovies() {

@@ -43,7 +43,7 @@ public class UserController {
 	@RequestMapping("users/{userId}/movies/{movieId}/ratings")
 	public String rateMovieForm(@PathVariable int movieId,@PathVariable int userId, Model model) {
 		System.out.println("Inside rateMovie() method in UserController");
-		Movie movie=iAdminService.getMovie(movieId);
+		Movie movie=iMovieService.getMovie(movieId);
 		User user=iUserService.getProfile(userId);
 		UserMovie userMovie=new UserMovie();
 		userMovie.setMovie(movie);
@@ -56,7 +56,7 @@ public class UserController {
 	public String postRating(@PathVariable int movieId,@PathVariable int userId,@ModelAttribute("userMovie") UserMovie userMovie) {
 		System.out.println("Inside postRating() method in UserController");
 		
-		Movie movie=iAdminService.getMovie(movieId);
+		Movie movie=iMovieService.getMovie(movieId);
 		User user=iUserService.getProfile(userId);
 		UserMovie userMovie1=new UserMovie();
 		userMovie.setMovie(movie);
@@ -82,7 +82,7 @@ public class UserController {
 	public String postFeedback(@PathVariable int movieId,@PathVariable int userId,@ModelAttribute("userMovie") UserMovie userMovie) {
 		System.out.println("Inside postRating() method in UserController");
 		
-		Movie movie=iAdminService.getMovie(movieId);
+		Movie movie=iMovieService.getMovie(movieId);
 		User user=iUserService.getProfile(userId);
 		UserMovie userMovie1=new UserMovie();
 		userMovie.setMovie(movie);
@@ -180,7 +180,7 @@ public class UserController {
 		List<Movie> movies=new ArrayList<Movie>();
 		while (litr.hasNext()) {
 			UserWatchListItems watchlistItem = (UserWatchListItems) litr.next();
-		    movies.add(iAdminService.getMovie(watchlistItem.getMovieId()));
+		    movies.add(iMovieService.getMovie(watchlistItem.getMovieId()));
 			
 		}
 		System.out.println("WatchListItems  =" +watchListItems);

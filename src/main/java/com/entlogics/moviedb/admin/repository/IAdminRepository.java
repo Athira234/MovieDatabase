@@ -20,22 +20,6 @@ public interface IAdminRepository {
 
 	public void deleteCompany(int companyId);
 
-	/*
-	 * public List<User> findAllCompanies();
-	 * 
-	 * public User findUser(int userId);
-	 * 
-	 * public void addUser(User user);
-	 * 
-	 * public void updateUser(User user);
-	 * 
-	 * public void deleteUser(User user);
-	 */
-
-	
-
-	public Movie findMovie(int movieId);
-
 	public void addMovie(Movie movie);
 
 	public void updateMovie(Movie movie);

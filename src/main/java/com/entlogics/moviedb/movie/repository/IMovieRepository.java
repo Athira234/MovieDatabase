@@ -10,11 +10,17 @@ import com.entlogics.moviedb.movie.entities.MovieCompany;
 import com.entlogics.moviedb.movie.entities.MovieCrew;
 import com.entlogics.moviedb.movie.entities.MovieGenre;
 import com.entlogics.moviedb.user.entities.UserMovie;
+
 @Component
 public interface IMovieRepository {
-	
+
+	// method to find all movies
 	public List<Movie> findAllMovies();
-	
+
+	// method to find movie
+	public Movie findMovie(int movieId);
+
+	// method to find top rated movies
 	public List<Movie> findTopRatingMovies();
 
 	// method to find highest gross Movies

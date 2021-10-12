@@ -36,9 +36,7 @@
         <form action="movies">
 			<input type="checkbox" name="recommended" value="top"/>Top Recommended Movies
 				 <input type="submit" value="search"><br><br>
-		  <form action="movies">
-			<input type="checkbox" />List of All movies
-				 <input type="submit" value="search"><br><br>
+		 
 
 
 </body>

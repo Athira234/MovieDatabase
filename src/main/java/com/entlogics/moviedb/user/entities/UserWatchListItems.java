@@ -22,40 +22,15 @@ public class UserWatchListItems implements Serializable {
 	@Id
 	@Column(name = "watchlist_id")
 	private int watchlistId;
-
-	/*@ManyToOne
-	@JoinColumn(name = "watchlist_id", referencedColumnName = "watchlist_id", insertable = false, updatable = false)
-	private UserWatchList watchlistOfMovie;*/
-
 	@Id
 	@Column(name = "movie_id")
 	private int movieId;
-
-	/*@ManyToOne
-	@JoinColumn(name = "movie_id", referencedColumnName = "movie_id", insertable = false, updatable = false)
-	private Movie moviesOfWatchlist;*/
 
 	@Column(name = "notes")
 	private String notes;
 
 	@Column(name = "date_added")
 	private LocalDate dateAdded;
-
-	/*public UserWatchList getWatchlistOfMovie() {
-		return watchlistOfMovie;
-	}*/
-
-	/*public void setWatchlistOfMovie(UserWatchList watchlistOfMovie) {
-		this.watchlistOfMovie = watchlistOfMovie;
-	}
-
-	public Movie getMoviesOfWatchlist() {
-		return moviesOfWatchlist;
-	}
-
-	public void setMoviesOfWatchlist(Movie moviesOfWatchlist) {
-		this.moviesOfWatchlist = moviesOfWatchlist;
-	}*/
 
 	public String getNotes() {
 		return notes;

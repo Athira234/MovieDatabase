@@ -2,7 +2,9 @@ package com.entlogics.moviedb.movie.entities;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
@@ -17,12 +19,12 @@ import com.entlogics.moviedb.admin.entities.Language;
 public class MovieLanguage implements Serializable {
 
 	@Id
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "movie_id")
 	private Movie movie;
 
 	@Id
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "language_id")
 	private Language language;
 

@@ -26,14 +26,17 @@ public class AdminController {
 	IAdminService iAdminService;
 	IUserService iUserService;
 	IMovieService iMovieService;
+
 	@Autowired
 	public void setiMovieService(IMovieService iMovieService) {
 		this.iMovieService = iMovieService;
 	}
+
 	@Autowired
 	public void setiAdminService(IAdminService iAdminService) {
 		this.iAdminService = iAdminService;
 	}
+
 	@Autowired
 	public void setiUserService(IUserService iUserService) {
 		this.iUserService = iUserService;
@@ -105,32 +108,33 @@ public class AdminController {
 	// get list of users
 	@RequestMapping(value = "/users", method = RequestMethod.GET)
 	public String getAllUsers(Model model) {
-	  System.out.println("Inside AdminController getAllUsers()"); 
+		System.out.println("Inside AdminController getAllUsers()");
 		List<User> users = iAdminService.getAllUsers();
-		model.addAttribute("userList",users);
+		model.addAttribute("userList", users);
 		return "users";
-	   
-	  }
 
-	// get a User details 
+	}
+
+	// get a User details
 	@RequestMapping(value = "/users/{userId}")
 	public String getUser(@PathVariable int userId, Model model) {
-	System.out.println("Inside AdminController getUser()");
-	User user = iUserService.getProfile(userId);
-	model.addAttribute("user", user);
-	return "user-profile";
-	
+		System.out.println("Inside AdminController getUser()");
+		User user = iUserService.getProfile(userId);
+		model.addAttribute("user", user);
+		return "user-profile";
+
 	}
 
-	 //add new User 
+	// add new User
 	@RequestMapping("/users/add")
 	public String createUser(Model model) {
-	System.out.println("Inside AdminController createUser()");
-	User user = new User();
-	model.addAttribute("user", user);
-	return "create-userbyadmin";
-	
+		System.out.println("Inside AdminController createUser()");
+		User user = new User();
+		model.addAttribute("user", user);
+		return "create-userbyadmin";
+
 	}
+
 	@RequestMapping("/users/save")
 	public String saveMovie(@ModelAttribute("user") User user) {
 		System.out.println("Inside saveMovie() method in AdminController ");
@@ -138,28 +142,32 @@ public class AdminController {
 		return "success";
 	}
 
-	// editing a User 
+	// editing a User
 	@RequestMapping("/users/{userId}/edit")
 	public String editUser(@PathVariable int userId, Model model) {
-	System.out.println("Inside AdminController editUser()");
-	User user= iUserService.getProfile(userId);
-	System.out.println(user);
-	model.addAttribute("user", user);
-	return "edit-userbyadmin";
-	
+		System.out.println("Inside AdminController editUser()");
+		User user = iUserService.getProfile(userId);
+		System.out.println(user);
+		model.addAttribute("user", user);
+		return "edit-userbyadmin-form";
+
 	}
 
-	// deleting a User 
+	@RequestMapping("/users/{userId}/update")
+	public String updateUser(@ModelAttribute("user") User user) {
+		System.out.println("Inside updateMovie() method in AdminController ");
+		iAdminService.editUser(user);
+		return "success";
+	}
+
+	// deleting a User
 	@RequestMapping(value = "/users/{userId}/delete")
 	public String deleteUser(@PathVariable int userId) {
-	System.out.println("Inside AdminController deleteUser()");
-	iAdminService.deleteUser(userId);
-	return "success";
-	
-	
-	}
+		System.out.println("Inside AdminController deleteUser()");
+		iAdminService.deleteUser(userId);
+		return "success";
 
-	
+	}
 
 	// get a Movie details
 	@RequestMapping(value = "/movies/{movieId}", method = RequestMethod.GET)
@@ -195,12 +203,6 @@ public class AdminController {
 		System.out.println(movie);
 		model.addAttribute("movie", movie);
 		return "edit-movie-form";
-	}
-	@RequestMapping("/users/{userId}/update")
-	public String updateUser(@ModelAttribute("user") User user) {
-		System.out.println("Inside updateMovie() method in AdminController ");
-		iAdminService.editUser(user);
-		return "success";
 	}
 
 	@RequestMapping("/movies/{movieId}/update")

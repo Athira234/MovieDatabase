@@ -2,6 +2,7 @@ package com.entlogics.moviedb.user.repository;
 import java.util.List;
 import org.springframework.stereotype.Component;
 
+import com.entlogics.moviedb.login.entities.Login;
 import com.entlogics.moviedb.movie.entities.Movie;
 import com.entlogics.moviedb.user.entities.User;
 import com.entlogics.moviedb.user.entities.UserMovie;
@@ -36,10 +37,7 @@ public interface IUserRepository {
 	public void updateProfile(User user);
 
 	public void updatePassword(User user);
+	public User validateUser(Login login);
 
-	public void signUp();
-
-	public void login();
-
-	public void logout();
+	
 }

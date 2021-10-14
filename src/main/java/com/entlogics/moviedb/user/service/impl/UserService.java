@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.entlogics.moviedb.login.entities.Login;
 import com.entlogics.moviedb.movie.entities.Movie;
 import com.entlogics.moviedb.user.entities.User;
 import com.entlogics.moviedb.user.entities.UserMovie;
@@ -114,29 +115,18 @@ public class UserService implements IUserService {
 		userRepo.updatePassword(user);
 	}
 
-	// Method for signs up for a new account
-	@Override
-	public void signUp() {
-		System.out.println("Inside signUp() method in UserService");
-	}
-
-	// Method for login
-	@Override
-	public void login() {
-		System.out.println("Inside login() method in UserService");
-	}
-
-	// Method for logouts of the system
-	@Override
-	public void logout() {
-		System.out.println("Inside logout() method in UserService");
-
-	}
+	
 
 	@Override
 	public List<UserWatchList> getWatchListsOfUser(int userId) {
 		 List<UserWatchList> watchLists=userRepo.findWatchListsOfUser(userId);
 		return watchLists;
+	}
+
+	@Override
+	public User validateUser(Login login) {
+		User user=userRepo.validateUser(login);
+		return user;
 	}
 
 }

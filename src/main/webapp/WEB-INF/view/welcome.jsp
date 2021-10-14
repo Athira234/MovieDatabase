@@ -6,25 +6,8 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<body>
-
-<a href="users/1/profile">User Profile</a><br><br><br>
-<a href="users/1/watchlist">View Watchlist</a><br><br>
-<a href="users/1/editprofile">Edit user Profile</a><br><br>
-<a href="users/1/password">Edit User Password</a><br><br>
-<A href="users/1/movies/3/ratings">Give rating</A><br><br>
-<A href="users/1/movies/4/feedbacks">Give Feedback</A><br><br>
-<A href="companies">List of all Companies</A><br><br>
-<A href="movies">List of all Movies</A><br><br>
-<A href="persons">List of all Persons</A><br><br>
-<A href="genre">List of all Genre</A><br><br>
-<A href="users">List of all Users</A><br><br>
-<A href="users/1/favourite">Add Movie to Favourites</A><br><br>
-<A href="users/1/recommend">Recommend Movie</A><br><br>
-<A href="users/1/favourites">List of Favourites</A><br><br>
-
-<A href="users/1/viewratings">Ratings</A><br><br>
-<A href="users/1/viewfeedbacks">Feedbacks</A><br><br>
+<body><center><br><br><br>
+<a href="login">login</a><br><br><br>
 
 <br> <br>
 		<form action="movies">
@@ -39,5 +22,6 @@
 		 
 
 
+</center>
 </body>
 </html>

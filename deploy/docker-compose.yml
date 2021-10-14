@@ -1,5 +1,11 @@
 version: '3.1' #version of Docker-compose
-services: #specifies 2 microservices "web" and "mysql"
+services:
+  nginx:
+    image: nginx:stable-alpine
+    ports:
+      - "80:80"
+    volumes:
+      - ./default.conf:/etc/nginx/conf.d/default.conf:ro #specifies 2 microservices "web" and "mysql"
   db: 
     image: mysql:8.0 
     ports: ["3306:3306"]

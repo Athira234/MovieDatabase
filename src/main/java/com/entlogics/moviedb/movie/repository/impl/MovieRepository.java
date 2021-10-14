@@ -1,6 +1,5 @@
-package com.entlogics.moviedb.movie.repository;
+package com.entlogics.moviedb.movie.repository.impl;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -17,6 +16,7 @@ import com.entlogics.moviedb.movie.entities.MovieCast;
 import com.entlogics.moviedb.movie.entities.MovieCompany;
 import com.entlogics.moviedb.movie.entities.MovieCrew;
 import com.entlogics.moviedb.movie.entities.MovieGenre;
+import com.entlogics.moviedb.movie.repository.IMovieRepository;
 import com.entlogics.moviedb.user.entities.UserMovie;
 
 @Repository

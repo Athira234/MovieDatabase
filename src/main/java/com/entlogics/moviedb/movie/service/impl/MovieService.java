@@ -1,4 +1,4 @@
-package com.entlogics.moviedb.movie.service;
+package com.entlogics.moviedb.movie.service.impl;
 
 import java.util.ArrayList;
 
@@ -7,12 +7,12 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.entlogics.moviedb.admin.repository.IAdminRepository;
+import com.entlogics.moviedb.movie.dto.MovieDto;
 import com.entlogics.moviedb.movie.entities.Movie;
 import com.entlogics.moviedb.movie.entities.MovieCast;
 import com.entlogics.moviedb.movie.entities.MovieCrew;
-import com.entlogics.moviedb.movie.entities.MovieDto;
 import com.entlogics.moviedb.movie.repository.IMovieRepository;
+import com.entlogics.moviedb.movie.service.IMovieService;
 import com.entlogics.moviedb.user.entities.UserMovie;
 
 @Service

@@ -1,4 +1,4 @@
-package com.entlogics.moviedb.user.repository;
+package com.entlogics.moviedb.user.repository.impl;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -15,6 +15,7 @@ import com.entlogics.moviedb.user.entities.User;
 import com.entlogics.moviedb.user.entities.UserMovie;
 import com.entlogics.moviedb.user.entities.UserWatchList;
 import com.entlogics.moviedb.user.entities.UserWatchListItems;
+import com.entlogics.moviedb.user.repository.IUserRepository;
 
 @Repository
 public class UserRepository implements IUserRepository {

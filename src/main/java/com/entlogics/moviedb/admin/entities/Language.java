@@ -2,7 +2,6 @@ package com.entlogics.moviedb.admin.entities;
 
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -26,7 +25,7 @@ public class Language {
 	@Column(name = "language")
 	private String language;
 
-	@OneToMany(mappedBy = "language", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "language", fetch = FetchType.LAZY)
 	private List<MovieLanguage> moviesReleasedInThisLanguage;
 
 	public Language() {

@@ -1,4 +1,4 @@
-package com.entlogics.moviedb.admin.service;
+package com.entlogics.moviedb.admin.service.impl;
 
 import java.util.List;
 
@@ -9,17 +9,16 @@ import com.entlogics.moviedb.admin.entities.Company;
 import com.entlogics.moviedb.admin.entities.Genre;
 import com.entlogics.moviedb.admin.entities.Person;
 import com.entlogics.moviedb.admin.repository.IAdminRepository;
+import com.entlogics.moviedb.admin.service.IAdminService;
 import com.entlogics.moviedb.movie.entities.Movie;
 import com.entlogics.moviedb.user.entities.User;
-import com.entlogics.moviedb.user.repository.IUserRepository;
 
 @Service
 public class AdminService implements IAdminService {
 
-	
 	IAdminRepository adminRepo;
-	
-    @Autowired
+
+	@Autowired
 	public void setAdminRepo(IAdminRepository adminRepo) {
 		this.adminRepo = adminRepo;
 	}
@@ -27,14 +26,14 @@ public class AdminService implements IAdminService {
 	// get all companies
 	public List<Company> getAllCompanies() {
 		System.out.println("Inside AdminService getAllCompanies()");
-		List<Company> companies=adminRepo.findAllCompanies();
+		List<Company> companies = adminRepo.findAllCompanies();
 		return companies;
 	}
 
 	// get a Company details
 	public Company getCompany(int companyId) {
 		System.out.println("Inside AdminService getCompany()");
-		Company company=adminRepo.findCompany(companyId);
+		Company company = adminRepo.findCompany(companyId);
 		return company;
 	}
 
@@ -72,10 +71,6 @@ public class AdminService implements IAdminService {
 	 * System.out.println("Inside AdminService deleteUser()"); }
 	 */
 
-
-
-
-
 	// add new Movie
 	public void createMovie(Movie movie) {
 		System.out.println("Inside AdminService createMovie()");
@@ -97,14 +92,14 @@ public class AdminService implements IAdminService {
 	// get list of Persons
 	public List<Person> getAllPersons() {
 		System.out.println("Inside AdminService getAllPersons()");
-		List<Person> persons=adminRepo.findAllPersons();
+		List<Person> persons = adminRepo.findAllPersons();
 		return persons;
 	}
 
 	// get a Person details
 	public Person getPerson(int personId) {
 		System.out.println("Inside AdminService getPerson()");
-		Person person=adminRepo.findPerson(personId);
+		Person person = adminRepo.findPerson(personId);
 		return person;
 	}
 
@@ -124,13 +119,13 @@ public class AdminService implements IAdminService {
 	public void deletePerson(int personId) {
 		System.out.println("Inside AdminService deletePerson()");
 		adminRepo.deletePerson(personId);
-		
+
 	}
 
 	// get list of Genre
 	public List<Genre> getAllGenre() {
 		System.out.println("Inside AdminService getAllGenre()");
-		List<Genre> genre=adminRepo.findAllGenre();
+		List<Genre> genre = adminRepo.findAllGenre();
 		return genre;
 	}
 
@@ -155,14 +150,14 @@ public class AdminService implements IAdminService {
 	@Override
 	public Genre getGenre(int genreId) {
 		System.out.println("Inside AdminService  getGenre()");
-		Genre genre=adminRepo.findGenre(genreId);
+		Genre genre = adminRepo.findGenre(genreId);
 		return genre;
 	}
 
 	@Override
 	public List<User> getAllUsers() {
 		System.out.println("Inside AdminService getAllUsers()");
-		List<User> users=adminRepo.findAllUsers();
+		List<User> users = adminRepo.findAllUsers();
 		return users;
 	}
 
@@ -170,12 +165,12 @@ public class AdminService implements IAdminService {
 	public void deleteUser(int userId) {
 		System.out.println("Inside AdminService deleteUser()");
 		adminRepo.deleteUser(userId);
-		
+
 	}
 
 	@Override
 	public void createUser(User user) {
-		
+
 		System.out.println("Inside AdminService createUser()");
 		adminRepo.addUser(user);
 	}
@@ -184,6 +179,6 @@ public class AdminService implements IAdminService {
 	public void editUser(User user) {
 		System.out.println("Inside AdminService editUser()");
 		adminRepo.updateUser(user);
-		
+
 	}
 }

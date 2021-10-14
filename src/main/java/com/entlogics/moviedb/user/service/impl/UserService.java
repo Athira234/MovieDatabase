@@ -1,11 +1,8 @@
-package com.entlogics.moviedb.user.service;
+package com.entlogics.moviedb.user.service.impl;
 
 import java.util.List;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import com.entlogics.moviedb.movie.entities.Movie;
@@ -14,6 +11,7 @@ import com.entlogics.moviedb.user.entities.UserMovie;
 import com.entlogics.moviedb.user.entities.UserWatchList;
 import com.entlogics.moviedb.user.entities.UserWatchListItems;
 import com.entlogics.moviedb.user.repository.IUserRepository;
+import com.entlogics.moviedb.user.service.IUserService;
 
 @Service
  

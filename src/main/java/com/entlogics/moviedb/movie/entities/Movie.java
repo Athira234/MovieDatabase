@@ -1,7 +1,6 @@
 package com.entlogics.moviedb.movie.entities;
 
 import java.time.LocalDate;
-
 import java.util.Arrays;
 import java.util.List;
 
@@ -17,7 +16,6 @@ import javax.persistence.Table;
 
 import com.entlogics.moviedb.user.entities.UserActivity;
 import com.entlogics.moviedb.user.entities.UserMovie;
-import com.entlogics.moviedb.user.entities.UserWatchListItems;
 
 @Entity
 @Table(name = "dt_movie")

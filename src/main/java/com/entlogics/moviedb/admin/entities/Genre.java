@@ -2,7 +2,6 @@ package com.entlogics.moviedb.admin.entities;
 
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -13,7 +12,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.entlogics.moviedb.movie.entities.MovieGenre;
-import com.entlogics.moviedb.movie.entities.MovieLanguage;
 
 @Entity
 @Table(name = "dt_genre")
@@ -26,11 +24,11 @@ public class Genre {
 
 	@Column(name = "name")
 	private String name;
-	
+
 	@Column(name = "description")
 	private String description;
 
-	@OneToMany(mappedBy = "genre", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "genre", fetch = FetchType.LAZY)
 	private List<MovieGenre> moviesWithThisGenre;
 
 	public Genre() {

@@ -1,7 +1,11 @@
-package com.entlogics.moviedb.user.entities;
+package com.entlogics.moviedb.user.dto;
 
 import java.time.LocalDate;
+
 import java.util.List;
+
+import com.entlogics.moviedb.user.entities.UserActivity;
+import com.entlogics.moviedb.user.entities.UserMovie;
 
 public class UserDto {
 

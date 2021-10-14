@@ -1,8 +1,8 @@
 package com.entlogics.moviedb.user.controller;
 import java.util.ArrayList;
-
 import java.util.List;
 import java.util.ListIterator;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.entlogics.moviedb.admin.service.IAdminService;
+import com.entlogics.moviedb.movie.dto.MovieDto;
 import com.entlogics.moviedb.movie.entities.Movie;
-import com.entlogics.moviedb.movie.entities.MovieDto;
 import com.entlogics.moviedb.movie.service.IMovieService;
 import com.entlogics.moviedb.user.entities.User;
 import com.entlogics.moviedb.user.entities.UserMovie;

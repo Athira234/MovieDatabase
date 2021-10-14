@@ -12,33 +12,49 @@
         http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
 	<!-- Step 3: Add support for component scanning -->
-	
-		<context:component-scan
+
+	<context:component-scan
 		base-package="com.entlogics.moviedb.user.entities" />
-		<context:component-scan
+	<context:component-scan
 		base-package="com.entlogics.moviedb.user.service" />
-		<context:component-scan
+	<context:component-scan
 		base-package="com.entlogics.moviedb.user.controller" />
-		<context:component-scan
+	<context:component-scan
 		base-package="com.entlogics.moviedb.user.repository" />
-		<context:component-scan
+	<context:component-scan
 		base-package="com.entlogics.moviedb.admin.repository" />
-		<context:component-scan
+	<context:component-scan
 		base-package="com.entlogics.moviedb.admin.controller" />
-		<context:component-scan
+	<context:component-scan
 		base-package="com.entlogics.moviedb.admin.entities" />
-		<context:component-scan
+	<context:component-scan
 		base-package="com.entlogics.moviedb.admin.service" />
-		<context:component-scan
+	<context:component-scan
 		base-package="com.entlogics.moviedb.movie.entities" />
-		<context:component-scan
+	<context:component-scan
 		base-package="com.entlogics.moviedb.movie.controller" />
-		<context:component-scan
+	<context:component-scan
 		base-package="com.entlogics.moviedb.movie.service" />
-		<context:component-scan
+	<context:component-scan
 		base-package="com.entlogics.moviedb.movie.repository" />
-		
-		
+	<context:component-scan
+		base-package="com.entlogics.moviedb.movie.repository.impl" />
+	<context:component-scan
+		base-package="com.entlogics.moviedb.user.repository.impl" />
+	<context:component-scan
+		base-package="com.entlogics.moviedb.admin.repository.impl" />
+	<context:component-scan
+		base-package="com.entlogics.moviedb.movie.service.impl" />
+	<context:component-scan
+		base-package="com.entlogics.moviedb.user.service.impl" />
+	<context:component-scan
+		base-package="com.entlogics.moviedb.admin.service.impl" />
+	<context:component-scan
+		base-package="com.entlogics.moviedb.user.dto" />
+	<context:component-scan
+		base-package="com.entlogics.moviedb.movie.dto" />
+
+
 
 	<!-- Step 4: Add support for conversion, formatting and validation support -->
 	<mvc:annotation-driven />

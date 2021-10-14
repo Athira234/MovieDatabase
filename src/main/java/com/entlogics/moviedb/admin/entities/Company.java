@@ -3,7 +3,6 @@ package com.entlogics.moviedb.admin.entities;
 import java.sql.Date;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -47,9 +46,8 @@ public class Company {
 
 	@Column(name = "description")
 	private String description;
-	
-	
-	@OneToMany(mappedBy = "company", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+
+	@OneToMany(mappedBy = "company", fetch = FetchType.LAZY)
 	private List<MovieCompany> moviesOfThisCompany;
 
 	public Company() {
@@ -145,7 +143,6 @@ public class Company {
 		this.moviesOfThisCompany = moviesOfThisCompany;
 	}
 
-	
 	@Override
 	public String toString() {
 		return "Company [companyId=" + companyId + ", companyName=" + companyName + ", ceo=" + ceo + ", establishedIn="

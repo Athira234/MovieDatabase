@@ -1,4 +1,4 @@
-package com.entlogics.moviedb.admin.repository;
+package com.entlogics.moviedb.admin.repository.impl;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 import com.entlogics.moviedb.admin.entities.Company;
 import com.entlogics.moviedb.admin.entities.Genre;
 import com.entlogics.moviedb.admin.entities.Person;
+import com.entlogics.moviedb.admin.repository.IAdminRepository;
 import com.entlogics.moviedb.movie.entities.Movie;
 import com.entlogics.moviedb.user.entities.User;
 
@@ -20,11 +21,13 @@ public class AdminRepository implements IAdminRepository {
 
 	EntityManagerFactory factory = Persistence.createEntityManagerFactory("MDB");
 	LocalDate localDate = LocalDate.now();
+
 	// find all companies
 	public List<Company> findAllCompanies() {
 		System.out.println("Inside AdminRepository findAllCompanies()");
 		EntityManager entityManager = factory.createEntityManager();
 		entityManager.getTransaction().begin();
+		//get list of companies from database
 		List<Company> companies = entityManager.createNativeQuery("select * from dt_company", Company.class)
 				.getResultList();
 		System.out.println("printing list of companies " + companies.size() + "\n" + companies);
@@ -38,6 +41,7 @@ public class AdminRepository implements IAdminRepository {
 		System.out.println("Inside AdminRepository findCompany()");
 		EntityManager entityManager = factory.createEntityManager();
 		entityManager.getTransaction().begin();
+		//find company by id
 		Company company = entityManager.find(Company.class, companyId);
 		System.out.println("company details :" + company);
 		entityManager.getTransaction().commit();
@@ -51,6 +55,7 @@ public class AdminRepository implements IAdminRepository {
 		System.out.println("Inside AdminRepository addCompany()");
 		EntityManager entityManager = factory.createEntityManager();
 		entityManager.getTransaction().begin();
+		//save company object 
 		entityManager.persist(company);
 		entityManager.getTransaction().commit();
 		System.out.println("Company details :" + company);
@@ -63,6 +68,7 @@ public class AdminRepository implements IAdminRepository {
 		System.out.println("Inside AdminRepository updateCompany()");
 		EntityManager entityManager = factory.createEntityManager();
 		entityManager.getTransaction().begin();
+		//update company
 		entityManager.merge(company);
 		System.out.println("Company details :" + company);
 		entityManager.getTransaction().commit();
@@ -75,33 +81,15 @@ public class AdminRepository implements IAdminRepository {
 		System.out.println("Inside AdminRepository deleteCompany()");
 		EntityManager entityManager = factory.createEntityManager();
 		entityManager.getTransaction().begin();
+		//find the company in db with companyId
 		Company company = entityManager.find(Company.class, companyId);
+		//remove company from db
 		entityManager.remove(company);
 		System.out.println("deleted");
 		entityManager.getTransaction().commit();
 		entityManager.close();
 	}
 
-	/*
-	 * // find list of users public List<User> findAllUsers() {
-	 * System.out.println("Inside AdminRepository findAllUsers()"); return
-	 * "allUsers"; }
-	 * 
-	 * // find a User details public User findUser() {
-	 * System.out.println("Inside AdminRepository findUser()"); return null; }
-	 * 
-	 * // add new User public void addUser() {
-	 * System.out.println("Inside AdminRepository addUser()"); }
-	 * 
-	 * // updating a User public void updateUser() {
-	 * System.out.println("Inside AdminRepository updateUser()"); }
-	 * 
-	 * // deleting a User public void deleteUser() {
-	 * System.out.println("Inside AdminRepository deleteUser()"); }
-	 */
-
-
-	
 	// add new Movie
 	public void addMovie(Movie movie) {
 		System.out.println("Inside AdminRepository addMovie()");
@@ -131,7 +119,9 @@ public class AdminRepository implements IAdminRepository {
 		System.out.println("Inside AdminRepository deleteMovie()");
 		EntityManager entityManager = factory.createEntityManager();
 		entityManager.getTransaction().begin();
+		//find movie with id movieId
 		Movie movie = entityManager.find(Movie.class, movieId);
+		//delete movie from db
 		entityManager.remove(movie);
 		System.out.println("deleted");
 		entityManager.getTransaction().commit();

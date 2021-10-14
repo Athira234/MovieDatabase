@@ -1,18 +1,13 @@
 package com.entlogics.moviedb.user.entities;
 
 import java.io.Serializable;
-
 import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
-import com.entlogics.moviedb.movie.entities.Movie;
 
 @Entity
 @Table(name = "tt_user_watchlist_items")

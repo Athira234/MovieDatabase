@@ -15,7 +15,6 @@ import com.entlogics.moviedb.admin.entities.Genre;
 import com.entlogics.moviedb.admin.entities.Person;
 import com.entlogics.moviedb.admin.service.IAdminService;
 import com.entlogics.moviedb.movie.entities.Movie;
-import com.entlogics.moviedb.movie.entities.MovieDto;
 import com.entlogics.moviedb.movie.service.IMovieService;
 import com.entlogics.moviedb.user.entities.User;
 import com.entlogics.moviedb.user.service.IUserService;
@@ -57,6 +56,7 @@ public class AdminController {
 	@RequestMapping(value = "/companies/{companyId}", method = RequestMethod.GET)
 	public String getCompany(@PathVariable int companyId, Model model) {
 		System.out.println("Inside AdminController getCompany()");
+		// call getCompany() in adminservice
 		Company company = iAdminService.getCompany(companyId);
 		model.addAttribute("company", company);
 		return "company-details";
@@ -66,7 +66,9 @@ public class AdminController {
 	@RequestMapping("/companies/add")
 	public String createCompany(Model model) {
 		System.out.println("Inside AdminController createCompany()");
+		// create company Object
 		Company company = new Company();
+		// add object to model
 		model.addAttribute("company", company);
 		return "create-company-form";
 	}
@@ -74,6 +76,7 @@ public class AdminController {
 	@RequestMapping("/companies/save")
 	public String saveCompany(@ModelAttribute("company") Company company) {
 		System.out.println("Inside saveCompany() method in AdminController ");
+		// call create company method in adminService
 		iAdminService.createCompany(company);
 		return "success";
 	}
@@ -83,6 +86,7 @@ public class AdminController {
 	public String editCompany(@PathVariable int companyId, Model model) {
 		System.out.println("Inside AdminController editCompany()");
 		Company company;
+		// call getCompany method in AdminService
 		company = iAdminService.getCompany(companyId);
 		System.out.println(company);
 		model.addAttribute("company", company);
@@ -168,8 +172,6 @@ public class AdminController {
 		return "success";
 
 	}
-
-	
 
 	// add new Movie
 	@RequestMapping("/movies/add")

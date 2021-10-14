@@ -1,9 +1,15 @@
-package com.entlogics.moviedb.movie.entities;
+package com.entlogics.moviedb.movie.dto;
 
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
+
+import com.entlogics.moviedb.movie.entities.MovieCast;
+import com.entlogics.moviedb.movie.entities.MovieCompany;
+import com.entlogics.moviedb.movie.entities.MovieCrew;
+import com.entlogics.moviedb.movie.entities.MovieGenre;
+import com.entlogics.moviedb.movie.entities.MovieLanguage;
 
 public class MovieDto implements Serializable {
 
@@ -45,7 +51,7 @@ public class MovieDto implements Serializable {
 
 	public MovieDto() {
 		super();
-		
+
 	}
 
 	public MovieDto(int movieId, String movieTitle) {
@@ -62,7 +68,7 @@ public class MovieDto implements Serializable {
 		this.releaseType = releaseType;
 	}
 
-	//	@OneToMany(mappedBy = "moviesOfWatchlist", cascade = CascadeType.ALL)
+	// @OneToMany(mappedBy = "moviesOfWatchlist", cascade = CascadeType.ALL)
 	// private List<UserWatchListItems> watchlistOfMovie;
 
 	public int getMovieId() {

@@ -2,10 +2,10 @@ package com.entlogics.moviedb.movie.service;
 
 import java.util.List;
 
+import com.entlogics.moviedb.movie.dto.MovieDto;
 import com.entlogics.moviedb.movie.entities.Movie;
 import com.entlogics.moviedb.movie.entities.MovieCast;
 import com.entlogics.moviedb.movie.entities.MovieCrew;
-import com.entlogics.moviedb.movie.entities.MovieDto;
 import com.entlogics.moviedb.user.entities.UserMovie;
 
 public interface IMovieService {

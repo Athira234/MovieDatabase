@@ -24,7 +24,7 @@ tr td:first-child:before {
 </head>
 <body>
 	<center>
-		<U>TOP RATED MOVIE LIST</U> <br> <br> <br> <br>
+		<U>HIGHEST GROSS MOVIE LIST</U> <br> <br> <br> <br>
 
 		<table border=1>
 			<th>Sl.No</th>

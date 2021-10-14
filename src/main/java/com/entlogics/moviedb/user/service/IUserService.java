@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.entlogics.moviedb.login.entities.Login;
 import com.entlogics.moviedb.movie.entities.Movie;
 import com.entlogics.moviedb.user.entities.User;
 import com.entlogics.moviedb.user.entities.UserMovie;
@@ -39,9 +40,5 @@ public interface IUserService {
 
 	public void updatePassword(User user);
 
-	public void signUp();
-
-	public void login();
-
-	public void logout();
+	public User validateUser(Login login);
 }

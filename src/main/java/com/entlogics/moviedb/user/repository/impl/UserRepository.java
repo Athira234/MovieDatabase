@@ -10,6 +10,7 @@ import javax.persistence.Persistence;
 
 import org.springframework.stereotype.Repository;
 
+import com.entlogics.moviedb.login.entities.Login;
 import com.entlogics.moviedb.movie.entities.Movie;
 import com.entlogics.moviedb.user.entities.User;
 import com.entlogics.moviedb.user.entities.UserMovie;
@@ -383,23 +384,34 @@ public class UserRepository implements IUserRepository {
 
 	}
 
-	@Override
-	public void signUp() {
-		System.out.println("Inside signUp()  method in UserRepository");
-
-	}
-
-	@Override
-	public void login() {
-		System.out.println("Inside login()  method in UserRepository");
-
-	}
-
-	@Override
-	public void logout() {
-		System.out.println("Inside logout()  method in UserRepository");
-	}
-
+	
+	 public User validateUser(Login login) {
+		 
+		 System.out.println("Inside validateUser()  method in UserRepository");
+		 EntityManager entityManager = factory.createEntityManager();
+			entityManager.getTransaction().begin();
+			// find user matched by login username and password
+			List<User> users = entityManager.createNativeQuery(
+					"select * from dt_user where username= :username and password= :password" ,
+					User.class).setParameter("username",login.getUsername()).setParameter("password", login.getPassword()).getResultList();
+			System.out.println("users "+users);
+			//if user exists return user else return null
+			if(users.size()!=0)
+			{
+			User user=users.get(0);
+			System.out.println("user"+user);
+	   		       return users.get(0);
+		    }
+			else
+			{
+				return null;
+			}
+			
+			
+	 }
+	
+	
+	
 	public static void main(String[] args) {
 
 		UserRepository repo = new UserRepository();
@@ -417,6 +429,8 @@ public class UserRepository implements IUserRepository {
 		// repo.findFavourites(2);
 		// repo.findRatings(1);
 		// repo.updateProfile(user);
-		repo.findWatchListsOfUser(1);
+		//repo.findWatchListsOfUser(1);
+		Login login=new Login();
+		repo.validateUser(login);
 	}
 }

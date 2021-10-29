@@ -5,7 +5,7 @@ services:
     ports:
       - "80:80"
     volumes:
-      - ./default.conf:/etc/nginx/conf.d/default.conf:ro #specifies 2 microservices "web" and "mysql"
+      - ./default.conf:/etc/nginx/conf.d/default.conf:ro #specifies 3 microservices "nginx" ,"web" and "mysql"
   db: 
     image: mysql:8.0 
     ports: ["3306:3306"]

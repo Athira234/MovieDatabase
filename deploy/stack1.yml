@@ -1,0 +1,38 @@
+Resources:
+  AppNode:
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType: t2.small
+      ImageId: ami-041d6256ed0f2061c
+      KeyName: Mumbai-SD
+      SecurityGroups:
+        - !Ref AppNodeSG
+      UserData: !Base64 |
+        #!/bin/bash
+        sudo yum update -y
+        sudo amazon-linux-extras install docker
+        sudo service docker start
+        sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+        sudo chmod +x /usr/local/bin/docker-compose
+        ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+        sudo yum install git -y
+        git clone https://github.com/Athira234/MovieDB.git
+        cd MovieDB/deploy
+        docker-compose up -d
+  AppNodeSG:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: for the app nodes that allow ssh, http and docker ports
+      SecurityGroupIngress:
+      - IpProtocol: tcp
+        FromPort: '80'
+        ToPort: '80'
+        CidrIp: 0.0.0.0/0
+      - IpProtocol: tcp
+        FromPort: '22'
+        ToPort: '22'
+        CidrIp: 0.0.0.0/0
+      - IpProtocol: tcp
+        FromPort: '2375'
+        ToPort: '2375'
+        CidrIp: 0.0.0.0/0

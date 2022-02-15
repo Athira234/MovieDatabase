@@ -11,6 +11,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -19,6 +21,9 @@ import com.entlogics.moviedb.user.entities.UserMovie;
 
 @Entity
 @Table(name = "dt_movie")
+@NamedQueries({ 
+@NamedQuery(name="Movie.findAll",query="SELECT m FROM Movie m")}
+)
 public class Movie {
 
 	@Id

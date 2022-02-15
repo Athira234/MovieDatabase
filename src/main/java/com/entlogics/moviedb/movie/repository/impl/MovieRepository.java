@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.NamedQuery;
 import javax.persistence.Persistence;
 
 import org.springframework.stereotype.Repository;
@@ -23,25 +24,27 @@ import com.entlogics.moviedb.user.entities.UserMovie;
 public class MovieRepository implements IMovieRepository {
 
 	EntityManagerFactory factory = Persistence.createEntityManagerFactory("MDB");
-	// find a Movie details
-		public Movie findMovie(int movieId) {
-			System.out.println("Inside MovieRepository findMovie()");
-			EntityManager entityManager = factory.createEntityManager();
-			entityManager.getTransaction().begin();
-			Movie movie = entityManager.find(Movie.class, movieId);
-			System.out.println("Movie details :" + movie);
-			entityManager.getTransaction().commit();
-			entityManager.close();
-			return movie;
-		}
 
+	// find a Movie details
+	public Movie findMovie(int movieId) {
+		System.out.println("Inside MovieRepository findMovie()");
+		EntityManager entityManager = factory.createEntityManager();
+		entityManager.getTransaction().begin();
+		Movie movie = entityManager.find(Movie.class, movieId);
+		
+		System.out.println("Movie details :" + movie);
+		entityManager.getTransaction().commit();
+		entityManager.close();
+		return movie;
+	}
 
 	// find list of Movies
 	public List<Movie> findAllMovies() {
 		System.out.println("Inside MovieRepository findAllMovies()");
 		EntityManager entityManager = factory.createEntityManager();
 		entityManager.getTransaction().begin();
-		List<Movie> movies = entityManager.createNativeQuery("select * from dt_movie", Movie.class).getResultList();
+		//List<Movie> movies = entityManager.createNativeQuery("select * from dt_movie", Movie.class).getResultList();
+		List<Movie> movies=entityManager.createNamedQuery("Movie.findAll").getResultList();
 		System.out.println("printing list of movies " + movies.size() + "\n" + movies);
 		entityManager.getTransaction().commit();
 		entityManager.close();
@@ -135,11 +138,10 @@ public class MovieRepository implements IMovieRepository {
 		// save movieCast
 		entityManager.createNativeQuery(
 				"INSERT INTO  tt_movie_cost(movie_id,person_id,remuneration,actor_role,character_name) VALUES (?,?,?,?,?)")
-				.setParameter(1, movieCast.getMovieId()).setParameter(2,movieCast.getPersonId() )
-				.setParameter(3, movieCast.getRemuneration())
-				 .setParameter(4, movieCast.getActorRole()).setParameter(5,movieCast.getCharacterName()).executeUpdate();
-				
-		
+				.setParameter(1, movieCast.getMovieId()).setParameter(2, movieCast.getPersonId())
+				.setParameter(3, movieCast.getRemuneration()).setParameter(4, movieCast.getActorRole())
+				.setParameter(5, movieCast.getCharacterName()).executeUpdate();
+
 		entityManager.getTransaction().commit();
 		entityManager.close();
 	}
@@ -151,11 +153,11 @@ public class MovieRepository implements IMovieRepository {
 		EntityManager entityManager = factory.createEntityManager();
 		entityManager.getTransaction().begin();
 		// save movieCrew
-		entityManager.createNativeQuery(
-				"INSERT INTO  tt_movie_crew(movie_id,person_id,remuneration,crew_role) VALUES (?,?,?,?)")
-				.setParameter(1, movieCrew.getMovieId()).setParameter(2,movieCrew.getPersonId() )
-				.setParameter(3, movieCrew.getRemuneration())
-				 .setParameter(4, movieCrew.getCrewRole()).executeUpdate();
+		entityManager
+				.createNativeQuery(
+						"INSERT INTO  tt_movie_crew(movie_id,person_id,remuneration,crew_role) VALUES (?,?,?,?)")
+				.setParameter(1, movieCrew.getMovieId()).setParameter(2, movieCrew.getPersonId())
+				.setParameter(3, movieCrew.getRemuneration()).setParameter(4, movieCrew.getCrewRole()).executeUpdate();
 		entityManager.getTransaction().commit();
 		entityManager.close();
 
@@ -192,18 +194,18 @@ public class MovieRepository implements IMovieRepository {
 		EntityManager entityManager = factory.createEntityManager();
 		entityManager.getTransaction().begin();
 		Company company = entityManager.find(Company.class, companyId);
-		//create list of Movies
-		//List<Movie> movies=new ArrayList<Movie>();
+		// create list of Movies
+		// List<Movie> movies=new ArrayList<Movie>();
 		// get list of MovieCompany List
-		List<MovieCompany> movies= company.getMoviesOfThisCompany();
-		
-		/*for(MovieCompany movieCompany:movieCompanies)
-		{
-			Movie movie=movieCompany.getMovie();
-			
-		}
-		*/
-		
+		List<MovieCompany> movies = company.getMoviesOfThisCompany();
+
+		/*
+		 * for(MovieCompany movieCompany:movieCompanies) { Movie
+		 * movie=movieCompany.getMovie();
+		 * 
+		 * }
+		 */
+
 		System.out.println("Movies" + movies);
 		entityManager.close();
 		return movies;
@@ -242,15 +244,15 @@ public class MovieRepository implements IMovieRepository {
 		EntityManager entityManager = factory.createEntityManager();
 		entityManager.getTransaction().begin();
 		// get list of Movies
-		//List<Movie> movies = entityManager
-				//.createNativeQuery("select * from dt_movie where movie_title=" + title, Movie.class).getResultList();
-		
-		
-		
+		// List<Movie> movies = entityManager
+		// .createNativeQuery("select * from dt_movie where movie_title=" + title,
+		// Movie.class).getResultList();
+
 		List<Movie> movies = entityManager
-				.createNativeQuery("select * from dt_movie where movie_title= :movie_title", Movie.class).setParameter("movie_title",title).getResultList();
-		
-		//SELECT * FROM MyTable WHERE Column1 Like "*word*"
+				.createNativeQuery("select * from dt_movie where movie_title= :movie_title", Movie.class)
+				.setParameter("movie_title", title).getResultList();
+
+		// SELECT * FROM MyTable WHERE Column1 Like "*word*"
 		System.out.println(" Movies" + movies);
 		entityManager.close();
 		return movies;
@@ -263,13 +265,13 @@ public class MovieRepository implements IMovieRepository {
 		// repo.findHighestGrossMovies();
 		// repo.findTopRecommendedMovies();
 		// repo.findRatingsOfMovie(1);
-		//repo.findCrewOfMovie(2);
+		// repo.findCrewOfMovie(2);
 		// repo.findCastOfMovie(2);
 		// repo.deleteCast(3);
 		// repo.movieByCompany(4);
-		 repo.movieByTitle("Dangal");
-		//repo.movieByActor(1);
-		//repo.findAllMovies();
+		//repo.movieByTitle("Dangal");
+		// repo.movieByActor(1);
+		 repo.findAllMovies();
 
 	}
 

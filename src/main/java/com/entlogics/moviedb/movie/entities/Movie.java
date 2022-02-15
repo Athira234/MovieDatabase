@@ -1,9 +1,7 @@
 package com.entlogics.moviedb.movie.entities;
-
 import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,7 +13,6 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
 import com.entlogics.moviedb.user.entities.UserActivity;
 import com.entlogics.moviedb.user.entities.UserMovie;
 
@@ -23,7 +20,9 @@ import com.entlogics.moviedb.user.entities.UserMovie;
 @Table(name = "dt_movie")
 //define named query
 @NamedQueries({ 
-@NamedQuery(name="Movie.findAll",query="SELECT m FROM Movie m")
+@NamedQuery(name="Movie.findAll",query="SELECT m FROM Movie m"),
+@NamedQuery(name="Movie.findTopRated",query="SELECT m FROM Movie m WHERE m.overallRating between 7 and 10"),
+@NamedQuery(name="Movie.findHighestGross",query="SELECT m FROM Movie m WHERE m.totalGrossIncomeDollar>=" + 700000000)
 }
 )
 public class Movie {

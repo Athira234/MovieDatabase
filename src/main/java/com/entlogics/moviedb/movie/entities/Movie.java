@@ -22,7 +22,8 @@ import com.entlogics.moviedb.user.entities.UserMovie;
 @Entity
 @Table(name = "dt_movie")
 @NamedQueries({ 
-@NamedQuery(name="Movie.findAll",query="SELECT m FROM Movie m")}
+@NamedQuery(name="Movie.findAll",query="SELECT m FROM Movie m")
+}
 )
 public class Movie {
 

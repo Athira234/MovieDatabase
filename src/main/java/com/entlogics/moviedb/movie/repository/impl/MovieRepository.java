@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 
 import org.springframework.stereotype.Repository;
 
@@ -29,7 +30,9 @@ public class MovieRepository implements IMovieRepository {
 		System.out.println("Inside MovieRepository findMovie()");
 		EntityManager entityManager = factory.createEntityManager();
 		entityManager.getTransaction().begin();
-		Movie movie = entityManager.find(Movie.class, movieId);
+		Query query = entityManager.createNamedQuery("Movie.findMovie");
+		query.setParameter("id", movieId);
+		Movie movie = (Movie) query.getSingleResult();
 		System.out.println("Movie details :" + movie);
 		entityManager.getTransaction().commit();
 		entityManager.close();
@@ -41,10 +44,7 @@ public class MovieRepository implements IMovieRepository {
 		System.out.println("Inside MovieRepository findAllMovies()");
 		EntityManager entityManager = factory.createEntityManager();
 		entityManager.getTransaction().begin();
-		// List<Movie> movies = entityManager.createNativeQuery("select * from
-		// dt_movie", Movie.class).getResultList();
 		List<Movie> movies = entityManager.createNamedQuery("Movie.findAll").getResultList();
-		System.out.println("printing list of movies " + movies.size() + "\n" + movies);
 		entityManager.getTransaction().commit();
 		entityManager.close();
 		return movies;
@@ -55,12 +55,6 @@ public class MovieRepository implements IMovieRepository {
 		System.out.println("Inside MovieRepository findTopRatingMovies()");
 		EntityManager entityManager = factory.createEntityManager();
 		entityManager.getTransaction().begin();
-		// get list of Movies
-		/*
-		 * List<Movie> topRatedMovies = entityManager
-		 * .createNativeQuery("select * from dt_movie where overall_rating between 7 and 10"
-		 * , Movie.class) .getResultList();
-		 */
 		List<Movie> topRatedMovies = entityManager.createNamedQuery("Movie.findTopRated").getResultList();
 		System.out.println("Top rated Movies" + topRatedMovies);
 		return topRatedMovies;
@@ -72,11 +66,7 @@ public class MovieRepository implements IMovieRepository {
 		EntityManager entityManager = factory.createEntityManager();
 		entityManager.getTransaction().begin();
 		// get list of Movies
-		/*
-		 * List<Movie> movies = entityManager
-		 * .createNativeQuery("select * from dt_movie where total_gross_income_dollar>="
-		 * + 700000000, Movie.class) .getResultList();
-		 */
+
 		List<Movie> movies = entityManager.createNamedQuery("Movie.findHighestGross").getResultList();
 		System.out.println("Highest Gross Movies" + movies);
 		return movies;
@@ -249,35 +239,13 @@ public class MovieRepository implements IMovieRepository {
 		EntityManager entityManager = factory.createEntityManager();
 		entityManager.getTransaction().begin();
 		// get list of Movies
-		// List<Movie> movies = entityManager
-		// .createNativeQuery("select * from dt_movie where movie_title=" + title,
-		// Movie.class).getResultList();
-
 		List<Movie> movies = entityManager
 				.createNativeQuery("select * from dt_movie where movie_title= :movie_title", Movie.class)
 				.setParameter("movie_title", title).getResultList();
 
-		// SELECT * FROM MyTable WHERE Column1 Like "*word*"
 		System.out.println(" Movies" + movies);
 		entityManager.close();
 		return movies;
-	}
-
-	public static void main(String[] args) {
-
-		MovieRepository repo = new MovieRepository();
-		// repo.findTopRatingMovies();
-		repo.findHighestGrossMovies();
-		// repo.findTopRecommendedMovies();
-		// repo.findRatingsOfMovie(1);
-		// repo.findCrewOfMovie(2);
-		// repo.findCastOfMovie(2);
-		// repo.deleteCast(3);
-		// repo.movieByCompany(4);
-		// repo.movieByTitle("Dangal");
-		// repo.movieByActor(1);
-		// repo.findAllMovies();
-
 	}
 
 }

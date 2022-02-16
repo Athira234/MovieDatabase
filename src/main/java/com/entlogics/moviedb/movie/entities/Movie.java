@@ -22,7 +22,8 @@ import com.entlogics.moviedb.user.entities.UserMovie;
 @NamedQueries({ 
 @NamedQuery(name="Movie.findAll",query="SELECT m FROM Movie m"),
 @NamedQuery(name="Movie.findTopRated",query="SELECT m FROM Movie m WHERE m.overallRating between 7 and 10"),
-@NamedQuery(name="Movie.findHighestGross",query="SELECT m FROM Movie m WHERE m.totalGrossIncomeDollar>=" + 700000000)
+@NamedQuery(name="Movie.findHighestGross",query="SELECT m FROM Movie m WHERE m.totalGrossIncomeDollar>=" + 700000000),
+@NamedQuery(name = "Movie.findMovie", query = "SELECT m FROM Movie m WHERE m.movieId = :id")
 }
 )
 public class Movie {
